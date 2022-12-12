@@ -36,9 +36,7 @@ bool CipherAnalyzer::advance_state() {
         rounds[curr_round_idx + 1]->set_input(round_output,
                                               {0, round_output.size()});
         rounds[curr_round_idx + 1]->set_threshold(
-            global_threshold /
-            (round_probabilities[curr_round_idx] *
-             optimal_probabilities[rounds.size() - 1 - curr_round_idx]));
+            global_threshold / round_probabilities[curr_round_idx]);
     }
 
     if (curr_round_idx < rounds.size()) {

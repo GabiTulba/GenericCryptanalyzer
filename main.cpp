@@ -64,15 +64,19 @@ int main() {
         "Src", "Pbox", constructors, connections);
 
     std::shared_ptr<CipherAnalyzer> cipher = std::make_shared<CipherAnalyzer>(
-        5, 0.0, "Src", "Pbox", constructors, connections);
+        3, 0.0, "Src", "Pbox", constructors, connections);
+    double best_probability = 0.0;
     for (unsigned i = 1; i < (1 << 16); i++) {
         cipher->set_input(from_uint(i, 16), {0, 16});
         auto diff = cipher->get_next_differential();
         while (diff.first.size() > 0) {
             auto output_diff = diff.first;
             auto probability = diff.second;
-            cout << i << ", " << to_uint(output_diff) << ", " << probability
-                 << ", " << 1 / probability << "\n";
+            if (probability > best_probability) {
+                cout << i << ", " << to_uint(output_diff) << ", " << probability
+                     << ", " << 1 / probability << "\n";
+                best_probability = probability;
+            }
             diff = cipher->get_next_differential();
         }
     }
