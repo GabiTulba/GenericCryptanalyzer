@@ -60,11 +60,16 @@ int main() {
         {"Sbox2", {{"Pbox", {{0, 4}, {4, 4}}}}},
         {"Sbox3", {{"Pbox", {{0, 4}, {8, 4}}}}},
         {"Sbox4", {{"Pbox", {{0, 4}, {12, 4}}}}}};
-    std::shared_ptr<RoundFunction> round_func = std::make_shared<RoundFunction>(
-        "Src", "Pbox", constructors, connections);
+    vector<std::shared_ptr<RoundFunction>> rounds{
+        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
+                                        connections),
+        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
+                                        connections),
+        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
+                                        connections)};
 
-    std::shared_ptr<CipherAnalyzer> cipher = std::make_shared<CipherAnalyzer>(
-        8, 0.0, "Src", "Pbox", constructors, connections);
+    std::shared_ptr<CipherAnalyzer> cipher =
+        std::make_shared<CipherAnalyzer>(rounds, 0.0);
     for (unsigned i = 1; i < (1 << 16); i++) {
         cipher->set_input(from_uint(i, 16), {0, 16});
         auto diff = cipher->get_next_differential();

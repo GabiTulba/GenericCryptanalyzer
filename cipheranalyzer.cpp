@@ -58,24 +58,20 @@ bool CipherAnalyzer::increment_bits(dynamic_bitset<> &input) {
     return true;
 }
 
-CipherAnalyzer::CipherAnalyzer(
-    size_t round_count, double global_threshold, string src_id, string dst_id,
-    vector<double> optimal_probabilities,
-    map<string, function<std::shared_ptr<AbstractBox>()>> constructors,
-    map<string, vector<pair<string, pair<bits_range, bits_range>>>> connections)
+CipherAnalyzer::CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
+                               double global_threshold,
+                               vector<double> optimal_probabilities)
     : global_threshold(global_threshold),
-      optimal_probabilities(optimal_probabilities) {
-    rounds = vector<std::shared_ptr<RoundFunction>>(
-        round_count, std::make_shared<RoundFunction>(
-                         src_id, dst_id, constructors, connections));
+      optimal_probabilities(optimal_probabilities), rounds(rounds) {
     curr_round_idx = 0;
-    round_probabilities = vector<double>(round_count, 1.0);
+    round_probabilities = vector<double>(rounds.size(), 1.0);
 
     if (optimal_probabilities.size() < rounds.size()) {
+        vector<std::shared_ptr<RoundFunction>> rounds_preffix(
+            rounds.begin(), rounds.begin() + rounds.size() - 1);
         std::shared_ptr<CipherAnalyzer> previous_cipher =
-            std::make_shared<CipherAnalyzer>(
-                round_count - 1, global_threshold, src_id, dst_id,
-                optimal_probabilities, constructors, connections);
+            std::make_shared<CipherAnalyzer>(rounds_preffix, global_threshold,
+                                             optimal_probabilities);
         dynamic_bitset<> input(rounds[0]->src->input_size());
         while (increment_bits(input)) {
             previous_cipher->set_input(input, {0, input.size()});
@@ -91,12 +87,9 @@ CipherAnalyzer::CipherAnalyzer(
     }
 }
 
-CipherAnalyzer::CipherAnalyzer(
-    size_t round_count, double global_threshold, string src_id, string dst_id,
-    map<string, function<std::shared_ptr<AbstractBox>()>> constructors,
-    map<string, vector<pair<string, pair<bits_range, bits_range>>>> connections)
-    : CipherAnalyzer(round_count, global_threshold, src_id, dst_id,
-                     vector<double>{1.0}, constructors, connections) {
+CipherAnalyzer::CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
+                               double global_threshold)
+    : CipherAnalyzer(rounds, global_threshold, vector<double>{1.0}) {
     int x = 0;
     x++;
 }

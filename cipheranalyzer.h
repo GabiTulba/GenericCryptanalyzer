@@ -15,19 +15,12 @@ class CipherAnalyzer {
     bool increment_bits(dynamic_bitset<> &input);
 
   public:
-    CipherAnalyzer(
-        size_t round_count, double global_threshold, string src_id,
-        string dst_id, vector<double> optimal_probabilities,
-        map<string, function<std::shared_ptr<AbstractBox>()>> constructors,
-        map<string, vector<pair<string, pair<bits_range, bits_range>>>>
-            connections);
+    CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
+                   double global_threshold,
+                   vector<double> optimal_probabilities);
 
-    CipherAnalyzer(
-        size_t round_count, double global_threshold, string src_id,
-        string dst_id,
-        map<string, function<std::shared_ptr<AbstractBox>()>> constructors,
-        map<string, vector<pair<string, pair<bits_range, bits_range>>>>
-            connections);
+    CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
+                   double global_threshold);
 
     pair<dynamic_bitset<>, double> get_next_differential();
     void set_input(const dynamic_bitset<> &bits, bits_range range);
