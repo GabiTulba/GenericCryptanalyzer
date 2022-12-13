@@ -2,6 +2,7 @@
 #include "helpers.h"
 #include "roundfunction.h"
 #include "sbox.h"
+#include "xorbox.h"
 #include <boost/dynamic_bitset.hpp>
 #include <iostream>
 
@@ -27,7 +28,7 @@ dynamic_bitset<> from_uint(unsigned int x, int size) {
     return result;
 }
 
-int main() {
+void analyze_dummy_cipher() {
     function<std::shared_ptr<AbstractBox>()> sbox_constructor = []() {
         vector<size_t> sbox{14, 4,  13, 1,  2, 15, 11, 8,
                             3,  10, 6,  12, 5, 9,  0,  7};
@@ -70,7 +71,7 @@ int main() {
                                         connections)};
 
     std::shared_ptr<CipherAnalyzer> cipher =
-        std::make_shared<CipherAnalyzer>(rounds, 0.0);
+        std::make_shared<CipherAnalyzer>(rounds, 16, 0.0);
     for (unsigned i = 1; i < 16; i++) {
         auto input = dynamic_bitset<>(16);
         input.set(0, i, 1);
@@ -90,6 +91,12 @@ int main() {
             done = !increment_bits(input);
         }
     }
+}
 
+void analyze_DES() {}
+
+int main() {
+    // analyze_dummy_cipher();
+    analyze_DES();
     return 0;
 }

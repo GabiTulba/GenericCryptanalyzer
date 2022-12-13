@@ -13,7 +13,8 @@ SOURCES += \
         main.cpp \
         pbox.cpp \
         roundfunction.cpp \
-        sbox.cpp
+        sbox.cpp \
+        xorbox.cpp
 
 HEADERS += \
     abstractbitshiftbox.h \
@@ -24,4 +25,5 @@ HEADERS += \
     identitybox.h \
     pbox.h \
     roundfunction.h \
-    sbox.h
+    sbox.h \
+    xorbox.h

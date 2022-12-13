@@ -16,11 +16,11 @@ class CipherAnalyzer {
 
   public:
     CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
-                   double global_threshold,
+                   size_t input_max_hamming_weight, double global_threshold,
                    vector<double> optimal_probabilities);
 
     CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
-                   double global_threshold);
+                   size_t input_max_hamming_weight, double global_threshold);
 
     pair<dynamic_bitset<>, double> get_next_differential();
     void set_input(const dynamic_bitset<> &bits, bits_range range);

@@ -47,6 +47,7 @@ bool CipherAnalyzer::advance_state() {
 }
 
 CipherAnalyzer::CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
+                               size_t input_max_hamming_weight,
                                double global_threshold,
                                vector<double> optimal_probabilities)
     : global_threshold(global_threshold),
@@ -58,10 +59,12 @@ CipherAnalyzer::CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
         vector<std::shared_ptr<RoundFunction>> rounds_preffix(
             rounds.begin(), rounds.begin() + rounds.size() - 1);
         std::shared_ptr<CipherAnalyzer> previous_cipher =
-            std::make_shared<CipherAnalyzer>(rounds_preffix, global_threshold,
-                                             optimal_probabilities);
+            std::make_shared<CipherAnalyzer>(
+                rounds_preffix, input_max_hamming_weight, global_threshold,
+                optimal_probabilities);
         dynamic_bitset<> input(rounds[0]->src->input_size());
-        for (size_t weight = 1; weight <= rounds[0]->src->input_size();
+        for (size_t weight = 1; weight <= min(input_max_hamming_weight,
+                                              rounds[0]->src->input_size());
              weight++) {
             input.set(0, input.size(), 0);
             input.set(0, weight, 1);
@@ -83,8 +86,10 @@ CipherAnalyzer::CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
 }
 
 CipherAnalyzer::CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
+                               size_t input_max_hamming_weight,
                                double global_threshold)
-    : CipherAnalyzer(rounds, global_threshold, vector<double>{1.0}) {
+    : CipherAnalyzer(rounds, input_max_hamming_weight, global_threshold,
+                     vector<double>{1.0}) {
     int x = 0;
     x++;
 }
