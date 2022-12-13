@@ -8,6 +8,7 @@ SOURCES += \
         abstractbox.cpp \
         cipheranalyzer.cpp \
         ebox.cpp \
+        helpers.cpp \
         identitybox.cpp \
         main.cpp \
         pbox.cpp \
@@ -19,6 +20,7 @@ HEADERS += \
     abstractbox.h \
     cipheranalyzer.h \
     ebox.h \
+    helpers.h \
     identitybox.h \
     pbox.h \
     roundfunction.h \

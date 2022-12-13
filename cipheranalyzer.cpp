@@ -1,5 +1,4 @@
 #include "cipheranalyzer.h"
-#include <iostream>
 
 bool CipherAnalyzer::advance_state() {
     while (curr_round_idx > 0 && rounds[curr_round_idx]->is_determined()) {
@@ -44,22 +43,6 @@ bool CipherAnalyzer::advance_state() {
         curr_round_idx++;
     }
 
-    return true;
-}
-
-bool CipherAnalyzer::increment_bits(dynamic_bitset<> &input) {
-    size_t idx = input.find_first();
-    size_t carry_cnt = 0;
-    while (idx < input.size() && input[idx] == 1) {
-        input[idx++] = 0;
-        carry_cnt++;
-    }
-
-    if (idx == input.size()) {
-        return false;
-    }
-    input[idx] = 1;
-    input.set(0, carry_cnt - 1, 1);
     return true;
 }
 

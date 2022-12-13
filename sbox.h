@@ -2,6 +2,7 @@
 #define SBOX_H
 
 #include "abstractbox.h"
+#include "helpers.h"
 
 class SBox : public AbstractBox {
   protected:

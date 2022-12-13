@@ -1,6 +1,7 @@
 #ifndef CIPHERANALYZER_H
 #define CIPHERANALYZER_H
 
+#include "helpers.h"
 #include "roundfunction.h"
 
 class CipherAnalyzer {
@@ -12,7 +13,6 @@ class CipherAnalyzer {
     size_t curr_round_idx;
 
     bool advance_state();
-    bool increment_bits(dynamic_bitset<> &input);
 
   public:
     CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,

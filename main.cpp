@@ -1,4 +1,5 @@
 #include "cipheranalyzer.h"
+#include "helpers.h"
 #include "roundfunction.h"
 #include "sbox.h"
 #include <boost/dynamic_bitset.hpp>
@@ -66,31 +67,27 @@ int main() {
         std::make_shared<RoundFunction>("Src", "Pbox", constructors,
                                         connections),
         std::make_shared<RoundFunction>("Src", "Pbox", constructors,
-                                        connections),
-        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
-                                        connections),
-        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
-                                        connections),
-        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
-                                        connections),
-        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
-                                        connections),
-        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
                                         connections)};
 
     std::shared_ptr<CipherAnalyzer> cipher =
         std::make_shared<CipherAnalyzer>(rounds, 0.0);
-    for (unsigned i = 1; i < (1 << 16); i++) {
-        cipher->set_input(from_uint(i, 16), {0, 16});
-        auto diff = cipher->get_next_differential();
-        while (diff.first.size() > 0) {
-            auto output_diff = diff.first;
-            auto probability = diff.second;
-            cout << i << "(" << __builtin_popcount(i) << "), "
-                 << to_uint(output_diff) << "("
-                 << __builtin_popcount(to_uint(output_diff)) << "), "
-                 << probability << ", " << 1 / probability << "\n";
-            diff = cipher->get_next_differential();
+    for (unsigned i = 1; i < 16; i++) {
+        auto input = dynamic_bitset<>(16);
+        input.set(0, i, 1);
+        bool done = false;
+        while (!done) {
+            cipher->set_input(input, {0, 16});
+            auto diff = cipher->get_next_differential();
+            while (diff.first.size() > 0) {
+                auto output = diff.first;
+                auto prob = diff.second;
+                unsigned int inp = to_uint(input), out = to_uint(output);
+                cout << inp << "(" << __builtin_popcount(inp) << "), " << out
+                     << "(" << __builtin_popcount(out) << "), " << prob << ", "
+                     << 1 / prob << "\n";
+                diff = cipher->get_next_differential();
+            }
+            done = !increment_bits(input);
         }
     }
 
