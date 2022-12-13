@@ -66,6 +66,16 @@ int main() {
         std::make_shared<RoundFunction>("Src", "Pbox", constructors,
                                         connections),
         std::make_shared<RoundFunction>("Src", "Pbox", constructors,
+                                        connections),
+        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
+                                        connections),
+        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
+                                        connections),
+        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
+                                        connections),
+        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
+                                        connections),
+        std::make_shared<RoundFunction>("Src", "Pbox", constructors,
                                         connections)};
 
     std::shared_ptr<CipherAnalyzer> cipher =
@@ -76,8 +86,10 @@ int main() {
         while (diff.first.size() > 0) {
             auto output_diff = diff.first;
             auto probability = diff.second;
-            cout << i << ", " << to_uint(output_diff) << ", " << probability
-                 << ", " << 1 / probability << "\n";
+            cout << i << "(" << __builtin_popcount(i) << "), "
+                 << to_uint(output_diff) << "("
+                 << __builtin_popcount(to_uint(output_diff)) << "), "
+                 << probability << ", " << 1 / probability << "\n";
             diff = cipher->get_next_differential();
         }
     }

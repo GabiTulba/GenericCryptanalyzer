@@ -1,4 +1,5 @@
 #include "cipheranalyzer.h"
+#include <iostream>
 
 bool CipherAnalyzer::advance_state() {
     while (curr_round_idx > 0 && rounds[curr_round_idx]->is_determined()) {
@@ -47,14 +48,18 @@ bool CipherAnalyzer::advance_state() {
 }
 
 bool CipherAnalyzer::increment_bits(dynamic_bitset<> &input) {
-    size_t idx = 0;
-    while (input[idx] == 1) {
+    size_t idx = input.find_first();
+    size_t carry_cnt = 0;
+    while (idx < input.size() && input[idx] == 1) {
         input[idx++] = 0;
+        carry_cnt++;
     }
+
     if (idx == input.size()) {
         return false;
     }
     input[idx] = 1;
+    input.set(0, carry_cnt - 1, 1);
     return true;
 }
 
@@ -73,11 +78,18 @@ CipherAnalyzer::CipherAnalyzer(vector<std::shared_ptr<RoundFunction>> rounds,
             std::make_shared<CipherAnalyzer>(rounds_preffix, global_threshold,
                                              optimal_probabilities);
         dynamic_bitset<> input(rounds[0]->src->input_size());
-        while (increment_bits(input)) {
-            previous_cipher->set_input(input, {0, input.size()});
-            auto diff = previous_cipher->get_next_differential();
-            while (diff.first.size() > 0) {
-                diff = previous_cipher->get_next_differential();
+        for (size_t weight = 1; weight <= rounds[0]->src->input_size();
+             weight++) {
+            input.set(0, input.size(), 0);
+            input.set(0, weight, 1);
+            bool done = false;
+            while (!done) {
+                previous_cipher->set_input(input, {0, input.size()});
+                auto diff = previous_cipher->get_next_differential();
+                while (diff.first.size() > 0) {
+                    diff = previous_cipher->get_next_differential();
+                }
+                done = !increment_bits(input);
             }
         }
 
