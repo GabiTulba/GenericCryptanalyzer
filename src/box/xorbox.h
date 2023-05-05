@@ -6,11 +6,12 @@
 class XorBox : public AbstractBox {
   public:
     XorBox(size_t data_size,
-           const vector<pair<std::shared_ptr<AbstractBox>,
-                             pair<bits_range, bits_range>>> &dest_boxes);
+           const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes);
     XorBox(size_t data_size);
 
     void determine_next() override;
 };
+
+typedef std::shared_ptr<XorBox> XorBoxPtr;
 
 #endif // XORBOX_H

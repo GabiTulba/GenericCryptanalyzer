@@ -1,13 +1,12 @@
 #include "helpers.h"
 
-vector<vector<pair<dynamic_bitset<>, double>>>
-compute_differential_table(const vector<size_t> &sbox) {
+ProbTable compute_differential_table(const vector<size_t> &sbox) {
     size_t input_size = sbox.size();
     size_t output_size = *max_element(sbox.begin(), sbox.end()) + 1;
     assert(__builtin_popcount(input_size) == 1);
     assert(__builtin_popcount(output_size) == 1);
 
-    vector<vector<pair<dynamic_bitset<>, double>>> table(input_size);
+    ProbTable table(input_size);
     vector<vector<double>> probability_matrix(input_size,
                                               vector<double>(output_size, 0.0));
 
@@ -62,6 +61,25 @@ dynamic_bitset<> to_dynamic_bitset(size_t input, size_t bit_size) {
     while (input) {
         result[idx++] = input & 1;
         input >>= 1;
+    }
+
+    return result;
+}
+
+unsigned int to_uint(const dynamic_bitset<> &bitset) {
+    int ans = 0;
+    for (ssize_t i = bitset.size() - 1; i >= 0; i--) {
+        ans = (ans << 1) + bitset[i];
+    }
+    return ans;
+}
+
+dynamic_bitset<> from_uint(unsigned int x, int size) {
+    dynamic_bitset<> result(size);
+    size_t idx = 0;
+    while (x) {
+        result[idx++] = x & 1;
+        x >>= 1;
     }
 
     return result;
