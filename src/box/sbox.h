@@ -13,8 +13,7 @@ class SBox : public AbstractBox {
     size_t convert_to_index(const dynamic_bitset<> &bits);
 
   public:
-    SBox(size_t in_size, size_t out_size,
-         const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
+    SBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
          const ProbTable &prob_table);
     SBox(size_t in_size, size_t out_size, const ProbTable &prob_table);
 

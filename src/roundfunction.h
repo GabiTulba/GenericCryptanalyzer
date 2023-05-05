@@ -27,15 +27,13 @@ class RoundFunction {
     bool advance_state();
 
     // topological sort of boxes starting from the source AbstractBox
-    void top_sort_boxes(AbstractBoxPtr src, vector<AbstractBoxPtr> &top_sort,
-                        map<AbstractBoxPtr, bool> &is_visited);
+    void top_sort_boxes(AbstractBoxPtr src, vector<AbstractBoxPtr> &top_sort, map<AbstractBoxPtr, bool> &is_visited);
 
     // wrapper over the previous function
     vector<AbstractBoxPtr> sort_boxes(AbstractBoxPtr src);
 
   public:
-    RoundFunction(string src_id, string dst_id,
-                  map<string, AbstractBoxConstructor> constrs,
+    RoundFunction(string src_id, string dst_id, map<string, AbstractBoxConstructor> constrs,
                   map<string, vector<NamedConnection>> conns);
 
     bool is_determined();

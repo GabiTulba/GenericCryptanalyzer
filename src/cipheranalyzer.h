@@ -19,12 +19,10 @@ class CipherAnalyzer {
     bool advance_state();
 
   public:
-    CipherAnalyzer(vector<RoundFunctionPtr> rounds,
-                   size_t input_max_hamming_weight, double global_thresh,
+    CipherAnalyzer(vector<RoundFunctionPtr> rounds, size_t input_max_hamming_weight, double global_thresh,
                    vector<double> opt_probs);
 
-    CipherAnalyzer(vector<RoundFunctionPtr> rounds,
-                   size_t input_max_hamming_weight, double global_thresh);
+    CipherAnalyzer(vector<RoundFunctionPtr> rounds, size_t input_max_hamming_weight, double global_thresh);
 
     ProbEntry get_next_entry();
     void set_input(const dynamic_bitset<> &bits, BitsRange rng);

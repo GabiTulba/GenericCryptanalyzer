@@ -5,8 +5,7 @@
 
 class XorBox : public AbstractBox {
   public:
-    XorBox(size_t data_size,
-           const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes);
+    XorBox(size_t data_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes);
     XorBox(size_t data_size);
 
     void determine_next() override;

@@ -5,8 +5,7 @@
 
 class IdentityBox : public AbstractBox {
   public:
-    IdentityBox(size_t data_size,
-                const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes);
+    IdentityBox(size_t data_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes);
     IdentityBox(size_t data_size);
 
     void determine_next() override;

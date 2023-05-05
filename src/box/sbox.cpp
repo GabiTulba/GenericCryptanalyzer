@@ -10,11 +10,9 @@ size_t SBox::convert_to_index(const dynamic_bitset<> &bits) {
     return ans;
 }
 
-SBox::SBox(size_t in_size, size_t out_size,
-           const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
+SBox::SBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
            const ProbTable &prob_table)
-    : AbstractBox(in_size, out_size, dst_boxes), prob_table(prob_table),
-      table_idx(0) {}
+    : AbstractBox(in_size, out_size, dst_boxes), prob_table(prob_table), table_idx(0) {}
 
 SBox::SBox(size_t in_size, size_t out_size, const ProbTable &prob_table)
     : AbstractBox(in_size, out_size), prob_table(prob_table), table_idx(0) {}

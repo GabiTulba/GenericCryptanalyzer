@@ -14,8 +14,7 @@ bool RoundFunction::advance_state() {
     if (curr_box_idx == 0) {
         partial_prob[curr_box_idx] = boxes[curr_box_idx]->get_probability();
     } else {
-        partial_prob[curr_box_idx] = partial_prob[curr_box_idx - 1] *
-                                     boxes[curr_box_idx]->get_probability();
+        partial_prob[curr_box_idx] = partial_prob[curr_box_idx - 1] * boxes[curr_box_idx]->get_probability();
     }
 
     if (curr_box_idx > 0 && partial_prob[curr_box_idx] < beta_thresh) {
@@ -34,8 +33,7 @@ bool RoundFunction::advance_state() {
     return true;
 }
 
-void RoundFunction::top_sort_boxes(AbstractBoxPtr src,
-                                   vector<AbstractBoxPtr> &sort,
+void RoundFunction::top_sort_boxes(AbstractBoxPtr src, vector<AbstractBoxPtr> &sort,
                                    map<AbstractBoxPtr, bool> &is_visited) {
     is_visited[src] = true;
     for (auto &dst_box : src->dst_boxes) {
@@ -56,8 +54,7 @@ vector<AbstractBoxPtr> RoundFunction::sort_boxes(AbstractBoxPtr src) {
     return boxes;
 }
 
-RoundFunction::RoundFunction(string src_id, string dst_id,
-                             map<string, AbstractBoxConstructor> constrs,
+RoundFunction::RoundFunction(string src_id, string dst_id, map<string, AbstractBoxConstructor> constrs,
                              map<string, vector<NamedConnection>> conns) {
     beta_thresh = 0.0;
     is_det = false;
@@ -70,9 +67,7 @@ RoundFunction::RoundFunction(string src_id, string dst_id,
 
     for (auto &conn : conns) {
         for (auto &dst_box : conn.second) {
-            box_map[conn.first]->add_dest(box_map[dst_box.first],
-                                          dst_box.second.first,
-                                          dst_box.second.second);
+            box_map[conn.first]->add_dest(box_map[dst_box.first], dst_box.second.first, dst_box.second.second);
         }
     }
 

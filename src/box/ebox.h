@@ -5,8 +5,7 @@
 
 class EBox : public AbstractBitShiftBox {
   public:
-    EBox(size_t in_size, size_t out_size,
-         const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
+    EBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
          const vector<size_t> &bit_expansion);
     EBox(size_t in_size, size_t out_size, const vector<size_t> &bit_expansion);
 };

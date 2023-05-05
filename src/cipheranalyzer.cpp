@@ -17,21 +17,16 @@ bool CipherAnalyzer::advance_state() {
         round_probs[curr_idx] = round_entry.second * round_probs[curr_idx - 1];
     }
 
-    if (curr_idx > 0 &&
-        round_probs[curr_idx] * opt_probs[rounds.size() - 1 - curr_idx] <
-            global_thresh) {
+    if (curr_idx > 0 && round_probs[curr_idx] * opt_probs[rounds.size() - 1 - curr_idx] < global_thresh) {
         curr_idx--;
         return true;
-    } else if (curr_idx == 0 &&
-               round_probs[curr_idx] * opt_probs[rounds.size() - 1 - curr_idx] <
-                   global_thresh) {
+    } else if (curr_idx == 0 && round_probs[curr_idx] * opt_probs[rounds.size() - 1 - curr_idx] < global_thresh) {
         return false;
     }
 
     if (curr_idx < rounds.size() - 1) {
         rounds[curr_idx + 1]->set_input(round_out, {0, round_out.size()});
-        rounds[curr_idx + 1]->set_threshold(global_thresh /
-                                            round_probs[curr_idx]);
+        rounds[curr_idx + 1]->set_threshold(global_thresh / round_probs[curr_idx]);
     }
 
     if (curr_idx < rounds.size()) {
@@ -41,25 +36,21 @@ bool CipherAnalyzer::advance_state() {
     return true;
 }
 
-CipherAnalyzer::CipherAnalyzer(vector<RoundFunctionPtr> rounds,
-                               size_t input_max_hamming_weight,
-                               double global_thresh, vector<double> opt_probs)
+CipherAnalyzer::CipherAnalyzer(vector<RoundFunctionPtr> rounds, size_t input_max_hamming_weight, double global_thresh,
+                               vector<double> opt_probs)
     : global_thresh(global_thresh), opt_probs(opt_probs), rounds(rounds) {
     curr_idx = 0;
     round_probs = vector<double>(rounds.size(), 1.0);
 
     if (opt_probs.size() < rounds.size()) {
-        vector<RoundFunctionPtr> rounds_pref(
-            rounds.begin(), rounds.begin() + rounds.size() - 1);
+        vector<RoundFunctionPtr> rounds_pref(rounds.begin(), rounds.begin() + rounds.size() - 1);
 
-        CipherAnalyzerPtr prev_cipher = make_shared<CipherAnalyzer>(
-            rounds_pref, input_max_hamming_weight, global_thresh, opt_probs);
+        CipherAnalyzerPtr prev_cipher =
+            make_shared<CipherAnalyzer>(rounds_pref, input_max_hamming_weight, global_thresh, opt_probs);
 
         dynamic_bitset<> input(rounds[0]->src->input_size());
 
-        for (size_t weight = 1; weight <= min(input_max_hamming_weight,
-                                              rounds[0]->src->input_size());
-             weight++) {
+        for (size_t weight = 1; weight <= min(input_max_hamming_weight, rounds[0]->src->input_size()); weight++) {
             input.set(0, input.size(), 0);
             input.set(0, weight, 1);
             bool done = false;
@@ -78,11 +69,8 @@ CipherAnalyzer::CipherAnalyzer(vector<RoundFunctionPtr> rounds,
     }
 }
 
-CipherAnalyzer::CipherAnalyzer(vector<RoundFunctionPtr> rounds,
-                               size_t input_max_hamming_weight,
-                               double global_thresh)
-    : CipherAnalyzer(rounds, input_max_hamming_weight, global_thresh,
-                     vector<double>{1.0}) {
+CipherAnalyzer::CipherAnalyzer(vector<RoundFunctionPtr> rounds, size_t input_max_hamming_weight, double global_thresh)
+    : CipherAnalyzer(rounds, input_max_hamming_weight, global_thresh, vector<double>{1.0}) {
     int x = 0;
     x++;
 }

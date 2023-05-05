@@ -6,16 +6,14 @@ void AbstractBitShiftBox::apply_transformation() {
     }
 }
 
-AbstractBitShiftBox::AbstractBitShiftBox(
-    size_t input_size, size_t output_size,
-    const vector<pair<AbstractBoxPtr, Connection>> &dest_boxes,
-    const vector<size_t> &bit_source)
+AbstractBitShiftBox::AbstractBitShiftBox(size_t input_size, size_t output_size,
+                                         const vector<pair<AbstractBoxPtr, Connection>> &dest_boxes,
+                                         const vector<size_t> &bit_source)
     : AbstractBox(input_size, output_size, dest_boxes), bit_src(bit_source) {
     assert(bit_source.size() == output_size);
 }
 
-AbstractBitShiftBox::AbstractBitShiftBox(size_t input_size, size_t output_size,
-                                         const vector<size_t> &bit_source)
+AbstractBitShiftBox::AbstractBitShiftBox(size_t input_size, size_t output_size, const vector<size_t> &bit_source)
     : AbstractBox(input_size, output_size), bit_src(bit_source) {
     assert(bit_source.size() == output_size);
 }

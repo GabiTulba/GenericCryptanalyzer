@@ -5,9 +5,7 @@
 
 class PBox : public AbstractBitShiftBox {
   public:
-    PBox(size_t bits_size,
-         const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
-         const vector<size_t> &bit_perm);
+    PBox(size_t bits_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes, const vector<size_t> &bit_perm);
     PBox(size_t bits_size, const vector<size_t> &bit_perm);
 };
 

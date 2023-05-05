@@ -1,3 +1,5 @@
 build
 *.pro
 *.pro.user
+docs/*
+!docs/refman.pdf

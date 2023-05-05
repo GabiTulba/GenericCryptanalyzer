@@ -13,30 +13,22 @@ void AbstractBox::reset_determination() {
     prob = 0.0;
 }
 
-AbstractBox::AbstractBox(
-    size_t in_size, size_t out_size,
-    const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes)
-    : in_bits(dynamic_bitset<>(in_size, 0)),
-      out_bits(dynamic_bitset<>(out_size, 0)), dst_boxes(dst_boxes),
+AbstractBox::AbstractBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes)
+    : in_bits(dynamic_bitset<>(in_size, 0)), out_bits(dynamic_bitset<>(out_size, 0)), dst_boxes(dst_boxes),
       is_det(false), prob(0.0) {
     for (auto &dst_box : dst_boxes) {
         assert(dst_box.first != nullptr);
-        assert(dst_box.second.first.start + dst_box.second.first.len <=
-               out_bits.size());
+        assert(dst_box.second.first.start + dst_box.second.first.len <= out_bits.size());
         assert(dst_box.second.first.len == dst_box.second.second.len);
-        assert(dst_box.second.second.start + dst_box.second.second.len <=
-               dst_box.first->input_size());
+        assert(dst_box.second.second.start + dst_box.second.second.len <= dst_box.first->input_size());
     }
 }
 
 AbstractBox::AbstractBox(size_t in_size, size_t out_size)
-    : in_bits(dynamic_bitset<>(in_size, 0)),
-      out_bits(dynamic_bitset<>(out_size, 0)),
-      dst_boxes(vector<pair<AbstractBoxPtr, Connection>>()), is_det(false),
-      prob(0.0) {}
+    : in_bits(dynamic_bitset<>(in_size, 0)), out_bits(dynamic_bitset<>(out_size, 0)),
+      dst_boxes(vector<pair<AbstractBoxPtr, Connection>>()), is_det(false), prob(0.0) {}
 
-void AbstractBox::add_dest(AbstractBoxPtr dst_box, BitsRange out_rng,
-                           BitsRange in_rng) {
+void AbstractBox::add_dest(AbstractBoxPtr dst_box, BitsRange out_rng, BitsRange in_rng) {
     assert(dst_box != nullptr);
     assert(out_rng.start + out_rng.len <= out_bits.size());
     assert(in_rng.start + in_rng.len <= dst_box->in_bits.size());

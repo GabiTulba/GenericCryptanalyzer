@@ -1,7 +1,6 @@
 #include "xorbox.h"
 
-XorBox::XorBox(size_t data_size,
-               const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes)
+XorBox::XorBox(size_t data_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes)
     : AbstractBox(data_size * 2, data_size, dst_boxes) {}
 
 XorBox::XorBox(size_t data_size) : AbstractBox(data_size * 2, data_size) {}

@@ -9,12 +9,9 @@ class AbstractBitShiftBox : public AbstractBox {
     void apply_transformation();
 
   public:
-    AbstractBitShiftBox(
-        size_t in_size, size_t out_size,
-        const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
-        const vector<size_t> &bit_src);
-    AbstractBitShiftBox(size_t in_size, size_t out_size,
+    AbstractBitShiftBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
                         const vector<size_t> &bit_src);
+    AbstractBitShiftBox(size_t in_size, size_t out_size, const vector<size_t> &bit_src);
     void determine_next() override;
 };
 

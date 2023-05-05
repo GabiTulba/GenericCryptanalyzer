@@ -7,8 +7,7 @@ ProbTable compute_differential_table(const vector<size_t> &sbox) {
     assert(__builtin_popcount(output_size) == 1);
 
     ProbTable table(input_size);
-    vector<vector<double>> probability_matrix(input_size,
-                                              vector<double>(output_size, 0.0));
+    vector<vector<double>> probability_matrix(input_size, vector<double>(output_size, 0.0));
 
     for (size_t i = 0; i < input_size; i++) {
         for (size_t j = 0; j < input_size; j++) {
@@ -24,14 +23,12 @@ ProbTable compute_differential_table(const vector<size_t> &sbox) {
             probability_matrix[input_diff][output_diff] /= input_size;
             if (probability_matrix[input_diff][output_diff] != 0) {
                 table[input_diff].push_back(
-                    {to_dynamic_bitset(output_diff, output_size),
-                     probability_matrix[input_diff][output_diff]});
+                    {to_dynamic_bitset(output_diff, output_size), probability_matrix[input_diff][output_diff]});
                 ;
             }
         }
         std::sort(table[input_diff].begin(), table[input_diff].end(),
-                  [](const pair<dynamic_bitset<>, double> &a,
-                     const pair<dynamic_bitset<>, double> &b) -> bool {
+                  [](const pair<dynamic_bitset<>, double> &a, const pair<dynamic_bitset<>, double> &b) -> bool {
                       return a.second > b.second;
                   });
     }
