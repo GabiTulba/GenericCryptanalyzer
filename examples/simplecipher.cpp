@@ -9,6 +9,8 @@
 using namespace std;
 using namespace boost;
 
+const int round_cnt = 3;
+
 CipherAnalyzerPtr create_cipher() {
     AbstractBoxConstructor sbox_constructor = []() {
         vector<size_t> sbox{0xe, 0x4, 0xd, 0x1, 0x2, 0xf, 0xb, 0x8,
@@ -44,10 +46,12 @@ CipherAnalyzerPtr create_cipher() {
         {"Sbox3", {{"Pbox", {{0, 4}, {8, 4}}}}},
         {"Sbox4", {{"Pbox", {{0, 4}, {12, 4}}}}}};
 
-    vector<RoundFunctionPtr> rounds{
-        make_shared<RoundFunction>("Src", "Pbox", constrs, conns),
-        make_shared<RoundFunction>("Src", "Pbox", constrs, conns),
-        make_shared<RoundFunction>("Src", "Pbox", constrs, conns)};
+    vector<RoundFunctionPtr> rounds;
+
+    for (int i = 0; i < round_cnt; i++) {
+        rounds.push_back(
+            make_shared<RoundFunction>("Src", "Pbox", constrs, conns));
+    }
 
     return make_shared<CipherAnalyzer>(rounds, 16, 0.0);
 }
@@ -67,7 +71,7 @@ int main() {
                 unsigned int inp = to_uint(input);
                 unsigned int out = to_uint(output);
 
-                printf("in: 0x%04x (%d),\tout: 0x%04x (%d)\t->\tprob %.6lf\n",
+                printf("in: 0x%04x (%d),\tout: 0x%04x (%d)\t->\tprob %.8lf\n",
                        inp, __builtin_popcount(inp), out,
                        __builtin_popcount(out), prob);
 
