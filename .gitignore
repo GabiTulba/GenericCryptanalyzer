@@ -4,3 +4,4 @@ build
 Doxyfile
 doxygen_extra.css
 doxygen_layout.xml
+!docs/doxygen_extra.css
