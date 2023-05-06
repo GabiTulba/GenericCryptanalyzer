@@ -14,7 +14,7 @@ const int round_cnt = 3;
 CipherAnalyzerPtr create_cipher() {
     AbstractBoxConstructor sbox_constructor = []() {
         vector<size_t> sbox{0xe, 0x4, 0xd, 0x1, 0x2, 0xf, 0xb, 0x8, 0x3, 0xa, 0x6, 0xc, 0x5, 0x9, 0x0, 0x7};
-        return make_shared<SBox>(4, 4, compute_differential_table(sbox));
+        return make_shared<SBox>(4, 4, compute_diff_dist_table(sbox));
     };
 
     AbstractBoxConstructor pbox_constructor = []() {
