@@ -350,7 +350,7 @@ h2.groupheader {
 }
 
 .paramname {
-    color: #6a4e6e;
+    color: #f081ee;
 }
 
 span.lineno {
@@ -359,6 +359,14 @@ span.lineno {
 
 span.preprocessor {
     color: #b467bf;
+}
+
+span.keywordtype {
+    color: #4598cc;
+}
+
+span.lineno a{
+    background-color: #0b1721;
 }
 
 span.keyword {
