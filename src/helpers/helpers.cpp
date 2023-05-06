@@ -1,6 +1,6 @@
 #include "helpers.h"
 
-ProbTable compute_differential_table(const vector<size_t> &sbox) {
+ProbTable compute_diff_dist_table(const vector<size_t> &sbox) {
     size_t input_size = sbox.size();
     size_t output_size = *max_element(sbox.begin(), sbox.end()) + 1;
     assert(__builtin_popcount(input_size) == 1);
@@ -80,4 +80,12 @@ dynamic_bitset<> from_uint(unsigned int x, int size) {
     }
 
     return result;
+}
+
+size_t convert_to_index(const dynamic_bitset<> &bits) {
+    size_t ans = 0;
+    for (ssize_t i = bits.size() - 1; i >= 0; i--) {
+        ans = (ans << 1) + bits[i];
+    }
+    return ans;
 }
