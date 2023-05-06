@@ -63,20 +63,12 @@ dynamic_bitset<> to_dynamic_bitset(size_t input, size_t bit_size) {
     return result;
 }
 
-unsigned int to_uint(const dynamic_bitset<> &bitset) {
-    int ans = 0;
-    for (ssize_t i = bitset.size() - 1; i >= 0; i--) {
-        ans = (ans << 1) + bitset[i];
-    }
-    return ans;
-}
-
-dynamic_bitset<> from_uint(unsigned int x, int size) {
-    dynamic_bitset<> result(size);
+dynamic_bitset<> to_dynamic_bitset(unsigned int input, int bit_size) {
+    dynamic_bitset<> result(bit_size);
     size_t idx = 0;
-    while (x) {
-        result[idx++] = x & 1;
-        x >>= 1;
+    while (input) {
+        result[idx++] = input & 1;
+        input >>= 1;
     }
 
     return result;
@@ -84,6 +76,14 @@ dynamic_bitset<> from_uint(unsigned int x, int size) {
 
 size_t convert_to_index(const dynamic_bitset<> &bits) {
     size_t ans = 0;
+    for (ssize_t i = bits.size() - 1; i >= 0; i--) {
+        ans = (ans << 1) + bits[i];
+    }
+    return ans;
+}
+
+unsigned int convert_to_uint(const dynamic_bitset<> &bits) {
+    int ans = 0;
     for (ssize_t i = bits.size() - 1; i >= 0; i--) {
         ans = (ans << 1) + bits[i];
     }
