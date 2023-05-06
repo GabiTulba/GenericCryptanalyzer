@@ -1,5 +1,6 @@
 build
 *.pro
 *.pro.user
-docs/*
-!docs/refman.pdf
+Doxyfile
+doxygen_extra.css
+doxygen_layout.xml

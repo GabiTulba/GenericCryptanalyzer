@@ -1,3 +1,6 @@
+/** @file ebox.h
+ *  @brief implementation of the EBox class
+ */
 #ifndef EBOX_H
 #define EBOX_H
 

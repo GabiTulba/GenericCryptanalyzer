@@ -1,9 +1,10 @@
+/** @file abstractbox.h
+ *  @brief implementation of the AbstractBox class
+ */
 #ifndef ABSTRACTBOX_H
 #define ABSTRACTBOX_H
 
 #include "helpers/helpers.h"
-#include <boost/dynamic_bitset.hpp>
-#include <vector>
 
 using namespace std;
 using namespace boost;

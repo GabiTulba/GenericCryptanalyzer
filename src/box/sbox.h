@@ -1,8 +1,10 @@
+/** @file sbox.h
+ *  @brief implementation of the SBox class
+ */
 #ifndef SBOX_H
 #define SBOX_H
 
 #include "abstractbox.h"
-#include "src/helpers/helpers.h"
 
 /**
  * @brief An SBox is a box that applies an arbitrary substitution on the input based on a substitution table. Since the

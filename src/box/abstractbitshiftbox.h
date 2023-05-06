@@ -1,3 +1,6 @@
+/** @file abstractbitshiftbox.h
+ *  @brief implementation of the AbstractBitShiftBox class
+ */
 #ifndef ABSTRACTBITSHIFTBOX_H
 #define ABSTRACTBITSHIFTBOX_H
 

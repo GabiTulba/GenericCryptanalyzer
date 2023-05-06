@@ -61,8 +61,8 @@ int main() {
             auto [output, prob] = cipher->get_next_entry();
 
             while (output.size() > 0) {
-                unsigned int inp = to_uint(input);
-                unsigned int out = to_uint(output);
+                unsigned int inp = convert_to_uint(input);
+                unsigned int out = convert_to_uint(output);
 
                 printf("in: 0x%04x (%d),\tout: 0x%04x (%d)\t->\tprob %.8lf\n", inp, __builtin_popcount(inp), out,
                        __builtin_popcount(out), prob);

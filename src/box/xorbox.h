@@ -1,3 +1,6 @@
+/** @file xorbox.h
+ *  @brief implementation of the XorBox class
+ */
 #ifndef XORBOX_H
 #define XORBOX_H
 

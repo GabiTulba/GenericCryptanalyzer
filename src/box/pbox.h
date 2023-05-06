@@ -1,3 +1,6 @@
+/** @file pbox.h
+ *  @brief implementation of the PBox class
+ */
 #ifndef PBOX_H
 #define PBOX_H
 

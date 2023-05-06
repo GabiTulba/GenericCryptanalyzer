@@ -1,7 +1,11 @@
+/** @file helpers.h
+ *  @brief A collection of helper functions and structs
+ */
 #ifndef HELPERS_H
 #define HELPERS_H
 
 #include <boost/dynamic_bitset.hpp>
+#include <vector>
 
 using namespace boost;
 using namespace std;

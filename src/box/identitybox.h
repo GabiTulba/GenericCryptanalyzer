@@ -1,3 +1,6 @@
+/** @file identitybox.h
+ *  @brief implementation of the IdentityBox class
+ */
 #ifndef IDENTITYBOX_H
 #define IDENTITYBOX_H
 
