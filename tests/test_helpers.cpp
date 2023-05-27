@@ -310,6 +310,4 @@ BOOST_AUTO_TEST_CASE(input_differences, *unit_test::tolerance(1e-8)) {
     BOOST_TEST(result[0xe] == correct);
 }
 
-BOOST_AUTO_TEST_CASE(test_bad) { BOOST_TEST(false); }
-
 BOOST_AUTO_TEST_SUITE_END()
