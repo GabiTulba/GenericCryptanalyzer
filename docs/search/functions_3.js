@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ebox_107',['EBox',['../class_e_box.html#aff4f68faebbc24d0444a105fc5b2e50f',1,'EBox::EBox(size_t in_size, size_t out_size, const vector&lt; pair&lt; AbstractBoxPtr, Connection &gt;&gt; &amp;dst_boxes, const vector&lt; size_t &gt; &amp;bit_expansion)'],['../class_e_box.html#a489211f9ca166c955937d601a4a97128',1,'EBox::EBox(size_t in_size, size_t out_size, const vector&lt; size_t &gt; &amp;bit_expansion)']]]
+  ['determine_5fnext_110',['determine_next',['../class_abstract_bit_shift_box.html#abe198d0695b129cd429055a18fd35a97',1,'AbstractBitShiftBox::determine_next()'],['../class_abstract_box.html#a7c10034bfeec4bcd8c1adb4a19a247c3',1,'AbstractBox::determine_next()'],['../class_identity_box.html#a684c939e0770ef7f08100687f81cef8b',1,'IdentityBox::determine_next()'],['../class_s_box.html#aa5b4c206f067ec4682707ef8bd262060',1,'SBox::determine_next()'],['../class_xor_box.html#a47c8c2d8b90cdf38eb0e607f2cc573cd',1,'XorBox::determine_next()']]]
 ];

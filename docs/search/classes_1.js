@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['bitsrange_79',['BitsRange',['../helpers_8h.html#struct_bits_range',1,'']]]
+  ['bitsrange_82',['BitsRange',['../struct_bits_range.html',1,'']]]
 ];

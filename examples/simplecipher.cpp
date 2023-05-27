@@ -58,16 +58,16 @@ int main() {
 
         do {
             cipher->set_input(input, {0, 16});
-            auto [output, prob] = cipher->get_next_entry();
+            auto [output, prob] = cipher->get_next_state();
 
             while (output.size() > 0) {
                 unsigned int inp = convert_to_uint(input);
                 unsigned int out = convert_to_uint(output);
 
-                printf("in: 0x%04x (%d),\tout: 0x%04x (%d)\t->\tprob %.8lf\n", inp, __builtin_popcount(inp), out,
-                       __builtin_popcount(out), prob);
+                printf("in: 0x%04x (%ld),\tout: 0x%04x (%ld) -> prob %.8lf\n", inp, popcnt(inp), out, popcnt(out),
+                       prob);
 
-                auto [next_output, next_prob] = cipher->get_next_entry();
+                auto [next_output, next_prob] = cipher->get_next_state();
                 output = next_output, prob = next_prob;
             }
         } while (increment_bits(input));

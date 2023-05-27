@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['identityboxptr_154',['IdentityBoxPtr',['../identitybox_8h.html#a36fba5d4ebc660c633baf95a179e8db9',1,'identitybox.h']]]
+  ['identityboxptr_161',['IdentityBoxPtr',['../identitybox_8h.html#a36fba5d4ebc660c633baf95a179e8db9',1,'identitybox.h']]]
 ];

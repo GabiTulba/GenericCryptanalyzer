@@ -105,19 +105,20 @@ $(document).ready(function(){initNavTree('helpers_8h.html',''); initResizable();
 <p>A collection of helper functions and structs.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;boost/dynamic_bitset.hpp&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="helpers_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
-<tr class="memitem:struct_bits_range"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#struct_bits_range">BitsRange</a></td></tr>
-<tr class="memdesc:struct_bits_range"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="helpers_8h.html#struct_bits_range" title="BitsRange represents a way to represent a subrange of bits of a box.">BitsRange</a> represents a way to represent a subrange of bits of a box.  <a href="helpers_8h.html#struct_bits_range">More...</a><br /></td></tr>
-<tr class="separator:struct_bits_range"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_bits_range.html">BitsRange</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_bits_range.html" title="BitsRange a way to represent a subrange of bits of a box.">BitsRange</a> a way to represent a subrange of bits of a box.  <a href="struct_bits_range.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a93aaeb110089a1d61c5ba21ba3e8a296"><td class="memItemLeft" align="right" valign="top">typedef pair&lt; <a class="el" href="helpers_8h.html#struct_bits_range">BitsRange</a>, <a class="el" href="helpers_8h.html#struct_bits_range">BitsRange</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a></td></tr>
+<tr class="memitem:a93aaeb110089a1d61c5ba21ba3e8a296"><td class="memItemLeft" align="right" valign="top">typedef pair&lt; <a class="el" href="struct_bits_range.html">BitsRange</a>, <a class="el" href="struct_bits_range.html">BitsRange</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a></td></tr>
 <tr class="memdesc:a93aaeb110089a1d61c5ba21ba3e8a296"><td class="mdescLeft">&#160;</td><td class="mdescRight">shorthand for pair&lt;BitsRange, BitsRange&gt;.  <a href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">More...</a><br /></td></tr>
 <tr class="separator:a93aaeb110089a1d61c5ba21ba3e8a296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86d4d9a947d49d098bdbb9d2dcd474f7"><td class="memItemLeft" align="right" valign="top">typedef pair&lt; string, <a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a86d4d9a947d49d098bdbb9d2dcd474f7">NamedConnection</a></td></tr>
@@ -135,9 +136,9 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:afb39ba0b9ae49c6da83160e7a9b56c9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="helpers_8h.html#a009296b4931e6db6a8a1950baceb375d">ProbTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#afb39ba0b9ae49c6da83160e7a9b56c9c">compute_diff_dist_table</a> (const vector&lt; size_t &gt; &amp;sbox)</td></tr>
-<tr class="memdesc:afb39ba0b9ae49c6da83160e7a9b56c9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the difference distribution table of an sbox.  <a href="helpers_8h.html#afb39ba0b9ae49c6da83160e7a9b56c9c">More...</a><br /></td></tr>
-<tr class="separator:afb39ba0b9ae49c6da83160e7a9b56c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd3be080ac11f317286ae5d9a2a86c9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="helpers_8h.html#a009296b4931e6db6a8a1950baceb375d">ProbTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#acd3be080ac11f317286ae5d9a2a86c9f">compute_diff_dist_table</a> (const vector&lt; size_t &gt; &amp;sbox) noexcept(false)</td></tr>
+<tr class="memdesc:acd3be080ac11f317286ae5d9a2a86c9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the difference distribution table of an sbox.  <a href="helpers_8h.html#acd3be080ac11f317286ae5d9a2a86c9f">More...</a><br /></td></tr>
+<tr class="separator:acd3be080ac11f317286ae5d9a2a86c9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20565681e6165172518ec23c7a06661c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a20565681e6165172518ec23c7a06661c">increment_bits</a> (dynamic_bitset&lt;&gt; &amp;input)</td></tr>
 <tr class="memdesc:a20565681e6165172518ec23c7a06661c"><td class="mdescLeft">&#160;</td><td class="mdescRight">given some input, calculates the next lexicografically smallest binary array with the same number of bits.  <a href="helpers_8h.html#a20565681e6165172518ec23c7a06661c">More...</a><br /></td></tr>
 <tr class="separator:a20565681e6165172518ec23c7a06661c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -147,36 +148,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a020167314a48242c09622ee168308de7"><td class="memItemLeft" align="right" valign="top">dynamic_bitset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a020167314a48242c09622ee168308de7">to_dynamic_bitset</a> (unsigned int input, size_t bit_size)</td></tr>
 <tr class="memdesc:a020167314a48242c09622ee168308de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts an <code>unsigned int</code> to a <code>dynamic_bitset</code> of size <code>bit_size</code>  <a href="helpers_8h.html#a020167314a48242c09622ee168308de7">More...</a><br /></td></tr>
 <tr class="separator:a020167314a48242c09622ee168308de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a68bccaadd7365758f0f4336727af3571"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a68bccaadd7365758f0f4336727af3571">convert_to_index</a> (const dynamic_bitset&lt;&gt; &amp;bits)</td></tr>
-<tr class="memdesc:a68bccaadd7365758f0f4336727af3571"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a <code>dynamic_bitset</code> to a <code>size_t</code>  <a href="helpers_8h.html#a68bccaadd7365758f0f4336727af3571">More...</a><br /></td></tr>
-<tr class="separator:a68bccaadd7365758f0f4336727af3571"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11bd57d3d938769decee599b0756f775"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a11bd57d3d938769decee599b0756f775">convert_to_size_t</a> (const dynamic_bitset&lt;&gt; &amp;bits)</td></tr>
+<tr class="memdesc:a11bd57d3d938769decee599b0756f775"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a <code>dynamic_bitset</code> to a <code>size_t</code>  <a href="helpers_8h.html#a11bd57d3d938769decee599b0756f775">More...</a><br /></td></tr>
+<tr class="separator:a11bd57d3d938769decee599b0756f775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ba286f13a50d4999ac300c5c34017b5"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a1ba286f13a50d4999ac300c5c34017b5">convert_to_uint</a> (const dynamic_bitset&lt;&gt; &amp;bits)</td></tr>
 <tr class="memdesc:a1ba286f13a50d4999ac300c5c34017b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a <code>dynamic_bitset</code> to an <code>unsigned int</code>  <a href="helpers_8h.html#a1ba286f13a50d4999ac300c5c34017b5">More...</a><br /></td></tr>
 <tr class="separator:a1ba286f13a50d4999ac300c5c34017b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a501cf1852026c5bece6ce55146e6297e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a501cf1852026c5bece6ce55146e6297e">popcnt</a> (unsigned int x)</td></tr>
+<tr class="memdesc:a501cf1852026c5bece6ce55146e6297e"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the number of set bits of a 32-bit integer  <a href="helpers_8h.html#a501cf1852026c5bece6ce55146e6297e">More...</a><br /></td></tr>
+<tr class="separator:a501cf1852026c5bece6ce55146e6297e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A collection of helper functions and structs. </p>
 
 <p class="definition">Definition in file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
-</div><hr/><h2 class="groupheader">Data Structure Documentation</h2>
-<a name="struct_bits_range" id="struct_bits_range"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#struct_bits_range">&#9670;&nbsp;</a></span>BitsRange</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">struct BitsRange</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="textblock"><p><a class="el" href="helpers_8h.html#struct_bits_range" title="BitsRange represents a way to represent a subrange of bits of a box.">BitsRange</a> represents a way to represent a subrange of bits of a box. </p>
-
-<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00016">16</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
-</div>
-</div>
-</div>
-<h2 class="groupheader">Typedef Documentation</h2>
+</div><h2 class="groupheader">Typedef Documentation</h2>
 <a id="a93aaeb110089a1d61c5ba21ba3e8a296"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a93aaeb110089a1d61c5ba21ba3e8a296">&#9670;&nbsp;</a></span>Connection</h2>
 
@@ -184,15 +170,15 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef pair&lt;<a class="el" href="helpers_8h.html#struct_bits_range">BitsRange</a>, <a class="el" href="helpers_8h.html#struct_bits_range">BitsRange</a>&gt; <a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a></td>
+          <td class="memname">typedef pair&lt;<a class="el" href="struct_bits_range.html">BitsRange</a>, <a class="el" href="struct_bits_range.html">BitsRange</a>&gt; <a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>shorthand for pair&lt;BitsRange, BitsRange&gt;. </p>
-<p>Represents a connection between two boxes, the first <a class="el" href="helpers_8h.html#struct_bits_range" title="BitsRange represents a way to represent a subrange of bits of a box.">BitsRange</a> is the subrange of the first box, while the second <a class="el" href="helpers_8h.html#struct_bits_range" title="BitsRange represents a way to represent a subrange of bits of a box.">BitsRange</a> is the subrange of the second box </p>
+<p>Represents a connection between two boxes, the first <a class="el" href="struct_bits_range.html" title="BitsRange a way to represent a subrange of bits of a box.">BitsRange</a> is the subrange of the first box, while the second <a class="el" href="struct_bits_range.html" title="BitsRange a way to represent a subrange of bits of a box.">BitsRange</a> is the subrange of the second box </p>
 
-<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00025">25</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00050">50</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
 
 </div>
 </div>
@@ -210,7 +196,7 @@ Functions</h2></td></tr>
 
 <p>shorthand for pair&lt;string, Connection&gt; </p>
 
-<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00030">30</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00055">55</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
 
 </div>
 </div>
@@ -229,7 +215,7 @@ Functions</h2></td></tr>
 <p>shorthand for pair&lt;dynamic_bitset&lt;&gt;, double&gt;. </p>
 <p>Represents a pair between an output and it's probability of an sbox given it's input </p>
 
-<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00036">36</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00061">61</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
 
 </div>
 </div>
@@ -248,7 +234,7 @@ Functions</h2></td></tr>
 <p>shorthand for vector&lt;ProbEntry&gt;. </p>
 <p>Represents a whole line of a probability table </p>
 
-<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00041">41</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00066">66</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
 
 </div>
 </div>
@@ -267,16 +253,19 @@ Functions</h2></td></tr>
 <p>shorthand for vector&lt;ProbTableLine&gt;. </p>
 <p>A probability table is a compact way to describe the behaviour of an sbox when analyzing the difference of two inputs. </p>
 
-<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00047">47</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00072">72</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="afb39ba0b9ae49c6da83160e7a9b56c9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb39ba0b9ae49c6da83160e7a9b56c9c">&#9670;&nbsp;</a></span>compute_diff_dist_table()</h2>
+<a id="acd3be080ac11f317286ae5d9a2a86c9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd3be080ac11f317286ae5d9a2a86c9f">&#9670;&nbsp;</a></span>compute_diff_dist_table()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="helpers_8h.html#a009296b4931e6db6a8a1950baceb375d">ProbTable</a> compute_diff_dist_table </td>
@@ -286,6 +275,11 @@ Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>computes the difference distribution table of an sbox. </p>
@@ -296,7 +290,13 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the difference distribution table (DDT) of the sbox</dd></dl>
-<dl class="section pre"><dt>Precondition</dt><dd>input_size (i.e. sbox.size()) and output_size (i.e. max(sbox) + 1) should be powers of two </dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd>input_size (i.e. sbox.size()) and output_size (i.e. max(sbox) + 1) should be powers of two</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">if</td><td>the precondition above is not fulfilled </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -323,7 +323,16 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if there was at least one next </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><code>true</code> if there was at least one next</dd></dl>
+<dl class="section pre"><dt>Precondition</dt><dd><code>sbox</code>'s size must be a power of two </dd>
+<dd>
+<code>sbox</code>'s max element must be one less than a power of 2</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">if</td><td>any of the preconditions are not fulfilled </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -403,14 +412,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a68bccaadd7365758f0f4336727af3571"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a68bccaadd7365758f0f4336727af3571">&#9670;&nbsp;</a></span>convert_to_index()</h2>
+<a id="a11bd57d3d938769decee599b0756f775"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11bd57d3d938769decee599b0756f775">&#9670;&nbsp;</a></span>convert_to_size_t()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">size_t convert_to_index </td>
+          <td class="memname">size_t convert_to_size_t </td>
           <td>(</td>
           <td class="paramtype">const dynamic_bitset&lt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>bits</em></td><td>)</td>
@@ -454,6 +463,33 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>an <code>unsigned int</code> representing the number formed from the binray array given as input </dd></dl>
+
+</div>
+</div>
+<a id="a501cf1852026c5bece6ce55146e6297e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a501cf1852026c5bece6ce55146e6297e">&#9670;&nbsp;</a></span>popcnt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t popcnt </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>x</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>computes the number of set bits of a 32-bit integer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>32-bit unsigned integer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the number of set bits of <code>x</code> </dd></dl>
 
 </div>
 </div>

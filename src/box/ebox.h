@@ -20,19 +20,28 @@ class EBox : public AbstractBitShiftBox {
      * @param bit_expansion an array used to compute to describe the expansion process of the input bits
      *
      * @see AbstractShiftBox constructor
+     *
      * @pre in_size <= out_size
+     *
+     * @throw if the preconditions of `AbstractBox` for `dst_boxes` are not fulfilled or if the precondition of
+     * `AbstractBitShiftBox` for `out_size` is not fufilled or if the precondition above is not fulfilled
      */
     EBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
-         const vector<size_t> &bit_expansion);
+         const vector<size_t> &bit_expansion) noexcept(false);
     /**
      * @brief similar to the previous constructor, but leaves `dst_boxes` empty
      * @param in_size size of the input bits of this box
      * @param out_size size of the output bits of this box
      * @param bit_expansion an array used to compute to describe the expansion process of the input bits
      *
+     * @see AbstractShiftBox constructor
+     *
      * @pre in_size <= out_size
+     *
+     * @throw if the precondition of `AbstractBitShiftBox` for `out_size` is not fufilled or if the precondition above
+     * is not fulfilled
      */
-    EBox(size_t in_size, size_t out_size, const vector<size_t> &bit_expansion);
+    EBox(size_t in_size, size_t out_size, const vector<size_t> &bit_expansion) noexcept(false);
 };
 
 /**

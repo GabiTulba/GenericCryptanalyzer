@@ -9,7 +9,7 @@ bool CipherAnalyzer::advance_state() {
         return false;
     }
 
-    auto round_entry = rounds[curr_idx]->get_next_entry();
+    auto round_entry = rounds[curr_idx]->get_next_state();
     auto round_out = round_entry.first;
     if (curr_idx == 0) {
         round_probs[0] = round_entry.second;
@@ -75,7 +75,7 @@ CipherAnalyzer::CipherAnalyzer(vector<RoundFunctionPtr> rounds, size_t input_max
     x++;
 }
 
-ProbEntry CipherAnalyzer::get_next_entry() {
+ProbEntry CipherAnalyzer::get_next_state() {
     while (curr_idx < rounds.size()) {
         if (!advance_state()) {
             return {dynamic_bitset<>(0), 0.0};

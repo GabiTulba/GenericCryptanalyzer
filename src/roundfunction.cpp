@@ -80,7 +80,7 @@ RoundFunction::RoundFunction(string src_id, string dst_id, map<string, AbstractB
 
 bool RoundFunction::is_determined() { return is_det; }
 
-ProbEntry RoundFunction::get_next_entry() {
+ProbEntry RoundFunction::get_next_state() {
     while (curr_box_idx < boxes.size()) {
         if (!advance_state()) {
             is_det = true;

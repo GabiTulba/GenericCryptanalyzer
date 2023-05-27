@@ -37,17 +37,28 @@ class SBox : public AbstractBox {
      * @param out_size size of the output bits of this box
      * @param dst_boxes output flow connections to following boxes
      * @param prob_table the probability table of the sbox
+     *
+     * @pre `prob_table`'s size is a power of 2
+     * @pre `prob_table`'s max element is one less than a power of 2
+     *
+     * @throw if the preconditions of `AbstractBox` for `dst_boxes` are not fulfilled or if the preconditions above are
+     * not fulfilled
      */
     SBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
-         const ProbTable &prob_table);
+         const ProbTable &prob_table) noexcept(false);
 
     /**
      * @brief similar to the previous constructor, but leaves `dst_boxes` empty
      * @param in_size size of the input bits of this box
      * @param out_size size of the output bits of this box
      * @param prob_table the probability table of the sbox
+     *
+     * @pre `prob_table`'s size is a power of 2
+     * @pre `prob_table`'s max element is one less than a power of 2
+     *
+     * @throw if the preconditions above are not fulfilled
      */
-    SBox(size_t in_size, size_t out_size, const ProbTable &prob_table);
+    SBox(size_t in_size, size_t out_size, const ProbTable &prob_table) noexcept(false);
 
     /**
      * @brief determines the next best possible output for the given input, if all possible outputs have been

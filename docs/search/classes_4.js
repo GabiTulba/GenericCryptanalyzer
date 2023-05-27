@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['identitybox_82',['IdentityBox',['../class_identity_box.html',1,'']]]
+  ['identitybox_85',['IdentityBox',['../class_identity_box.html',1,'']]]
 ];

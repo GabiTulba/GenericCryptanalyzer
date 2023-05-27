@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 6.0.2, 2023-05-06T12:21:15. -->
+<!-- Written by QtCreator 6.0.2, 2023-05-26T18:23:12. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -67,7 +67,49 @@
     <value type="bool" key="AutoTest.Framework.QtQuickTest">true</value>
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
-   <valuemap type="QVariantMap" key="AutoTest.CheckStates"/>
+   <valuemap type="QVariantMap" key="AutoTest.CheckStates">
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:constructor">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:constuctor">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:determine_next_after_set_input_reset">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:determine_next_idempotent">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:input_get_set_complex">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:input_get_set_simple">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:set_input_after_determine_next">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:test_constructor">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:test_determine_next_after_set_input_reset">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:test_determine_next_idempotent">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:test_ebox">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:test_input_get_set_simple">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:test_pbox">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_boxes.cpp:test_set_input_after_determine_next">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:all_states_total_iterations">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:bit_count_1">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:bit_count_2">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:bit_count_3">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:consistent_bit_count_1">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:consistent_bit_count_2">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:correct_output_bit_length">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:increment_once">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:increment_twice">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:input_differences">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:line_probability_sum_1">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:one_bit_total_iterations">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:size_t_1">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:size_t_2">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:sorted_elems_by_probability">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:test_compute_diff_dist_table">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:test_dynamic_bitset_convert_to">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:test_increment_bits">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:test_input_size">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:test_non_impossible_differentials">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:test_output_max_size">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:test_popcnt">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:test_to_dynamic_bitset">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:two_bits_total_iterations">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:uint_1">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:uint_2">Checked</value>
+    <value type="Qt::CheckState" key="1@/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/tests/test_helpers.cpp:zero_bits_total_iterations">Checked</value>
+   </valuemap>
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>
    <valuelist type="QVariantList" key="ClangCodeModel.CustomCommandLineKey"/>
@@ -294,29 +336,12 @@
     <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
     <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
     <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
-    <valuelist type="QVariantList" key="Analyzer.Valgrind.VisibleErrorKinds">
-     <value type="QString">0</value>
-     <value type="QString">1</value>
-     <value type="QString">2</value>
-     <value type="QString">3</value>
-     <value type="QString">4</value>
-     <value type="QString">5</value>
-     <value type="QString">6</value>
-     <value type="QString">7</value>
-     <value type="QString">8</value>
-     <value type="QString">9</value>
-     <value type="QString">10</value>
-     <value type="QString">11</value>
-     <value type="QString">12</value>
-     <value type="QString">13</value>
-     <value type="QString">14</value>
-    </valuelist>
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">GenericCryptanalyzer</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.GenericCryptanalyzer</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">GenericCryptanalyzer</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test_helpers</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test_helpers</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test_helpers</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
@@ -324,7 +349,41 @@
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
     <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/build</value>
    </valuemap>
-   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.1">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">simplecipher</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.simplecipher</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">simplecipher</value>
+    <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/build</value>
+   </valuemap>
+   <valuemap type="QVariantMap" key="ProjectExplorer.Target.RunConfiguration.2">
+    <value type="bool" key="Analyzer.Perf.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.QmlProfiler.Settings.UseGlobalSettings">true</value>
+    <value type="bool" key="Analyzer.Valgrind.Settings.UseGlobalSettings">true</value>
+    <valuelist type="QVariantList" key="CustomOutputParsers"/>
+    <value type="int" key="PE.EnvironmentAspect.Base">2</value>
+    <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">test_boxes</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeRunConfiguration.test_boxes</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">test_boxes</value>
+    <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
+    <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebugger">false</value>
+    <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">/home/skrypto/Documents/Research/Bachelor/GenericCryptanalyzer/build</value>
+   </valuemap>
+   <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">3</value>
   </valuemap>
  </data>
  <data>

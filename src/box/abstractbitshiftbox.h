@@ -38,9 +38,12 @@ class AbstractBitShiftBox : public AbstractBox {
      * @param bit_src an array used to compute `out_bits` from `in_bits`
      *
      * @pre bit_source.size() == output_size
+     *
+     * @throw if the preconditions of `AbstractBox` for `dst_boxes` are not fulfilled or if the precondition above is
+     * not fulfilled
      */
     AbstractBitShiftBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
-                        const vector<size_t> &bit_src);
+                        const vector<size_t> &bit_src) noexcept(false);
 
     /**
      * @brief similar to the previous constructor, but leaves `dst_boxes` empty
@@ -49,8 +52,10 @@ class AbstractBitShiftBox : public AbstractBox {
      * @param bit_src an array used to compute `out_bits` from `in_bits`
      *
      * @pre bit_source.size() == output_size
+     *
+     * @throw if the precondition above is not fulfilled
      */
-    AbstractBitShiftBox(size_t in_size, size_t out_size, const vector<size_t> &bit_src);
+    AbstractBitShiftBox(size_t in_size, size_t out_size, const vector<size_t> &bit_src) noexcept(false);
 
     /**
      * @brief since apply_transformation is a linear deterministic transformations, this will set

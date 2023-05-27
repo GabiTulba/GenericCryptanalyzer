@@ -9,7 +9,7 @@ var hierarchy =
       [ "SBox", "class_s_box.html", null ],
       [ "XorBox", "class_xor_box.html", null ]
     ] ],
-    [ "BitsRange", "helpers_8h.html#struct_bits_range", null ],
+    [ "BitsRange", "struct_bits_range.html", null ],
     [ "CipherAnalyzer", "class_cipher_analyzer.html", null ],
     [ "RoundFunction", "class_round_function.html", null ]
 ];

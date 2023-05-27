@@ -17,8 +17,10 @@ class IdentityBox : public AbstractBox {
     /**
      * @param data_size the size in bits of the input and the output
      * @param dst_boxes output flow connections to following boxes
+     *
+     * @throw if the preconditions of `AbstractBox` for `dst_boxes` are not fulfilled
      */
-    IdentityBox(size_t data_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes);
+    IdentityBox(size_t data_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes) noexcept(false);
     /**
      * @brief similar to the previous constructor, but leaves `dst_boxes` empty
      * @param data_size the size in bits of the input and the output

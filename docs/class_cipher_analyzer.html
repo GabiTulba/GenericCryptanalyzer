@@ -101,49 +101,53 @@ $(document).ready(function(){initNavTree('class_cipher_analyzer.html',''); initR
 <div class="title">CipherAnalyzer Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>a <a class="el" href="class_cipher_analyzer.html" title="a CipherAnalyzer is a collection of rounds of a cipher that are linked togheter linearly.">CipherAnalyzer</a> is a collection of rounds of a cipher that are linked togheter linearly.  
+ <a href="class_cipher_analyzer.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9007917273cbcf0413d33b6bc00b6785"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#a9007917273cbcf0413d33b6bc00b6785">CipherAnalyzer</a> (vector&lt; <a class="el" href="roundfunction_8h.html#a8db1a6e3304111c2173b8e3d98a069b4">RoundFunctionPtr</a> &gt; <a class="el" href="class_cipher_analyzer.html#afbda67c5d67c92f3e8dd801f71fe579b">rounds</a>, size_t input_max_hamming_weight, double <a class="el" href="class_cipher_analyzer.html#a21cffd2734d50e2f605f26625aa22f88">global_thresh</a>, vector&lt; double &gt; <a class="el" href="class_cipher_analyzer.html#ab61704279c086ecf102d183dcf3d287b">opt_probs</a>)</td></tr>
-<tr class="memdesc:a9007917273cbcf0413d33b6bc00b6785"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_cipher_analyzer.html">CipherAnalyzer</a>.  <a href="class_cipher_analyzer.html#a9007917273cbcf0413d33b6bc00b6785">More...</a><br /></td></tr>
 <tr class="separator:a9007917273cbcf0413d33b6bc00b6785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acb9b079c1e2739444a01c07ccd55f788"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#acb9b079c1e2739444a01c07ccd55f788">CipherAnalyzer</a> (vector&lt; <a class="el" href="roundfunction_8h.html#a8db1a6e3304111c2173b8e3d98a069b4">RoundFunctionPtr</a> &gt; <a class="el" href="class_cipher_analyzer.html#afbda67c5d67c92f3e8dd801f71fe579b">rounds</a>, size_t input_max_hamming_weight, double <a class="el" href="class_cipher_analyzer.html#a21cffd2734d50e2f605f26625aa22f88">global_thresh</a>)</td></tr>
-<tr class="memdesc:acb9b079c1e2739444a01c07ccd55f788"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_cipher_analyzer.html">CipherAnalyzer</a>.  <a href="class_cipher_analyzer.html#acb9b079c1e2739444a01c07ccd55f788">More...</a><br /></td></tr>
 <tr class="separator:acb9b079c1e2739444a01c07ccd55f788"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad48bca31f4a261cb2a0c3ef177d50a05"><td class="memItemLeft" align="right" valign="top"><a class="el" href="helpers_8h.html#a519c3e2743dc3fc3bf73c62d2063e894">ProbEntry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#ad48bca31f4a261cb2a0c3ef177d50a05">get_next_entry</a> ()</td></tr>
-<tr class="memdesc:ad48bca31f4a261cb2a0c3ef177d50a05"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_next_entry  <a href="class_cipher_analyzer.html#ad48bca31f4a261cb2a0c3ef177d50a05">More...</a><br /></td></tr>
-<tr class="separator:ad48bca31f4a261cb2a0c3ef177d50a05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1112b575552b3092b84ebc81febe90bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#a1112b575552b3092b84ebc81febe90bc">set_input</a> (const dynamic_bitset&lt;&gt; &amp;bits, <a class="el" href="helpers_8h.html#struct_bits_range">BitsRange</a> rng)</td></tr>
-<tr class="memdesc:a1112b575552b3092b84ebc81febe90bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">set_input  <a href="class_cipher_analyzer.html#a1112b575552b3092b84ebc81febe90bc">More...</a><br /></td></tr>
+<tr class="memitem:a722b4145718ab6f0f5e5006791e458d4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="helpers_8h.html#a519c3e2743dc3fc3bf73c62d2063e894">ProbEntry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#a722b4145718ab6f0f5e5006791e458d4">get_next_state</a> ()</td></tr>
+<tr class="memdesc:a722b4145718ab6f0f5e5006791e458d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the next possible output state that has a probability greater than <code>global_thresh</code>.  <a href="class_cipher_analyzer.html#a722b4145718ab6f0f5e5006791e458d4">More...</a><br /></td></tr>
+<tr class="separator:a722b4145718ab6f0f5e5006791e458d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1112b575552b3092b84ebc81febe90bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#a1112b575552b3092b84ebc81febe90bc">set_input</a> (const dynamic_bitset&lt;&gt; &amp;bits, <a class="el" href="struct_bits_range.html">BitsRange</a> rng)</td></tr>
+<tr class="memdesc:a1112b575552b3092b84ebc81febe90bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">sets a subrange <code>rng</code> of the input to the value of <code>bits</code>  <a href="class_cipher_analyzer.html#a1112b575552b3092b84ebc81febe90bc">More...</a><br /></td></tr>
 <tr class="separator:a1112b575552b3092b84ebc81febe90bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a07ac05ca22bdfb36dabdf5382c762323"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#a07ac05ca22bdfb36dabdf5382c762323">advance_state</a> ()</td></tr>
-<tr class="memdesc:a07ac05ca22bdfb36dabdf5382c762323"><td class="mdescLeft">&#160;</td><td class="mdescRight">advance_state  <a href="class_cipher_analyzer.html#a07ac05ca22bdfb36dabdf5382c762323">More...</a><br /></td></tr>
+<tr class="memdesc:a07ac05ca22bdfb36dabdf5382c762323"><td class="mdescLeft">&#160;</td><td class="mdescRight">advances to the next internal state state of the cipher  <a href="class_cipher_analyzer.html#a07ac05ca22bdfb36dabdf5382c762323">More...</a><br /></td></tr>
 <tr class="separator:a07ac05ca22bdfb36dabdf5382c762323"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:a21cffd2734d50e2f605f26625aa22f88"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#a21cffd2734d50e2f605f26625aa22f88">global_thresh</a></td></tr>
-<tr class="memdesc:a21cffd2734d50e2f605f26625aa22f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">global_thresh  <a href="class_cipher_analyzer.html#a21cffd2734d50e2f605f26625aa22f88">More...</a><br /></td></tr>
+<tr class="memdesc:a21cffd2734d50e2f605f26625aa22f88"><td class="mdescLeft">&#160;</td><td class="mdescRight">the minimum probability threshold such that the cipher outputs a state.  <a href="class_cipher_analyzer.html#a21cffd2734d50e2f605f26625aa22f88">More...</a><br /></td></tr>
 <tr class="separator:a21cffd2734d50e2f605f26625aa22f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab61704279c086ecf102d183dcf3d287b"><td class="memItemLeft" align="right" valign="top">vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#ab61704279c086ecf102d183dcf3d287b">opt_probs</a></td></tr>
-<tr class="memdesc:ab61704279c086ecf102d183dcf3d287b"><td class="mdescLeft">&#160;</td><td class="mdescRight">opt_probs  <a href="class_cipher_analyzer.html#ab61704279c086ecf102d183dcf3d287b">More...</a><br /></td></tr>
+<tr class="memdesc:ab61704279c086ecf102d183dcf3d287b"><td class="mdescLeft">&#160;</td><td class="mdescRight">optimal probabilities for all previous rounds  <a href="class_cipher_analyzer.html#ab61704279c086ecf102d183dcf3d287b">More...</a><br /></td></tr>
 <tr class="separator:ab61704279c086ecf102d183dcf3d287b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ffd70b8c80a362f5cf92e9a8ac57d89"><td class="memItemLeft" align="right" valign="top">vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#a8ffd70b8c80a362f5cf92e9a8ac57d89">round_probs</a></td></tr>
-<tr class="memdesc:a8ffd70b8c80a362f5cf92e9a8ac57d89"><td class="mdescLeft">&#160;</td><td class="mdescRight">round_probs  <a href="class_cipher_analyzer.html#a8ffd70b8c80a362f5cf92e9a8ac57d89">More...</a><br /></td></tr>
-<tr class="separator:a8ffd70b8c80a362f5cf92e9a8ac57d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afbda67c5d67c92f3e8dd801f71fe579b"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="roundfunction_8h.html#a8db1a6e3304111c2173b8e3d98a069b4">RoundFunctionPtr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#afbda67c5d67c92f3e8dd801f71fe579b">rounds</a></td></tr>
-<tr class="memdesc:afbda67c5d67c92f3e8dd801f71fe579b"><td class="mdescLeft">&#160;</td><td class="mdescRight">rounds  <a href="class_cipher_analyzer.html#afbda67c5d67c92f3e8dd801f71fe579b">More...</a><br /></td></tr>
+<tr class="memdesc:afbda67c5d67c92f3e8dd801f71fe579b"><td class="mdescLeft">&#160;</td><td class="mdescRight">a collection of all rounds that form this cipher.  <a href="class_cipher_analyzer.html#afbda67c5d67c92f3e8dd801f71fe579b">More...</a><br /></td></tr>
 <tr class="separator:afbda67c5d67c92f3e8dd801f71fe579b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a050f367183061a736c332c6f5bced595"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#a050f367183061a736c332c6f5bced595">curr_idx</a></td></tr>
-<tr class="memdesc:a050f367183061a736c332c6f5bced595"><td class="mdescLeft">&#160;</td><td class="mdescRight">curr_idx  <a href="class_cipher_analyzer.html#a050f367183061a736c332c6f5bced595">More...</a><br /></td></tr>
+<tr class="memdesc:a050f367183061a736c332c6f5bced595"><td class="mdescLeft">&#160;</td><td class="mdescRight">the index in <code>rounds</code> of the current round in the search algorithm  <a href="class_cipher_analyzer.html#a050f367183061a736c332c6f5bced595">More...</a><br /></td></tr>
 <tr class="separator:a050f367183061a736c332c6f5bced595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ffd70b8c80a362f5cf92e9a8ac57d89"><td class="memItemLeft" align="right" valign="top">vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_cipher_analyzer.html#a8ffd70b8c80a362f5cf92e9a8ac57d89">round_probs</a></td></tr>
+<tr class="memdesc:a8ffd70b8c80a362f5cf92e9a8ac57d89"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>vector</code> of all previous partial probabilities up to curr_idx.  <a href="class_cipher_analyzer.html#a8ffd70b8c80a362f5cf92e9a8ac57d89">More...</a><br /></td></tr>
+<tr class="separator:a8ffd70b8c80a362f5cf92e9a8ac57d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00016">16</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
+<div class="textblock"><p>a <a class="el" href="class_cipher_analyzer.html" title="a CipherAnalyzer is a collection of rounds of a cipher that are linked togheter linearly.">CipherAnalyzer</a> is a collection of rounds of a cipher that are linked togheter linearly. </p>
+
+<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00019">19</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a9007917273cbcf0413d33b6bc00b6785"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a9007917273cbcf0413d33b6bc00b6785">&#9670;&nbsp;</a></span>CipherAnalyzer() <span class="overload">[1/2]</span></h2>
@@ -182,14 +186,12 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p><a class="el" href="class_cipher_analyzer.html">CipherAnalyzer</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rounds</td><td></td></tr>
-    <tr><td class="paramname">input_max_hamming_weight</td><td></td></tr>
-    <tr><td class="paramname">global_thresh</td><td></td></tr>
-    <tr><td class="paramname">opt_probs</td><td></td></tr>
+    <tr><td class="paramname">a</td><td><code>vector</code> of rounds that represents the rounds of the cipher, the output of of each round is set as the input of the next one </td></tr>
+    <tr><td class="paramname">input_max_hamming_weight</td><td>the maximum hamming weight when searching the optimal probabilities of ciphers with less rounds </td></tr>
+    <tr><td class="paramname">global_thresh</td><td>the minimum global threshold probability that an output state must have in order to be returned </td></tr>
+    <tr><td class="paramname">opt_probs,if</td><td>known, optimal probabilities of all ciphers with less rounds than this one </td></tr>
   </table>
   </dd>
 </dl>
@@ -227,13 +229,11 @@ Protected Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p><a class="el" href="class_cipher_analyzer.html">CipherAnalyzer</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">rounds</td><td></td></tr>
-    <tr><td class="paramname">input_max_hamming_weight</td><td></td></tr>
-    <tr><td class="paramname">global_thresh</td><td></td></tr>
+    <tr><td class="paramname">a</td><td><code>vector</code> of rounds that represents the rounds of the cipher, the output of of each round is set as the input of the next one </td></tr>
+    <tr><td class="paramname">input_max_hamming_weight</td><td>the maximum hamming weight when searching the optimal probabilities of ciphers with less rounds </td></tr>
+    <tr><td class="paramname">global_thresh</td><td>the minimum global threshold probability that an output state must have in order to be returned </td></tr>
   </table>
   </dd>
 </dl>
@@ -264,19 +264,19 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>advance_state </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>advances to the next internal state state of the cipher </p>
+<dl class="section return"><dt>Returns</dt><dd>false if there is no next state, otherwise returns true </dd></dl>
 
 </div>
 </div>
-<a id="ad48bca31f4a261cb2a0c3ef177d50a05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad48bca31f4a261cb2a0c3ef177d50a05">&#9670;&nbsp;</a></span>get_next_entry()</h2>
+<a id="a722b4145718ab6f0f5e5006791e458d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a722b4145718ab6f0f5e5006791e458d4">&#9670;&nbsp;</a></span>get_next_state()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="helpers_8h.html#a519c3e2743dc3fc3bf73c62d2063e894">ProbEntry</a> CipherAnalyzer::get_next_entry </td>
+          <td class="memname"><a class="el" href="helpers_8h.html#a519c3e2743dc3fc3bf73c62d2063e894">ProbEntry</a> CipherAnalyzer::get_next_state </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -284,8 +284,8 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>get_next_entry </p>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+<p>returns the next possible output state that has a probability greater than <code>global_thresh</code>. </p>
+<p>Also sets <code>global_thresh</code> to the new best probability in order to minimize the size of the search tree </p><dl class="section return"><dt>Returns</dt><dd>the next computed output state, otherwise <code>{dynamic_bitset&lt;&gt;(0), 0.0}</code> </dd></dl>
 
 </div>
 </div>
@@ -304,7 +304,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="helpers_8h.html#struct_bits_range">BitsRange</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="struct_bits_range.html">BitsRange</a>&#160;</td>
           <td class="paramname"><em>rng</em>&#160;</td>
         </tr>
         <tr>
@@ -315,11 +315,11 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>set_input </p>
+<p>sets a subrange <code>rng</code> of the input to the value of <code>bits</code> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">bits</td><td></td></tr>
-    <tr><td class="paramname">rng</td><td></td></tr>
+    <tr><td class="paramname">bits</td><td>the bits that will be put in the <code>in_bits</code> of <code>src</code> of the first round </td></tr>
+    <tr><td class="paramname">rng</td><td>the subrange in which bits will be put in <code>in_bits</code> of <code>src</code> of the first round </td></tr>
   </table>
   </dd>
 </dl>
@@ -347,9 +347,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>global_thresh </p>
+<p>the minimum probability threshold such that the cipher outputs a state. </p>
 
-<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00021">21</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00024">24</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
 
 </div>
 </div>
@@ -373,35 +373,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>opt_probs </p>
+<p>optimal probabilities for all previous rounds </p>
 
-<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00026">26</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
-
-</div>
-</div>
-<a id="a8ffd70b8c80a362f5cf92e9a8ac57d89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8ffd70b8c80a362f5cf92e9a8ac57d89">&#9670;&nbsp;</a></span>round_probs</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">vector&lt;double&gt; CipherAnalyzer::round_probs</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>round_probs </p>
-
-<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00031">31</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00029">29</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
 
 </div>
 </div>
@@ -425,9 +399,9 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>rounds </p>
+<p>a collection of all rounds that form this cipher. </p>
 
-<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00036">36</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00034">34</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
 
 </div>
 </div>
@@ -451,9 +425,36 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>curr_idx </p>
+<p>the index in <code>rounds</code> of the current round in the search algorithm </p>
 
-<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00041">41</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00039">39</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
+
+</div>
+</div>
+<a id="a8ffd70b8c80a362f5cf92e9a8ac57d89"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ffd70b8c80a362f5cf92e9a8ac57d89">&#9670;&nbsp;</a></span>round_probs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;double&gt; CipherAnalyzer::round_probs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>vector</code> of all previous partial probabilities up to curr_idx. </p>
+<p>Used in calculating the final probability of the cipher. </p>
+
+<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00045">45</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
 
 </div>
 </div>

@@ -1,8 +1,8 @@
 var class_abstract_box =
 [
-    [ "AbstractBox", "class_abstract_box.html#a16a6cf3cada558f1b4ca4c52efd446e1", null ],
+    [ "AbstractBox", "class_abstract_box.html#a97ceb2f6759f4ff522b9cd69a67044a7", null ],
     [ "AbstractBox", "class_abstract_box.html#a9b60b90aadcd705ff368616b98419955", null ],
-    [ "add_dest", "class_abstract_box.html#aaac185ce077f678eb610fbba8f4d8ec9", null ],
+    [ "add_dest", "class_abstract_box.html#a47dd87ad0eefd59fa5997778349b424d", null ],
     [ "get_input", "class_abstract_box.html#adbea00a2927120ba929dacc5604f0e48", null ],
     [ "get_output", "class_abstract_box.html#adb61b768b4171d53ecfbb7ca2f8dcca6", null ],
     [ "input_size", "class_abstract_box.html#aca1dd6ac9ee336aaf4dde9cfcdcce35d", null ],

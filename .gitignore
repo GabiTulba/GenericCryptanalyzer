@@ -1,7 +1,6 @@
 build
 *.pro
 *.pro.user
-Doxyfile
 doxygen_extra.css
 doxygen_layout.xml
 !docs/doxygen_extra.css

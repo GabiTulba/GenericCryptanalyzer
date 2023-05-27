@@ -2,7 +2,7 @@ var annotated_dup =
 [
     [ "AbstractBitShiftBox", "class_abstract_bit_shift_box.html", "class_abstract_bit_shift_box" ],
     [ "AbstractBox", "class_abstract_box.html", "class_abstract_box" ],
-    [ "BitsRange", "helpers_8h.html#struct_bits_range", null ],
+    [ "BitsRange", "struct_bits_range.html", "struct_bits_range" ],
     [ "CipherAnalyzer", "class_cipher_analyzer.html", "class_cipher_analyzer" ],
     [ "EBox", "class_e_box.html", "class_e_box" ],
     [ "IdentityBox", "class_identity_box.html", "class_identity_box" ],

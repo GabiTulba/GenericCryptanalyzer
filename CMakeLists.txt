@@ -1,48 +1,69 @@
-# Created by and for Qt Creator This file was created for editing the project sources only.
-# You may attempt to use it for building too, by modifying this file here.
+cmake_minimum_required(VERSION 3.10)
 
-cmake_minimum_required(VERSION 3.5)
+# Set the project name
 project(GenericCryptanalyzer)
 
+# Specify the C++ standard
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
-include_directories(
-    src
-    src/box
-    src/helpers
-)
+# Find Boost
+find_package(Boost REQUIRED COMPONENTS unit_test_framework)
 
-set (SRCS
-    examples/simplecipher.cpp
-    src/box/abstractbitshiftbox.cpp
-    src/box/abstractbitshiftbox.h
-    src/box/abstractbox.cpp
-    src/box/abstractbox.h
-    src/box/ebox.cpp
-    src/box/ebox.h
-    src/box/identitybox.cpp
-    src/box/identitybox.h
-    src/box/pbox.cpp
-    src/box/pbox.h
-    src/box/sbox.cpp
-    src/box/sbox.h
-    src/box/xorbox.cpp
-    src/box/xorbox.h
-    src/helpers/helpers.cpp
-    src/helpers/helpers.h
-    src/cipheranalyzer.cpp
-    src/cipheranalyzer.h
-    src/roundfunction.cpp
-    src/roundfunction.h
-)
+# Check if boost was found
+if(NOT Boost_FOUND)
+    message(FATAL_ERROR "Could not find boost!")
+endif()
 
+# Ensure that dynamic_bitset is present
+find_path(BOOST_DYNAMIC_BITSET_INCLUDE_DIR boost/dynamic_bitset.hpp)
 
-add_executable(${CMAKE_PROJECT_NAME} ${SRCS})
+if(NOT BOOST_DYNAMIC_BITSET_INCLUDE_DIR)
+    message(FATAL_ERROR "Could not find boost::dynamic_bitset!")
+endif()
 
-target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE Qt5::Core Qt5::Gui Qt5::Widgets)
+include_directories(${Boost_INCLUDE_DIRS})
+
+# Add all the source files to the library
+file(GLOB_RECURSE SOURCES "src/*.cpp")
+file(GLOB_RECURSE HEADERS "src/*.h")
+add_library(GenericCryptanalyzerLib ${SOURCES} ${HEADERS})
+
+# Include directories for the library
+target_include_directories(GenericCryptanalyzerLib PUBLIC ${PROJECT_SOURCE_DIR}/src)
+
+# Add the test files
+file(GLOB_RECURSE TEST_SOURCES "tests/*.cpp")
+foreach(test_src ${TEST_SOURCES})
+    # Get the filename without extension
+    get_filename_component(test_name ${test_src} NAME_WE)
+
+    # Add executable
+    add_executable(${test_name} ${test_src})
+
+    # Link the libraries
+    target_link_libraries(${test_name} ${Boost_UNIT_TEST_FRAMEWORK_LIBRARY} GenericCryptanalyzerLib)
+
+    # Enable testing
+    enable_testing()
+
+    # Add the test
+    add_test(NAME ${test_name} COMMAND ${test_name})
+endforeach()
+
+# Add the examples
+file(GLOB_RECURSE EXAMPLE_SOURCES "examples/*.cpp")
+foreach(example_src ${EXAMPLE_SOURCES})
+    # Get the filename without extension
+    get_filename_component(example_name ${example_src} NAME_WE)
+
+    # Add executable
+    add_executable(${example_name} ${example_src})
+
+    # Link the library
+    target_link_libraries(${example_name} GenericCryptanalyzerLib)
+endforeach()

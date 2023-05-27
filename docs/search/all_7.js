@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['identitybox_35',['IdentityBox',['../class_identity_box.html',1,'IdentityBox'],['../class_identity_box.html#a50d9ecad2d5f39e8d09ab5da6896044f',1,'IdentityBox::IdentityBox(size_t data_size, const vector&lt; pair&lt; AbstractBoxPtr, Connection &gt;&gt; &amp;dst_boxes)'],['../class_identity_box.html#aa97dca4a7eab3960dc214e69f7c1e818',1,'IdentityBox::IdentityBox(size_t data_size)']]],
+  ['identitybox_35',['IdentityBox',['../class_identity_box.html',1,'IdentityBox'],['../class_identity_box.html#a6c41c47707f6d8dfb38db4cd429c2031',1,'IdentityBox::IdentityBox(size_t data_size, const vector&lt; pair&lt; AbstractBoxPtr, Connection &gt;&gt; &amp;dst_boxes) noexcept(false)'],['../class_identity_box.html#aa97dca4a7eab3960dc214e69f7c1e818',1,'IdentityBox::IdentityBox(size_t data_size)']]],
   ['identitybox_2eh_36',['identitybox.h',['../identitybox_8h.html',1,'']]],
   ['identityboxptr_37',['IdentityBoxPtr',['../identitybox_8h.html#a36fba5d4ebc660c633baf95a179e8db9',1,'identitybox.h']]],
   ['in_5fbits_38',['in_bits',['../class_abstract_box.html#aaa4bc2720892ca29f1bbbf574f33a0cc',1,'AbstractBox']]],

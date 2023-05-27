@@ -20,7 +20,7 @@ typedef std::shared_ptr<AbstractBox> AbstractBoxPtr;
  * @brief shorthand for `function<AbstractBoxPtr()>`. Represents a way to create an
  * AbstractBoxPtr
  */
-typedef function<AbstractBoxPtr()> AbstractBoxConstructor;
+typedef std::function<AbstractBoxPtr()> AbstractBoxConstructor;
 
 /**
  * @brief An AbstractBox represents an abstract idea of a block cipher component such as a Pbox, Sbox, Xor, Addition,
@@ -44,8 +44,7 @@ class AbstractBox {
     vector<pair<AbstractBoxPtr, Connection>> dst_boxes;
 
     /**
-     * @brief a boolean value that should be true if and only if at least one out of all possible outputs has
-     * been determined and returned
+     * @brief a boolean value that should be true if and only if all possible outputs have been determined and returned
      */
     bool is_det;
 
@@ -67,17 +66,16 @@ class AbstractBox {
                 dst_box.second.first.len == dst_box.second.second.len &&
                 dst_box.second.second.start + dst_box.second.second.len <= dst_box.first->input_size();
             }
+     *
+     * @throw if the preconditions above are not fulfilled
      */
-    AbstractBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes);
+    AbstractBox(size_t in_size, size_t out_size,
+                const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes) noexcept(false);
 
     /**
      * @brief similar to the previous constructor, but leaves `dst_boxes` empty
      * @param in_size size of the input bits of this box
      * @param out_size size of the output bits of this box
-     *
-     * @pre dst_box != nullptr && out_rng.start + out_rng.len <= out_bits.size() &&
-     *      in_rng.start + in_rng.len <= dst_box->in_bits.size();
-
      */
     AbstractBox(size_t in_size, size_t out_size);
 
@@ -86,8 +84,14 @@ class AbstractBox {
      * @param dst_box a pointer to the destination box
      * @param out_range a subrange of `out_bits` from this box that will flow to `dst_box`
      * @param in_range a subrange of `in_bit` from `dst_box` into which the bits will flow
+     *
+     * @pre dst_box != nullptr && out_rng.start + out_rng.len <= out_bits.size() &&
+     *      in_rng.start + in_rng.len <= dst_box->in_bits.size();
+     *
+     * @throw if the precondition above is not fulfilled
+
      */
-    void add_dest(AbstractBoxPtr dst_box, BitsRange out_range, BitsRange in_range);
+    void add_dest(AbstractBoxPtr dst_box, BitsRange out_range, BitsRange in_range) noexcept(false);
 
     /**
      * @brief getter for `in_bits`
