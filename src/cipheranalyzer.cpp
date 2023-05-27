@@ -56,9 +56,9 @@ CipherAnalyzer::CipherAnalyzer(vector<RoundFunctionPtr> rounds, size_t input_max
             bool done = false;
             while (!done) {
                 prev_cipher->set_input(input, {0, input.size()});
-                auto entry = prev_cipher->get_next_entry();
+                auto entry = prev_cipher->get_next_state();
                 while (entry.first.size() > 0) {
-                    entry = prev_cipher->get_next_entry();
+                    entry = prev_cipher->get_next_state();
                 }
                 done = !increment_bits(input);
             }
