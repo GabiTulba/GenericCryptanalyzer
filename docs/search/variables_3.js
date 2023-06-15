@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['global_5fthresh_140',['global_thresh',['../class_cipher_analyzer.html#a21cffd2734d50e2f605f26625aa22f88',1,'CipherAnalyzer']]]
+  ['end_5fdet_178',['end_det',['../class_round_function.html#ac5b90a6c245526c399295e2c66322bce',1,'RoundFunction']]]
 ];

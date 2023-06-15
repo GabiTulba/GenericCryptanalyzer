@@ -95,7 +95,8 @@ $(document).ready(function(){initNavTree('cipheranalyzer_8h.html',''); initResiz
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
-<a href="#typedef-members">Typedefs</a>  </div>
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">cipheranalyzer.h File Reference</div>  </div>
 </div><!--header-->
@@ -104,6 +105,13 @@ $(document).ready(function(){initNavTree('cipheranalyzer_8h.html',''); initResiz
 <p>implementation of the <a class="el" href="class_cipher_analyzer.html" title="a CipherAnalyzer is a collection of rounds of a cipher that are linked togheter linearly.">CipherAnalyzer</a> class  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>&quot;</code><br />
+<code>#include &lt;boost/asio/post.hpp&gt;</code><br />
+<code>#include &lt;boost/asio/thread_pool.hpp&gt;</code><br />
+<code>#include &lt;boost/bind.hpp&gt;</code><br />
+<code>#include &lt;builders/roundbuilder.h&gt;</code><br />
+<code>#include &lt;pthread.h&gt;</code><br />
+<code>#include &lt;semaphore.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
 </div>
 <p><a href="cipheranalyzer_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -118,6 +126,15 @@ Typedefs</h2></td></tr>
 <tr class="memitem:af0d793f5c67134e13b7f57ddc32ff066"><td class="memItemLeft" align="right" valign="top">typedef std::shared_ptr&lt; <a class="el" href="class_cipher_analyzer.html">CipherAnalyzer</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cipheranalyzer_8h.html#af0d793f5c67134e13b7f57ddc32ff066">CipherAnalyzerPtr</a></td></tr>
 <tr class="memdesc:af0d793f5c67134e13b7f57ddc32ff066"><td class="mdescLeft">&#160;</td><td class="mdescRight">shorthand for std::shared_ptr&lt;CipherAnalyzer&gt;  <a href="cipheranalyzer_8h.html#af0d793f5c67134e13b7f57ddc32ff066">More...</a><br /></td></tr>
 <tr class="separator:af0d793f5c67134e13b7f57ddc32ff066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ab5651b6894e7d54c6457e392d8cc0b71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cipheranalyzer_8h.html#af0d793f5c67134e13b7f57ddc32ff066">CipherAnalyzerPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cipheranalyzer_8h.html#ab5651b6894e7d54c6457e392d8cc0b71">make_cipher_analyzer</a> (map&lt; string, RoundBuilderPtr &gt; round_builders, vector&lt; string &gt; round_names, double global_threshold)</td></tr>
+<tr class="memdesc:ab5651b6894e7d54c6457e392d8cc0b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">make_cipher_analyzer  <a href="cipheranalyzer_8h.html#ab5651b6894e7d54c6457e392d8cc0b71">More...</a><br /></td></tr>
+<tr class="separator:ab5651b6894e7d54c6457e392d8cc0b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a508f6b0763e2b1424a65d6ea265e6348"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cipheranalyzer_8h.html#af0d793f5c67134e13b7f57ddc32ff066">CipherAnalyzerPtr</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cipheranalyzer_8h.html#a508f6b0763e2b1424a65d6ea265e6348">make_cipher_analyzer</a> (map&lt; string, RoundBuilderPtr &gt; round_builders, vector&lt; string &gt; round_names, double global_threshold, vector&lt; double &gt; opt_probs)</td></tr>
+<tr class="memdesc:a508f6b0763e2b1424a65d6ea265e6348"><td class="mdescLeft">&#160;</td><td class="mdescRight">same as previous function, but also includes <code>opt_probs</code>  <a href="cipheranalyzer_8h.html#a508f6b0763e2b1424a65d6ea265e6348">More...</a><br /></td></tr>
+<tr class="separator:a508f6b0763e2b1424a65d6ea265e6348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>implementation of the <a class="el" href="class_cipher_analyzer.html" title="a CipherAnalyzer is a collection of rounds of a cipher that are linked togheter linearly.">CipherAnalyzer</a> class </p>
@@ -138,7 +155,105 @@ Typedefs</h2></td></tr>
 
 <p>shorthand for std::shared_ptr&lt;CipherAnalyzer&gt; </p>
 
-<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00014">14</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cipheranalyzer_8h_source.html#l00021">21</a> of file <a class="el" href="cipheranalyzer_8h_source.html">cipheranalyzer.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="ab5651b6894e7d54c6457e392d8cc0b71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5651b6894e7d54c6457e392d8cc0b71">&#9670;&nbsp;</a></span>make_cipher_analyzer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="cipheranalyzer_8h.html#af0d793f5c67134e13b7f57ddc32ff066">CipherAnalyzerPtr</a> make_cipher_analyzer </td>
+          <td>(</td>
+          <td class="paramtype">map&lt; string, RoundBuilderPtr &gt;&#160;</td>
+          <td class="paramname"><em>round_builders</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>round_names</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>global_threshold</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>make_cipher_analyzer </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">round_builders</td><td>the RoundBuilders which the cipher uses to build it's internal structure </td></tr>
+    <tr><td class="paramname">round_names</td><td>the name of the rounds of which the chipher is composed </td></tr>
+    <tr><td class="paramname">global_threshold</td><td>the initial global theshold </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a new CipherAnalyzerPtr with the specified arguments </dd></dl>
+
+</div>
+</div>
+<a id="a508f6b0763e2b1424a65d6ea265e6348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a508f6b0763e2b1424a65d6ea265e6348">&#9670;&nbsp;</a></span>make_cipher_analyzer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="cipheranalyzer_8h.html#af0d793f5c67134e13b7f57ddc32ff066">CipherAnalyzerPtr</a> make_cipher_analyzer </td>
+          <td>(</td>
+          <td class="paramtype">map&lt; string, RoundBuilderPtr &gt;&#160;</td>
+          <td class="paramname"><em>round_builders</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; string &gt;&#160;</td>
+          <td class="paramname"><em>round_names</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>global_threshold</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">vector&lt; double &gt;&#160;</td>
+          <td class="paramname"><em>opt_probs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>same as previous function, but also includes <code>opt_probs</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">round_builders</td><td>the RoundBuilders which the cipher uses to build it's internal structure </td></tr>
+    <tr><td class="paramname">round_names</td><td>the name of the rounds of which the chipher is composed </td></tr>
+    <tr><td class="paramname">global_threshold</td><td>the initial global theshold </td></tr>
+    <tr><td class="paramname">opt_probs</td><td>the initial optimal probabilites for previous rounds </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a new CipherAnalyzerPtr with the specified arguments </dd></dl>
 
 </div>
 </div>

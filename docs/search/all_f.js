@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['xorbox_77',['XorBox',['../class_xor_box.html',1,'XorBox'],['../class_xor_box.html#a24101ffaab6b1704839ce65bd7547c44',1,'XorBox::XorBox(size_t data_size, const vector&lt; pair&lt; AbstractBoxPtr, Connection &gt;&gt; &amp;dst_boxes) noexcept(false)'],['../class_xor_box.html#a3404aaa0b248a3cb54670e91ffef1418',1,'XorBox::XorBox(size_t data_size)']]],
-  ['xorbox_2eh_78',['xorbox.h',['../xorbox_8h.html',1,'']]],
-  ['xorboxptr_79',['XorBoxPtr',['../xorbox_8h.html#af0707abd9a2ee0d4755a49112dfeed29',1,'xorbox.h']]]
+  ['table_5fentry_94',['table_entry',['../class_s_box.html#a6a4107df5cb7510ab99c09cd944661a4',1,'SBox']]],
+  ['table_5fidx_95',['table_idx',['../class_s_box.html#a25eb4eeb1b17fe6085f5b9545a445e32',1,'SBox']]],
+  ['to_5fdynamic_5fbitset_96',['to_dynamic_bitset',['../helpers_8h.html#a4a5477b214293a1af3fcb0e45e7bef62',1,'to_dynamic_bitset(size_t input, size_t bit_size):&#160;helpers.h'],['../helpers_8h.html#a020167314a48242c09622ee168308de7',1,'to_dynamic_bitset(unsigned int input, size_t bit_size):&#160;helpers.h'],['../helpers_8h.html#aba67c98560043387133b9f2e096fbaed',1,'to_dynamic_bitset(unsigned long long input, size_t bit_size):&#160;helpers.h']]]
 ];

@@ -110,8 +110,8 @@ $(document).ready(function(){initNavTree('class_round_function.html',''); initRe
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:afa6e9fe2610bed8c33ddf5f973f97caf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_round_function.html#afa6e9fe2610bed8c33ddf5f973f97caf">RoundFunction</a> (string src_id, string dst_id, map&lt; string, <a class="el" href="abstractbox_8h.html#a2e773a99dcc7e1563c6408ea463ddd7d">AbstractBoxConstructor</a> &gt; constrs, map&lt; string, vector&lt; <a class="el" href="helpers_8h.html#a86d4d9a947d49d098bdbb9d2dcd474f7">NamedConnection</a> &gt;&gt; conns)</td></tr>
-<tr class="separator:afa6e9fe2610bed8c33ddf5f973f97caf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a242b6c443c356c8511e91d2e76ed6dd8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_round_function.html#a242b6c443c356c8511e91d2e76ed6dd8">RoundFunction</a> (string src_id, string dst_id, map&lt; string, AbstractBoxBuilderPtr &gt; constrs, map&lt; string, vector&lt; <a class="el" href="helpers_8h.html#a86d4d9a947d49d098bdbb9d2dcd474f7">NamedConnection</a> &gt;&gt; conns)</td></tr>
+<tr class="separator:a242b6c443c356c8511e91d2e76ed6dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4d6a39b9a1fc7941bae95728a85dbf4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_round_function.html#af4d6a39b9a1fc7941bae95728a85dbf4">is_determined</a> ()</td></tr>
 <tr class="memdesc:af4d6a39b9a1fc7941bae95728a85dbf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for <code>is_det</code>  <a href="class_round_function.html#af4d6a39b9a1fc7941bae95728a85dbf4">More...</a><br /></td></tr>
 <tr class="separator:af4d6a39b9a1fc7941bae95728a85dbf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -130,11 +130,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a08b9ff94ff9d31425d95028e0af972fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_round_function.html#a08b9ff94ff9d31425d95028e0af972fd">advance_state</a> ()</td></tr>
 <tr class="memdesc:a08b9ff94ff9d31425d95028e0af972fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">advances to the next internal state state of the round function  <a href="class_round_function.html#a08b9ff94ff9d31425d95028e0af972fd">More...</a><br /></td></tr>
 <tr class="separator:a08b9ff94ff9d31425d95028e0af972fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0409c4581f72c802f098eebf6fa45fb3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_round_function.html#a0409c4581f72c802f098eebf6fa45fb3">top_sort_boxes</a> (<a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a> <a class="el" href="class_round_function.html#a9c267f8eff23a0b24df0d5ff2ef4c203">src</a>, vector&lt; <a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a> &gt; &amp;top_sort, map&lt; <a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a>, bool &gt; &amp;is_visited)</td></tr>
-<tr class="memdesc:a0409c4581f72c802f098eebf6fa45fb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">topological sort of boxes starting from <code>src</code>  <a href="class_round_function.html#a0409c4581f72c802f098eebf6fa45fb3">More...</a><br /></td></tr>
-<tr class="separator:a0409c4581f72c802f098eebf6fa45fb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab791a304301d3f3cabec0276cd5343ce"><td class="memItemLeft" align="right" valign="top">vector&lt; <a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_round_function.html#ab791a304301d3f3cabec0276cd5343ce">sort_boxes</a> (<a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a> <a class="el" href="class_round_function.html#a9c267f8eff23a0b24df0d5ff2ef4c203">src</a>)</td></tr>
-<tr class="memdesc:ab791a304301d3f3cabec0276cd5343ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">wrapper over <code>top_sort_boxes</code>  <a href="class_round_function.html#ab791a304301d3f3cabec0276cd5343ce">More...</a><br /></td></tr>
+<tr class="memdesc:ab791a304301d3f3cabec0276cd5343ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">a breadth-first search implementation of a topological sort of the box-graph of the round.  <a href="class_round_function.html#ab791a304301d3f3cabec0276cd5343ce">More...</a><br /></td></tr>
 <tr class="separator:ab791a304301d3f3cabec0276cd5343ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -154,6 +151,12 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a93288af1677f852da7d9c1800957e2e4"><td class="memItemLeft" align="right" valign="top">vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_round_function.html#a93288af1677f852da7d9c1800957e2e4">partial_prob</a></td></tr>
 <tr class="memdesc:a93288af1677f852da7d9c1800957e2e4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>vector</code> of all previous partial probabilities up to curr_box_idx.  <a href="class_round_function.html#a93288af1677f852da7d9c1800957e2e4">More...</a><br /></td></tr>
 <tr class="separator:a93288af1677f852da7d9c1800957e2e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53ec33cd55d5da607538e004132a44d4"><td class="memItemLeft" align="right" valign="top">vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_round_function.html#a53ec33cd55d5da607538e004132a44d4">partial_best_prob</a></td></tr>
+<tr class="memdesc:a53ec33cd55d5da607538e004132a44d4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>vector</code> of the previous best probabilities that a box could output.  <a href="class_round_function.html#a53ec33cd55d5da607538e004132a44d4">More...</a><br /></td></tr>
+<tr class="separator:a53ec33cd55d5da607538e004132a44d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5b90a6c245526c399295e2c66322bce"><td class="memItemLeft" align="right" valign="top">vector&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_round_function.html#ac5b90a6c245526c399295e2c66322bce">end_det</a></td></tr>
+<tr class="memdesc:ac5b90a6c245526c399295e2c66322bce"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>vector</code> of all the boxes that have a set input when at <code>curr_box_idx</code>.  <a href="class_round_function.html#ac5b90a6c245526c399295e2c66322bce">More...</a><br /></td></tr>
+<tr class="separator:ac5b90a6c245526c399295e2c66322bce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0645565fa52e7d886cd68096deef15e7"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_round_function.html#a0645565fa52e7d886cd68096deef15e7">beta_thresh</a></td></tr>
 <tr class="memdesc:a0645565fa52e7d886cd68096deef15e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">the minimum probability threshold such that the round function outputs a state.  <a href="class_round_function.html#a0645565fa52e7d886cd68096deef15e7">More...</a><br /></td></tr>
 <tr class="separator:a0645565fa52e7d886cd68096deef15e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -171,10 +174,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
 <div class="textblock"><p>a <a class="el" href="class_round_function.html" title="a RoundFunction is a graph-like collection of boxes (or nodes) that are connected with eachother thro...">RoundFunction</a> is a graph-like collection of boxes (or nodes) that are connected with eachother through <code>Connection</code>s (or edges). </p>
 <p>The structure of a <a class="el" href="class_round_function.html" title="a RoundFunction is a graph-like collection of boxes (or nodes) that are connected with eachother thro...">RoundFunction</a> is a directed acyclic graph of boxes, with one source <code>src</code> and one destination <code>dst</code> </p>
 
-<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00019">19</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00021">21</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="afa6e9fe2610bed8c33ddf5f973f97caf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa6e9fe2610bed8c33ddf5f973f97caf">&#9670;&nbsp;</a></span>RoundFunction()</h2>
+<a id="a242b6c443c356c8511e91d2e76ed6dd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a242b6c443c356c8511e91d2e76ed6dd8">&#9670;&nbsp;</a></span>RoundFunction()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -194,7 +197,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">map&lt; string, <a class="el" href="abstractbox_8h.html#a2e773a99dcc7e1563c6408ea463ddd7d">AbstractBoxConstructor</a> &gt;&#160;</td>
+          <td class="paramtype">map&lt; string, AbstractBoxBuilderPtr &gt;&#160;</td>
           <td class="paramname"><em>constrs</em>, </td>
         </tr>
         <tr>
@@ -251,58 +254,6 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
 
 </div>
 </div>
-<a id="a0409c4581f72c802f098eebf6fa45fb3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0409c4581f72c802f098eebf6fa45fb3">&#9670;&nbsp;</a></span>top_sort_boxes()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void RoundFunction::top_sort_boxes </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a>&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">vector&lt; <a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>top_sort</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">map&lt; <a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a>, bool &gt; &amp;&#160;</td>
-          <td class="paramname"><em>is_visited</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>topological sort of boxes starting from <code>src</code> </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">src</td><td>the current node in the depth-first search of the box-graph </td></tr>
-    <tr><td class="paramname">top_sort</td><td>topologically sorted <code>vector</code> of boxes, it is built during the dfs </td></tr>
-    <tr><td class="paramname">is_visited</td><td>a map that keeps track of which boxes have already been visited, used in dfs. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="ab791a304301d3f3cabec0276cd5343ce"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab791a304301d3f3cabec0276cd5343ce">&#9670;&nbsp;</a></span>sort_boxes()</h2>
 
@@ -327,8 +278,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
 </table>
 </div><div class="memdoc">
 
-<p>wrapper over <code>top_sort_boxes</code> </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>a breadth-first search implementation of a topological sort of the box-graph of the round. </p>
+<p>Has the property that the boxes that have received all their input after the current box in the <code><a class="el" href="class_round_function.html#a08b9ff94ff9d31425d95028e0af972fd" title="advances to the next internal state state of the round function">advance_state()</a></code> function are a substring. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">src</td><td>is the root of the box-graph that will be visited, should be the same as <code><a class="el" href="class_round_function.html" title="a RoundFunction is a graph-like collection of boxes (or nodes) that are connected with eachother thro...">RoundFunction</a></code>'s <code>src</code> </td></tr>
   </table>
@@ -465,7 +416,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
 <p>entry point in the round function. </p>
 <p>Typically an <a class="el" href="class_identity_box.html" title="An IdentityBox is a box that represents the identity function out_bits[i] = in_bits[i].">IdentityBox</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00024">24</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00028">28</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
 
 </div>
 </div>
@@ -492,7 +443,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
 <p>exit of the round function. </p>
 <p>Typically an <a class="el" href="class_identity_box.html" title="An IdentityBox is a box that represents the identity function out_bits[i] = in_bits[i].">IdentityBox</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00029">29</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00033">33</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
 
 </div>
 </div>
@@ -519,7 +470,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
 <p>a collection of all boxes that form this round. </p>
 <p>The boxes are stored in their topological order (i.e. If <code>box1</code> sends bits to <code>box2</code> when <code>box1.notify_all()</code> is called, then <code>box1</code> comes before <code>box2</code> in the topological sort). </p>
 
-<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00036">36</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00040">40</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
 
 </div>
 </div>
@@ -545,7 +496,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
 
 <p>the index in <code>boxes</code> of the current box in the search algorithm </p>
 
-<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00041">41</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00045">45</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
 
 </div>
 </div>
@@ -572,7 +523,61 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
 <p><code>vector</code> of all previous partial probabilities up to curr_box_idx. </p>
 <p>Used in calculating the final probability of the round function. </p>
 
-<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00047">47</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00051">51</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
+
+</div>
+</div>
+<a id="a53ec33cd55d5da607538e004132a44d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53ec33cd55d5da607538e004132a44d4">&#9670;&nbsp;</a></span>partial_best_prob</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;double&gt; RoundFunction::partial_best_prob</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>vector</code> of the previous best probabilities that a box could output. </p>
+<p>Used in optimizing out branches of the search tree. </p>
+
+<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00057">57</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
+
+</div>
+</div>
+<a id="ac5b90a6c245526c399295e2c66322bce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5b90a6c245526c399295e2c66322bce">&#9670;&nbsp;</a></span>end_det</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;size_t&gt; RoundFunction::end_det</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>vector</code> of all the boxes that have a set input when at <code>curr_box_idx</code>. </p>
+<p>Used in optimizing out branches of the search tree. </p>
+
+<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00063">63</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
 
 </div>
 </div>
@@ -598,7 +603,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
 
 <p>the minimum probability threshold such that the round function outputs a state. </p>
 
-<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00052">52</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00068">68</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
 
 </div>
 </div>
@@ -624,7 +629,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>CipherAnalyzer</b></
 
 <p>a boolean value that should be true if and only if all possible outputs have been determined and returned </p>
 
-<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00057">57</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="roundfunction_8h_source.html#l00073">73</a> of file <a class="el" href="roundfunction_8h_source.html">roundfunction.h</a>.</p>
 
 </div>
 </div>

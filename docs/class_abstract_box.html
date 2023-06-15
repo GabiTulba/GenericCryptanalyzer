@@ -95,6 +95,7 @@ $(document).ready(function(){initNavTree('class_abstract_box.html',''); initResi
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="#friends">Friends</a>  </div>
   <div class="headertitle">
@@ -109,14 +110,14 @@ $(document).ready(function(){initNavTree('class_abstract_box.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a97ceb2f6759f4ff522b9cd69a67044a7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_box.html#a97ceb2f6759f4ff522b9cd69a67044a7">AbstractBox</a> (size_t in_size, size_t out_size, const vector&lt; pair&lt; <a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a>, <a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a> &gt;&gt; &amp;<a class="el" href="class_abstract_box.html#a86fae4e89764dfa7f013a500c6aeac98">dst_boxes</a>) noexcept(false)</td></tr>
-<tr class="separator:a97ceb2f6759f4ff522b9cd69a67044a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b60b90aadcd705ff368616b98419955"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_box.html#a9b60b90aadcd705ff368616b98419955">AbstractBox</a> (size_t in_size, size_t out_size)</td></tr>
-<tr class="memdesc:a9b60b90aadcd705ff368616b98419955"><td class="mdescLeft">&#160;</td><td class="mdescRight">similar to the previous constructor, but leaves <code>dst_boxes</code> empty  <a href="class_abstract_box.html#a9b60b90aadcd705ff368616b98419955">More...</a><br /></td></tr>
 <tr class="separator:a9b60b90aadcd705ff368616b98419955"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47dd87ad0eefd59fa5997778349b424d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_box.html#a47dd87ad0eefd59fa5997778349b424d">add_dest</a> (<a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a> dst_box, <a class="el" href="struct_bits_range.html">BitsRange</a> out_range, <a class="el" href="struct_bits_range.html">BitsRange</a> in_range) noexcept(false)</td></tr>
 <tr class="memdesc:a47dd87ad0eefd59fa5997778349b424d"><td class="mdescLeft">&#160;</td><td class="mdescRight">add_dest adds a new destination box for the output of the box to flow to  <a href="class_abstract_box.html#a47dd87ad0eefd59fa5997778349b424d">More...</a><br /></td></tr>
 <tr class="separator:a47dd87ad0eefd59fa5997778349b424d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ab716aadef5183d900ffa3fa255ae21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_box.html#a1ab716aadef5183d900ffa3fa255ae21">add_src</a> (<a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a> src_box, <a class="el" href="struct_bits_range.html">BitsRange</a> out_range, <a class="el" href="struct_bits_range.html">BitsRange</a> in_range) noexcept(false)</td></tr>
+<tr class="memdesc:a1ab716aadef5183d900ffa3fa255ae21"><td class="mdescLeft">&#160;</td><td class="mdescRight">add_src adds a new source box for the input of the box  <a href="class_abstract_box.html#a1ab716aadef5183d900ffa3fa255ae21">More...</a><br /></td></tr>
+<tr class="separator:a1ab716aadef5183d900ffa3fa255ae21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbea00a2927120ba929dacc5604f0e48"><td class="memItemLeft" align="right" valign="top">const dynamic_bitset &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_box.html#adbea00a2927120ba929dacc5604f0e48">get_input</a> ()</td></tr>
 <tr class="memdesc:adbea00a2927120ba929dacc5604f0e48"><td class="mdescLeft">&#160;</td><td class="mdescRight">getter for <code>in_bits</code>  <a href="class_abstract_box.html#adbea00a2927120ba929dacc5604f0e48">More...</a><br /></td></tr>
 <tr class="separator:adbea00a2927120ba929dacc5604f0e48"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -148,6 +149,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8167884950f5778ee88151c705abf50c"><td class="mdescLeft">&#160;</td><td class="mdescRight">get the probability of the current characteristic  <a href="class_abstract_box.html#a8167884950f5778ee88151c705abf50c">More...</a><br /></td></tr>
 <tr class="separator:a8167884950f5778ee88151c705abf50c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a09e6690ade6121133a0141ec6674ee38"><td class="memItemLeft" align="right" valign="top">virtual double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_box.html#a09e6690ade6121133a0141ec6674ee38">get_best_prob</a> ()=0</td></tr>
+<tr class="memdesc:a09e6690ade6121133a0141ec6674ee38"><td class="mdescLeft">&#160;</td><td class="mdescRight">get_best_prob return the best probability of an output for the box  <a href="class_abstract_box.html#a09e6690ade6121133a0141ec6674ee38">More...</a><br /></td></tr>
+<tr class="separator:a09e6690ade6121133a0141ec6674ee38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aaa4bc2720892ca29f1bbbf574f33a0cc"><td class="memItemLeft" align="right" valign="top">dynamic_bitset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_box.html#aaa4bc2720892ca29f1bbbf574f33a0cc">in_bits</a></td></tr>
@@ -156,6 +163,9 @@ Protected Attributes</h2></td></tr>
 <tr class="memitem:a94c3770a5163b6ec4636473ef24026d1"><td class="memItemLeft" align="right" valign="top">dynamic_bitset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_box.html#a94c3770a5163b6ec4636473ef24026d1">out_bits</a></td></tr>
 <tr class="memdesc:a94c3770a5163b6ec4636473ef24026d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">the bits that flow out of the box  <a href="class_abstract_box.html#a94c3770a5163b6ec4636473ef24026d1">More...</a><br /></td></tr>
 <tr class="separator:a94c3770a5163b6ec4636473ef24026d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebaea7555ebd8d01bc5221d2d22275d2"><td class="memItemLeft" align="right" valign="top">vector&lt; pair&lt; <a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a>, <a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_box.html#aebaea7555ebd8d01bc5221d2d22275d2">src_boxes</a></td></tr>
+<tr class="memdesc:aebaea7555ebd8d01bc5221d2d22275d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">describes where bits from previous boxes flow into the <code>in_bits</code> of this box  <a href="class_abstract_box.html#aebaea7555ebd8d01bc5221d2d22275d2">More...</a><br /></td></tr>
+<tr class="separator:aebaea7555ebd8d01bc5221d2d22275d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86fae4e89764dfa7f013a500c6aeac98"><td class="memItemLeft" align="right" valign="top">vector&lt; pair&lt; <a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a>, <a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_abstract_box.html#a86fae4e89764dfa7f013a500c6aeac98">dst_boxes</a></td></tr>
 <tr class="memdesc:a86fae4e89764dfa7f013a500c6aeac98"><td class="mdescLeft">&#160;</td><td class="mdescRight">describes how the <code>out_bits</code> flow from this box to other following boxes  <a href="class_abstract_box.html#a86fae4e89764dfa7f013a500c6aeac98">More...</a><br /></td></tr>
 <tr class="separator:a86fae4e89764dfa7f013a500c6aeac98"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -176,67 +186,10 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RoundFunction</b></t
 <div class="textblock"><p>An <a class="el" href="class_abstract_box.html" title="An AbstractBox represents an abstract idea of a block cipher component such as a Pbox,...">AbstractBox</a> represents an abstract idea of a block cipher component such as a Pbox, Sbox, Xor, Addition, etc. </p>
 <p>A cipher is composed of multiple such <code>boxes</code> that communicate with each other through connections </p>
 
-<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00029">29</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00023">23</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a97ceb2f6759f4ff522b9cd69a67044a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97ceb2f6759f4ff522b9cd69a67044a7">&#9670;&nbsp;</a></span>AbstractBox() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">AbstractBox::AbstractBox </td>
-          <td>(</td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>in_size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">size_t&#160;</td>
-          <td class="paramname"><em>out_size</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const vector&lt; pair&lt; <a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a>, <a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a> &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>dst_boxes</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">in_size</td><td>size of the input bits of this box </td></tr>
-    <tr><td class="paramname">out_size</td><td>size of the output bits of this box </td></tr>
-    <tr><td class="paramname">dst_boxes</td><td>output flow connections to following boxes</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section pre"><dt>Precondition</dt><dd>for (auto &amp;dst_box : dst_boxes) { dst_box.first != nullptr &amp;&amp; dst_box.second.first.start + dst_box.second.first.len &lt;= out_bits.size() &amp;&amp; dst_box.second.first.len == dst_box.second.second.len &amp;&amp; dst_box.second.second.start + dst_box.second.second.len &lt;= dst_box.first-&gt;<a class="el" href="class_abstract_box.html#aca1dd6ac9ee336aaf4dde9cfcdcce35d" title="getter for the size of in_bits">input_size()</a>; }</dd></dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">if</td><td>the preconditions above are not fulfilled </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a9b60b90aadcd705ff368616b98419955"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b60b90aadcd705ff368616b98419955">&#9670;&nbsp;</a></span>AbstractBox() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b60b90aadcd705ff368616b98419955">&#9670;&nbsp;</a></span>AbstractBox()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -260,8 +213,6 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RoundFunction</b></t
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>similar to the previous constructor, but leaves <code>dst_boxes</code> empty </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">in_size</td><td>size of the input bits of this box </td></tr>
@@ -273,6 +224,36 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RoundFunction</b></t
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a09e6690ade6121133a0141ec6674ee38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09e6690ade6121133a0141ec6674ee38">&#9670;&nbsp;</a></span>get_best_prob()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual double AbstractBox::get_best_prob </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>get_best_prob return the best probability of an output for the box </p>
+<dl class="section return"><dt>Returns</dt><dd>a <code>double</code> representing the best probability of an output </dd></dl>
+
+<p>Implemented in <a class="el" href="class_xor_box.html#a6f4235134e8ac2fa4d3f7b640b317ad6">XorBox</a>, <a class="el" href="class_s_box.html#a62f5961fa5443534b3152479142902a7">SBox</a>, <a class="el" href="class_identity_box.html#a7fe816b52c53ccc5f16f256af074506a">IdentityBox</a>, and <a class="el" href="class_abstract_bit_shift_box.html#a690eec25862735020cbb30465d7ba681">AbstractBitShiftBox</a>.</p>
+
+</div>
+</div>
 <a id="a47dd87ad0eefd59fa5997778349b424d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a47dd87ad0eefd59fa5997778349b424d">&#9670;&nbsp;</a></span>add_dest()</h2>
 
@@ -318,11 +299,70 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RoundFunction</b></t
   <table class="params">
     <tr><td class="paramname">dst_box</td><td>a pointer to the destination box </td></tr>
     <tr><td class="paramname">out_range</td><td>a subrange of <code>out_bits</code> from this box that will flow to <code>dst_box</code> </td></tr>
-    <tr><td class="paramname">in_range</td><td>a subrange of <code>in_bit</code> from <code>dst_box</code> into which the bits will flow</td></tr>
+    <tr><td class="paramname">in_range</td><td>a subrange of <code>in_bits</code> from <code>dst_box</code> into which the bits will flow</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section pre"><dt>Precondition</dt><dd>dst_box != nullptr &amp;&amp; out_rng.start + out_rng.len &lt;= out_bits.size() &amp;&amp; in_rng.start + in_rng.len &lt;= dst_box-&gt;in_bits.size();</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">if</td><td>the precondition above is not fulfilled </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1ab716aadef5183d900ffa3fa255ae21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ab716aadef5183d900ffa3fa255ae21">&#9670;&nbsp;</a></span>add_src()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AbstractBox::add_src </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a>&#160;</td>
+          <td class="paramname"><em>src_box</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_bits_range.html">BitsRange</a>&#160;</td>
+          <td class="paramname"><em>out_range</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_bits_range.html">BitsRange</a>&#160;</td>
+          <td class="paramname"><em>in_range</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>add_src adds a new source box for the input of the box </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src_box</td><td>a pointer to the source box </td></tr>
+    <tr><td class="paramname">out_range</td><td>a subrange of <code>out_bits</code> from <code>src_box</code> that will flow into this box </td></tr>
+    <tr><td class="paramname">in_range</td><td>a subrange of <code>in_bits</code> from this box into which the bits will flow</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section pre"><dt>Precondition</dt><dd>src_box != nullptr &amp;&amp; out_rng.start + out_rng.len &lt;= src_box-&gt;out_bits.size() &amp;&amp; in_rng.start + in_rng.len &lt;= in_bits.size();</dd></dl>
 <dl class="exception"><dt>Exceptions</dt><dd>
   <table class="exception">
     <tr><td class="paramname">if</td><td>the precondition above is not fulfilled </td></tr>
@@ -599,7 +639,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RoundFunction</b></t
 
 <p>the bits that flow into the box </p>
 
-<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00034">34</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00030">30</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
 
 </div>
 </div>
@@ -625,7 +665,33 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RoundFunction</b></t
 
 <p>the bits that flow out of the box </p>
 
-<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00039">39</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00035">35</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
+
+</div>
+</div>
+<a id="aebaea7555ebd8d01bc5221d2d22275d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebaea7555ebd8d01bc5221d2d22275d2">&#9670;&nbsp;</a></span>src_boxes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt;pair&lt;<a class="el" href="abstractbox_8h.html#a2d6bff70eeb9a9bf6165fe7b3c82c03a">AbstractBoxPtr</a>, <a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a>&gt; &gt; AbstractBox::src_boxes</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>describes where bits from previous boxes flow into the <code>in_bits</code> of this box </p>
+
+<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00040">40</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
 
 </div>
 </div>
@@ -651,7 +717,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RoundFunction</b></t
 
 <p>describes how the <code>out_bits</code> flow from this box to other following boxes </p>
 
-<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00044">44</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00045">45</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
 
 </div>
 </div>
@@ -677,7 +743,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RoundFunction</b></t
 
 <p>a boolean value that should be true if and only if all possible outputs have been determined and returned </p>
 
-<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00049">49</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00050">50</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
 
 </div>
 </div>
@@ -703,7 +769,7 @@ class&#160;</td><td class="memItemRight" valign="bottom"><b>RoundFunction</b></t
 
 <p>the probability of the box to output the currently determined state </p>
 
-<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00054">54</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="abstractbox_8h_source.html#l00055">55</a> of file <a class="el" href="abstractbox_8h_source.html">abstractbox.h</a>.</p>
 
 </div>
 </div>

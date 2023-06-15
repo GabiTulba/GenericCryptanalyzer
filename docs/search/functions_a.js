@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['reset_5fdetermination_124',['reset_determination',['../class_abstract_box.html#aa48ada728a92660dfcff346ab752fc3c',1,'AbstractBox::reset_determination()'],['../class_s_box.html#a4b9b7cee3fece65834927947ca9a8f7c',1,'SBox::reset_determination()']]],
-  ['roundfunction_125',['RoundFunction',['../class_round_function.html#afa6e9fe2610bed8c33ddf5f973f97caf',1,'RoundFunction']]]
+  ['pbox_160',['PBox',['../class_p_box.html#a1cff6f03dd3b21ff2b44ab63266e24b8',1,'PBox']]],
+  ['popcnt_161',['popcnt',['../helpers_8h.html#a501cf1852026c5bece6ce55146e6297e',1,'helpers.h']]]
 ];

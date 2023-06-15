@@ -111,51 +111,34 @@ $(document).ready(function(){initNavTree('ebox_8h_source.html',''); initResizabl
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * @inherits AbstractBitShiftBox</span></div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_e_box.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_e_box.html">EBox</a> : <span class="keyword">public</span> <a class="code" href="class_abstract_bit_shift_box.html">AbstractBitShiftBox</a> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">public</span>:<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">     * @param in_size size of the input bits of this box</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">     * @param out_size size of the output bits of this box</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">     * @param dst_boxes output flow connections to following boxes</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">     * @param bit_expansion an array used to compute to describe the expansion process of the input bits</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;  <span class="keyword">public</span>:<span class="comment"></span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">    /**</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">     * @param in_size size of the input bits of this box</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">     * @param out_size size of the output bits of this box</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">     * @param bit_expansion an array used to describe the expansion process of the input bits</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">     *</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">     * @see AbstractShiftBox constructor</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">     *</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">     * @pre in_size &lt;= out_size</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">     * @throw if the preconditions of `AbstractBox` for `dst_boxes` are not fulfilled or if the precondition of</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">     * `AbstractBitShiftBox` for `out_size` is not fufilled or if the precondition above is not fulfilled</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">     * @throw if the precondition of `AbstractBitShiftBox` for `out_size` is not fufilled or if the precondition above</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">     * is not fulfilled</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_e_box.html#ab7aa44120d9d26574dc599bbd184bbe9">   29</a></span>&#160;    <a class="code" href="class_e_box.html#ab7aa44120d9d26574dc599bbd184bbe9">EBox</a>(<span class="keywordtype">size_t</span> in_size, <span class="keywordtype">size_t</span> out_size, <span class="keyword">const</span> vector&lt;pair&lt;AbstractBoxPtr, Connection&gt;&gt; &amp;<a class="code" href="class_abstract_box.html#a86fae4e89764dfa7f013a500c6aeac98">dst_boxes</a>,</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;         <span class="keyword">const</span> vector&lt;size_t&gt; &amp;bit_expansion) noexcept(<span class="keyword">false</span>);<span class="comment"></span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">    /**</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">     * @brief similar to the previous constructor, but leaves `dst_boxes` empty</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">     * @param in_size size of the input bits of this box</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">     * @param out_size size of the output bits of this box</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">     * @param bit_expansion an array used to compute to describe the expansion process of the input bits</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">     * @see AbstractShiftBox constructor</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">     * @pre in_size &lt;= out_size</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     *</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">     * @throw if the precondition of `AbstractBitShiftBox` for `out_size` is not fufilled or if the precondition above</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">     * is not fulfilled</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="class_e_box.html#ae8259d3cc53952a5d7e28841f3b69227">   44</a></span>&#160;    <a class="code" href="class_e_box.html#ae8259d3cc53952a5d7e28841f3b69227">EBox</a>(<span class="keywordtype">size_t</span> in_size, <span class="keywordtype">size_t</span> out_size, <span class="keyword">const</span> vector&lt;size_t&gt; &amp;bit_expansion) noexcept(<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment"></span> </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment"> * @brief shorthand for std::shared_ptr&lt;Ebox&gt;</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="ebox_8h.html#aefba8201a4a739d62578a5820982524c">   50</a></span>&#160;<span class="keyword">typedef</span> std::shared_ptr&lt;EBox&gt; <a class="code" href="ebox_8h.html#aefba8201a4a739d62578a5820982524c">EBoxPtr</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// EBOX_H</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="class_e_box.html#ae8259d3cc53952a5d7e28841f3b69227">   29</a></span>&#160;    <a class="code" href="class_e_box.html#ae8259d3cc53952a5d7e28841f3b69227">EBox</a>(<span class="keywordtype">size_t</span> in_size, <span class="keywordtype">size_t</span> out_size, <span class="keyword">const</span> vector&lt;size_t&gt; &amp;bit_expansion) noexcept(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment"></span> </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment"> * @brief shorthand for std::shared_ptr&lt;Ebox&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="ebox_8h.html#aefba8201a4a739d62578a5820982524c">   35</a></span>&#160;<span class="keyword">typedef</span> std::shared_ptr&lt;EBox&gt; <a class="code" href="ebox_8h.html#aefba8201a4a739d62578a5820982524c">EBoxPtr</a>;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// EBOX_H</span></div>
 <div class="ttc" id="aabstractbitshiftbox_8h_html"><div class="ttname"><a href="abstractbitshiftbox_8h.html">abstractbitshiftbox.h</a></div><div class="ttdoc">implementation of the AbstractBitShiftBox class</div></div>
 <div class="ttc" id="aclass_abstract_bit_shift_box_html"><div class="ttname"><a href="class_abstract_bit_shift_box.html">AbstractBitShiftBox</a></div><div class="ttdoc">An AbstractBitShiftBox represents a generic box that transforms input in output by shifting bits arou...</div><div class="ttdef"><b>Definition:</b> <a href="abstractbitshiftbox_8h_source.html#l00021">abstractbitshiftbox.h:21</a></div></div>
-<div class="ttc" id="aclass_abstract_box_html_a86fae4e89764dfa7f013a500c6aeac98"><div class="ttname"><a href="class_abstract_box.html#a86fae4e89764dfa7f013a500c6aeac98">AbstractBox::dst_boxes</a></div><div class="ttdeci">vector&lt; pair&lt; AbstractBoxPtr, Connection &gt; &gt; dst_boxes</div><div class="ttdoc">describes how the out_bits flow from this box to other following boxes</div><div class="ttdef"><b>Definition:</b> <a href="abstractbox_8h_source.html#l00044">abstractbox.h:44</a></div></div>
 <div class="ttc" id="aclass_e_box_html"><div class="ttname"><a href="class_e_box.html">EBox</a></div><div class="ttdoc">An EBox is a box that takes the input bits and expands them to the output by using some of multiple t...</div><div class="ttdef"><b>Definition:</b> <a href="ebox_8h_source.html#l00014">ebox.h:14</a></div></div>
-<div class="ttc" id="aclass_e_box_html_ab7aa44120d9d26574dc599bbd184bbe9"><div class="ttname"><a href="class_e_box.html#ab7aa44120d9d26574dc599bbd184bbe9">EBox::EBox</a></div><div class="ttdeci">EBox(size_t in_size, size_t out_size, const vector&lt; pair&lt; AbstractBoxPtr, Connection &gt;&gt; &amp;dst_boxes, const vector&lt; size_t &gt; &amp;bit_expansion) noexcept(false)</div></div>
-<div class="ttc" id="aclass_e_box_html_ae8259d3cc53952a5d7e28841f3b69227"><div class="ttname"><a href="class_e_box.html#ae8259d3cc53952a5d7e28841f3b69227">EBox::EBox</a></div><div class="ttdeci">EBox(size_t in_size, size_t out_size, const vector&lt; size_t &gt; &amp;bit_expansion) noexcept(false)</div><div class="ttdoc">similar to the previous constructor, but leaves dst_boxes empty</div></div>
-<div class="ttc" id="aebox_8h_html_aefba8201a4a739d62578a5820982524c"><div class="ttname"><a href="ebox_8h.html#aefba8201a4a739d62578a5820982524c">EBoxPtr</a></div><div class="ttdeci">std::shared_ptr&lt; EBox &gt; EBoxPtr</div><div class="ttdoc">shorthand for std::shared_ptr&lt;Ebox&gt;</div><div class="ttdef"><b>Definition:</b> <a href="ebox_8h_source.html#l00050">ebox.h:50</a></div></div>
+<div class="ttc" id="aclass_e_box_html_ae8259d3cc53952a5d7e28841f3b69227"><div class="ttname"><a href="class_e_box.html#ae8259d3cc53952a5d7e28841f3b69227">EBox::EBox</a></div><div class="ttdeci">EBox(size_t in_size, size_t out_size, const vector&lt; size_t &gt; &amp;bit_expansion) noexcept(false)</div></div>
+<div class="ttc" id="aebox_8h_html_aefba8201a4a739d62578a5820982524c"><div class="ttname"><a href="ebox_8h.html#aefba8201a4a739d62578a5820982524c">EBoxPtr</a></div><div class="ttdeci">std::shared_ptr&lt; EBox &gt; EBoxPtr</div><div class="ttdoc">shorthand for std::shared_ptr&lt;Ebox&gt;</div><div class="ttdef"><b>Definition:</b> <a href="ebox_8h_source.html#l00035">ebox.h:35</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

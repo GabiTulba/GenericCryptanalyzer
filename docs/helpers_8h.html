@@ -122,7 +122,7 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:a93aaeb110089a1d61c5ba21ba3e8a296"><td class="mdescLeft">&#160;</td><td class="mdescRight">shorthand for pair&lt;BitsRange, BitsRange&gt;.  <a href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">More...</a><br /></td></tr>
 <tr class="separator:a93aaeb110089a1d61c5ba21ba3e8a296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86d4d9a947d49d098bdbb9d2dcd474f7"><td class="memItemLeft" align="right" valign="top">typedef pair&lt; string, <a class="el" href="helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296">Connection</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a86d4d9a947d49d098bdbb9d2dcd474f7">NamedConnection</a></td></tr>
-<tr class="memdesc:a86d4d9a947d49d098bdbb9d2dcd474f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">shorthand for pair&lt;string, Connection&gt;  <a href="helpers_8h.html#a86d4d9a947d49d098bdbb9d2dcd474f7">More...</a><br /></td></tr>
+<tr class="memdesc:a86d4d9a947d49d098bdbb9d2dcd474f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">shorthand for <code>pair&lt;string, Connection&gt;</code>  <a href="helpers_8h.html#a86d4d9a947d49d098bdbb9d2dcd474f7">More...</a><br /></td></tr>
 <tr class="separator:a86d4d9a947d49d098bdbb9d2dcd474f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a519c3e2743dc3fc3bf73c62d2063e894"><td class="memItemLeft" align="right" valign="top">typedef pair&lt; dynamic_bitset&lt;&gt;, double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a519c3e2743dc3fc3bf73c62d2063e894">ProbEntry</a></td></tr>
 <tr class="memdesc:a519c3e2743dc3fc3bf73c62d2063e894"><td class="mdescLeft">&#160;</td><td class="mdescRight">shorthand for pair&lt;dynamic_bitset&lt;&gt;, double&gt;.  <a href="helpers_8h.html#a519c3e2743dc3fc3bf73c62d2063e894">More...</a><br /></td></tr>
@@ -148,12 +148,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a020167314a48242c09622ee168308de7"><td class="memItemLeft" align="right" valign="top">dynamic_bitset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a020167314a48242c09622ee168308de7">to_dynamic_bitset</a> (unsigned int input, size_t bit_size)</td></tr>
 <tr class="memdesc:a020167314a48242c09622ee168308de7"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts an <code>unsigned int</code> to a <code>dynamic_bitset</code> of size <code>bit_size</code>  <a href="helpers_8h.html#a020167314a48242c09622ee168308de7">More...</a><br /></td></tr>
 <tr class="separator:a020167314a48242c09622ee168308de7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba67c98560043387133b9f2e096fbaed"><td class="memItemLeft" align="right" valign="top">dynamic_bitset&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#aba67c98560043387133b9f2e096fbaed">to_dynamic_bitset</a> (unsigned long long input, size_t bit_size)</td></tr>
+<tr class="memdesc:aba67c98560043387133b9f2e096fbaed"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts an <code>unsigned long long</code> to a <code>dynamic_bitset</code> of size <code>bit_size</code>  <a href="helpers_8h.html#aba67c98560043387133b9f2e096fbaed">More...</a><br /></td></tr>
+<tr class="separator:aba67c98560043387133b9f2e096fbaed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11bd57d3d938769decee599b0756f775"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a11bd57d3d938769decee599b0756f775">convert_to_size_t</a> (const dynamic_bitset&lt;&gt; &amp;bits)</td></tr>
 <tr class="memdesc:a11bd57d3d938769decee599b0756f775"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a <code>dynamic_bitset</code> to a <code>size_t</code>  <a href="helpers_8h.html#a11bd57d3d938769decee599b0756f775">More...</a><br /></td></tr>
 <tr class="separator:a11bd57d3d938769decee599b0756f775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ba286f13a50d4999ac300c5c34017b5"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a1ba286f13a50d4999ac300c5c34017b5">convert_to_uint</a> (const dynamic_bitset&lt;&gt; &amp;bits)</td></tr>
 <tr class="memdesc:a1ba286f13a50d4999ac300c5c34017b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a <code>dynamic_bitset</code> to an <code>unsigned int</code>  <a href="helpers_8h.html#a1ba286f13a50d4999ac300c5c34017b5">More...</a><br /></td></tr>
 <tr class="separator:a1ba286f13a50d4999ac300c5c34017b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad074f17a45293e2c5b24b2513aa02b5a"><td class="memItemLeft" align="right" valign="top">unsigned long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#ad074f17a45293e2c5b24b2513aa02b5a">convert_to_ull</a> (const dynamic_bitset&lt;&gt; &amp;bits)</td></tr>
+<tr class="memdesc:ad074f17a45293e2c5b24b2513aa02b5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a <code>dynamic_bitset</code> to an <code>unsigned long long</code>  <a href="helpers_8h.html#ad074f17a45293e2c5b24b2513aa02b5a">More...</a><br /></td></tr>
+<tr class="separator:ad074f17a45293e2c5b24b2513aa02b5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adcc850771933bdbd84a0f85bdb22ed37"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#adcc850771933bdbd84a0f85bdb22ed37">convert_to_hex_string</a> (const dynamic_bitset&lt;&gt; &amp;bits)</td></tr>
+<tr class="memdesc:adcc850771933bdbd84a0f85bdb22ed37"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts a <code>dynamic_bitset</code> to a <code>string</code> representing it's hexadecimal representation  <a href="helpers_8h.html#adcc850771933bdbd84a0f85bdb22ed37">More...</a><br /></td></tr>
+<tr class="separator:adcc850771933bdbd84a0f85bdb22ed37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a501cf1852026c5bece6ce55146e6297e"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8h.html#a501cf1852026c5bece6ce55146e6297e">popcnt</a> (unsigned int x)</td></tr>
 <tr class="memdesc:a501cf1852026c5bece6ce55146e6297e"><td class="mdescLeft">&#160;</td><td class="mdescRight">computes the number of set bits of a 32-bit integer  <a href="helpers_8h.html#a501cf1852026c5bece6ce55146e6297e">More...</a><br /></td></tr>
 <tr class="separator:a501cf1852026c5bece6ce55146e6297e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -194,7 +203,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>shorthand for pair&lt;string, Connection&gt; </p>
+<p>shorthand for <code>pair&lt;string, Connection&gt;</code> </p>
 
 <p class="definition">Definition at line <a class="el" href="helpers_8h_source.html#l00055">55</a> of file <a class="el" href="helpers_8h_source.html">helpers.h</a>.</p>
 
@@ -337,7 +346,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a4a5477b214293a1af3fcb0e45e7bef62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4a5477b214293a1af3fcb0e45e7bef62">&#9670;&nbsp;</a></span>to_dynamic_bitset() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a5477b214293a1af3fcb0e45e7bef62">&#9670;&nbsp;</a></span>to_dynamic_bitset() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -375,7 +384,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="a020167314a48242c09622ee168308de7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a020167314a48242c09622ee168308de7">&#9670;&nbsp;</a></span>to_dynamic_bitset() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a020167314a48242c09622ee168308de7">&#9670;&nbsp;</a></span>to_dynamic_bitset() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -401,6 +410,44 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>converts an <code>unsigned int</code> to a <code>dynamic_bitset</code> of size <code>bit_size</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>a <code>size_t</code> </td></tr>
+    <tr><td class="paramname">bit_size</td><td>the size in bits </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <code>dynamic_bitset&lt;&gt;</code> representing the binary array computed from input </dd></dl>
+
+</div>
+</div>
+<a id="aba67c98560043387133b9f2e096fbaed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba67c98560043387133b9f2e096fbaed">&#9670;&nbsp;</a></span>to_dynamic_bitset() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">dynamic_bitset to_dynamic_bitset </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long long&#160;</td>
+          <td class="paramname"><em>input</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>bit_size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>converts an <code>unsigned long long</code> to a <code>dynamic_bitset</code> of size <code>bit_size</code> </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">input</td><td>a <code>size_t</code> </td></tr>
@@ -463,6 +510,60 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>an <code>unsigned int</code> representing the number formed from the binray array given as input </dd></dl>
+
+</div>
+</div>
+<a id="ad074f17a45293e2c5b24b2513aa02b5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad074f17a45293e2c5b24b2513aa02b5a">&#9670;&nbsp;</a></span>convert_to_ull()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned long long convert_to_ull </td>
+          <td>(</td>
+          <td class="paramtype">const dynamic_bitset&lt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>bits</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>converts a <code>dynamic_bitset</code> to an <code>unsigned long long</code> </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bits</td><td>a <code>dynamic_bitset</code> representing a binary array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>an <code>unsigned long long</code> representing the number formed from the binray array given as input </dd></dl>
+
+</div>
+</div>
+<a id="adcc850771933bdbd84a0f85bdb22ed37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adcc850771933bdbd84a0f85bdb22ed37">&#9670;&nbsp;</a></span>convert_to_hex_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">string convert_to_hex_string </td>
+          <td>(</td>
+          <td class="paramtype">const dynamic_bitset&lt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>bits</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>converts a <code>dynamic_bitset</code> to a <code>string</code> representing it's hexadecimal representation </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bits</td><td>a <code>dynamic_bitset</code> representing a binary array </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a <code>string</code> representing the hexadecimal representation of the bitset </dd></dl>
 
 </div>
 </div>

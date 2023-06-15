@@ -1,8 +1,7 @@
 var class_round_function =
 [
-    [ "RoundFunction", "class_round_function.html#afa6e9fe2610bed8c33ddf5f973f97caf", null ],
+    [ "RoundFunction", "class_round_function.html#a242b6c443c356c8511e91d2e76ed6dd8", null ],
     [ "advance_state", "class_round_function.html#a08b9ff94ff9d31425d95028e0af972fd", null ],
-    [ "top_sort_boxes", "class_round_function.html#a0409c4581f72c802f098eebf6fa45fb3", null ],
     [ "sort_boxes", "class_round_function.html#ab791a304301d3f3cabec0276cd5343ce", null ],
     [ "is_determined", "class_round_function.html#af4d6a39b9a1fc7941bae95728a85dbf4", null ],
     [ "get_next_state", "class_round_function.html#a727fed800137bcec8fc15b6b08ce525d", null ],
@@ -13,6 +12,8 @@ var class_round_function =
     [ "boxes", "class_round_function.html#a5ce1d671e87d995f668128b1e8f7dabb", null ],
     [ "curr_box_idx", "class_round_function.html#a3f9718cf0d02a2ed246d64fd8d84db80", null ],
     [ "partial_prob", "class_round_function.html#a93288af1677f852da7d9c1800957e2e4", null ],
+    [ "partial_best_prob", "class_round_function.html#a53ec33cd55d5da607538e004132a44d4", null ],
+    [ "end_det", "class_round_function.html#ac5b90a6c245526c399295e2c66322bce", null ],
     [ "beta_thresh", "class_round_function.html#a0645565fa52e7d886cd68096deef15e7", null ],
     [ "is_det", "class_round_function.html#ad31f1f984d67f31a26d58d776dcd9524", null ]
 ];
