@@ -57,6 +57,7 @@ endforeach()
 
 # Add the examples
 file(GLOB_RECURSE EXAMPLE_SOURCES "examples/*.cpp")
+file(GLOB_RECURSE HEADERS "examples/*.h")
 foreach(example_src ${EXAMPLE_SOURCES})
     # Get the filename without extension
     get_filename_component(example_name ${example_src} NAME_WE)

@@ -6,14 +6,7 @@ void AbstractBitShiftBox::apply_transformation() {
     }
 }
 
-AbstractBitShiftBox::AbstractBitShiftBox(size_t input_size, size_t output_size,
-                                         const vector<pair<AbstractBoxPtr, Connection>> &dest_boxes,
-                                         const vector<size_t> &bit_source) noexcept(false)
-    : AbstractBox(input_size, output_size, dest_boxes), bit_src(bit_source) {
-    if (bit_source.size() != output_size) {
-        throw std::logic_error("input and output sizes must be equal");
-    }
-}
+double AbstractBitShiftBox::get_best_prob() { return 1.0; }
 
 AbstractBitShiftBox::AbstractBitShiftBox(size_t input_size, size_t output_size,
                                          const vector<size_t> &bit_source) noexcept(false)

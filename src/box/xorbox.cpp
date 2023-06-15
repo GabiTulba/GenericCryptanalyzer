@@ -1,7 +1,6 @@
 #include "xorbox.h"
 
-XorBox::XorBox(size_t data_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes) noexcept(false)
-    : AbstractBox(data_size * 2, data_size, dst_boxes) {}
+double XorBox::get_best_prob() { return 1.0; }
 
 XorBox::XorBox(size_t data_size) : AbstractBox(data_size * 2, data_size) {}
 

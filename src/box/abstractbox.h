@@ -17,16 +17,12 @@ class AbstractBox;
 typedef std::shared_ptr<AbstractBox> AbstractBoxPtr;
 
 /**
- * @brief shorthand for `function<AbstractBoxPtr()>`. Represents a way to create an
- * AbstractBoxPtr
- */
-typedef std::function<AbstractBoxPtr()> AbstractBoxConstructor;
-
-/**
  * @brief An AbstractBox represents an abstract idea of a block cipher component such as a Pbox, Sbox, Xor, Addition,
  * etc. A cipher is composed of multiple such `boxes` that communicate with each other through connections
  */
 class AbstractBox {
+    friend class RoundFunction;
+
   protected:
     /**
      * @brief the bits that flow into the box
@@ -37,6 +33,11 @@ class AbstractBox {
      * @brief the bits that flow out of the box
      */
     dynamic_bitset<> out_bits;
+
+    /**
+     * @brief describes where bits from previous boxes flow into the `in_bits` of this box
+     */
+    vector<pair<AbstractBoxPtr, Connection>> src_boxes;
 
     /**
      * @brief describes how the `out_bits` flow from this box to other following boxes
@@ -53,27 +54,14 @@ class AbstractBox {
      */
     double prob;
 
-    friend class RoundFunction;
+    /**
+     * @brief get_best_prob return the best probability of an output for the box
+     * @return a `double` representing the best probability of an output
+     */
+    virtual double get_best_prob() = 0;
 
   public:
     /**
-     * @param in_size size of the input bits of this box
-     * @param out_size size of the output bits of this box
-     * @param dst_boxes output flow connections to following boxes
-     *
-     * @pre for (auto &dst_box : dst_boxes) {
-                dst_box.first != nullptr && dst_box.second.first.start + dst_box.second.first.len <= out_bits.size() &&
-                dst_box.second.first.len == dst_box.second.second.len &&
-                dst_box.second.second.start + dst_box.second.second.len <= dst_box.first->input_size();
-            }
-     *
-     * @throw if the preconditions above are not fulfilled
-     */
-    AbstractBox(size_t in_size, size_t out_size,
-                const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes) noexcept(false);
-
-    /**
-     * @brief similar to the previous constructor, but leaves `dst_boxes` empty
      * @param in_size size of the input bits of this box
      * @param out_size size of the output bits of this box
      */
@@ -83,7 +71,7 @@ class AbstractBox {
      * @brief add_dest adds a new destination box for the output of the box to flow to
      * @param dst_box a pointer to the destination box
      * @param out_range a subrange of `out_bits` from this box that will flow to `dst_box`
-     * @param in_range a subrange of `in_bit` from `dst_box` into which the bits will flow
+     * @param in_range a subrange of `in_bits` from `dst_box` into which the bits will flow
      *
      * @pre dst_box != nullptr && out_rng.start + out_rng.len <= out_bits.size() &&
      *      in_rng.start + in_rng.len <= dst_box->in_bits.size();
@@ -92,6 +80,20 @@ class AbstractBox {
 
      */
     void add_dest(AbstractBoxPtr dst_box, BitsRange out_range, BitsRange in_range) noexcept(false);
+
+    /**
+     * @brief add_src adds a new source box for the input of the box
+     * @param src_box a pointer to the source box
+     * @param out_range a subrange of `out_bits` from `src_box` that will flow into this box
+     * @param in_range a subrange of `in_bits` from this box into which the bits will flow
+     *
+     * @pre src_box != nullptr && out_rng.start + out_rng.len <= src_box->out_bits.size() &&
+     *      in_rng.start + in_rng.len <= in_bits.size();
+     *
+     * @throw if the precondition above is not fulfilled
+
+     */
+    void add_src(AbstractBoxPtr src_box, BitsRange out_range, BitsRange in_range) noexcept(false);
 
     /**
      * @brief getter for `in_bits`

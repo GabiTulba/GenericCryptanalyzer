@@ -30,23 +30,15 @@ class AbstractBitShiftBox : public AbstractBox {
      */
     void apply_transformation();
 
+    /**
+     * @brief get_best_prob return the best probability of an output for the box, for the AbstractBitShiftBox class,
+     * this is always 1.0
+     * @return a `double` with the value of 1.0
+     */
+    double get_best_prob() override;
+
   public:
     /**
-     * @param in_size size of the input bits of this box
-     * @param out_size size of the output bits of this box
-     * @param dst_boxes output flow connections to following boxes
-     * @param bit_src an array used to compute `out_bits` from `in_bits`
-     *
-     * @pre bit_source.size() == output_size
-     *
-     * @throw if the preconditions of `AbstractBox` for `dst_boxes` are not fulfilled or if the precondition above is
-     * not fulfilled
-     */
-    AbstractBitShiftBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
-                        const vector<size_t> &bit_src) noexcept(false);
-
-    /**
-     * @brief similar to the previous constructor, but leaves `dst_boxes` empty
      * @param in_size size of the input bits of this box
      * @param out_size size of the output bits of this box
      * @param bit_src an array used to compute `out_bits` from `in_bits`

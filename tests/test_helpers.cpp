@@ -75,6 +75,36 @@ BOOST_AUTO_TEST_CASE(size_t_2) {
     BOOST_TEST(result == correct);
 }
 
+BOOST_AUTO_TEST_CASE(ull_1) {
+    size_t bit_length = 32;
+    unsigned long long data = 0;
+    vector<size_t> set_bits{31, 28, 17, 12, 5, 3, 2};
+
+    dynamic_bitset<> correct(bit_length);
+    for (auto bit_idx : set_bits) {
+        correct.set(bit_idx);
+        data |= (1LL << bit_idx);
+    }
+
+    dynamic_bitset<> result = to_dynamic_bitset(data, bit_length);
+    BOOST_TEST(result == correct);
+}
+
+BOOST_AUTO_TEST_CASE(ull_2) {
+    size_t bit_length = 64;
+    unsigned long long data = 0;
+    vector<size_t> set_bits{63, 56, 44, 43, 42, 41, 31, 28, 17, 12, 5, 3, 2};
+
+    dynamic_bitset<> correct(bit_length);
+    for (auto bit_idx : set_bits) {
+        correct.set(bit_idx);
+        data |= (1LL << bit_idx);
+    }
+
+    dynamic_bitset<> result = to_dynamic_bitset(data, bit_length);
+    BOOST_TEST(result == correct);
+}
+
 BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(test_dynamic_bitset_convert_to)
@@ -108,6 +138,22 @@ BOOST_AUTO_TEST_CASE(uint_1) {
     }
 
     result = convert_to_size_t(bits);
+    BOOST_TEST(correct == result);
+}
+
+BOOST_AUTO_TEST_CASE(ull_1) {
+    size_t bit_length = 64;
+    unsigned int result = 0;
+    unsigned int correct = 0;
+    vector<size_t> set_bits{63, 56, 44, 43, 42, 41, 31, 28, 17, 12, 5, 3, 2};
+
+    dynamic_bitset<> bits(bit_length);
+    for (auto bit_idx : set_bits) {
+        bits.set(bit_idx);
+        correct |= (1LL << bit_idx);
+    }
+
+    result = convert_to_ull(bits);
     BOOST_TEST(correct == result);
 }
 

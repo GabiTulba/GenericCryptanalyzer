@@ -1,5 +1,7 @@
 #include "helpers.h"
 
+const char *hex_chars = "0123456789abcdef";
+
 ProbTable compute_diff_dist_table(const vector<size_t> &sbox) noexcept(false) {
     size_t input_size = sbox.size();
     size_t output_size = *max_element(sbox.begin(), sbox.end()) + 1;
@@ -82,6 +84,17 @@ dynamic_bitset<> to_dynamic_bitset(unsigned int input, size_t bit_size) {
     return result;
 }
 
+dynamic_bitset<> to_dynamic_bitset(unsigned long long input, size_t bit_size) {
+    dynamic_bitset<> result(bit_size);
+    size_t idx = 0;
+    while (input) {
+        result[idx++] = input & 1;
+        input >>= 1;
+    }
+
+    return result;
+}
+
 size_t convert_to_size_t(const dynamic_bitset<> &bits) {
     size_t ans = 0;
     for (ssize_t i = bits.size() - 1; i >= 0; i--) {
@@ -91,7 +104,15 @@ size_t convert_to_size_t(const dynamic_bitset<> &bits) {
 }
 
 unsigned int convert_to_uint(const dynamic_bitset<> &bits) {
-    int ans = 0;
+    unsigned int ans = 0;
+    for (ssize_t i = bits.size() - 1; i >= 0; i--) {
+        ans = (ans << 1) + bits[i];
+    }
+    return ans;
+}
+
+unsigned long long convert_to_ull(const dynamic_bitset<> &bits) {
+    unsigned long long ans = 0;
     for (ssize_t i = bits.size() - 1; i >= 0; i--) {
         ans = (ans << 1) + bits[i];
     }
@@ -107,4 +128,17 @@ size_t popcnt(unsigned int x) {
     x = (x + (x >> 4)) & m4;
     x += x >> 8;
     return (x + (x >> 16)) & 0x3f;
+}
+
+string convert_to_hex_string(const dynamic_bitset<> &bits) {
+    string hex_str = "";
+    for (int i = 0; i < bits.size(); i += 4) {
+        unsigned int hex_digit = 0;
+        for (int j = min((int)(bits.size() - i - 1), 3); j >= 0; j--) {
+            hex_digit = (hex_digit << 1) + bits[i + j];
+        }
+        hex_str.insert(hex_str.begin(), hex_chars[hex_digit]);
+    }
+
+    return hex_str;
 }

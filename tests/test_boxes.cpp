@@ -432,14 +432,16 @@ BOOST_AUTO_TEST_CASE(bad_constructor) {
     size_t bit_length_in = popcnt(s_box.size() - 1);
     size_t bit_length_out = popcnt(*max_element(s_box.begin(), s_box.end()));
 
-    BOOST_CHECK_THROW(SBox sbox(bit_length_in - 1, bit_length_out, compute_diff_dist_table(s_box)), std::logic_error);
-    BOOST_CHECK_THROW(SBox sbox(bit_length_in, bit_length_out - 1, compute_diff_dist_table(s_box)), std::logic_error);
+    BOOST_CHECK_THROW(SBox sbox(bit_length_in - 1, bit_length_out, compute_diff_dist_table(s_box), true),
+                      std::logic_error);
+    BOOST_CHECK_THROW(SBox sbox(bit_length_in, bit_length_out - 1, compute_diff_dist_table(s_box), true),
+                      std::logic_error);
 }
 
 BOOST_AUTO_TEST_CASE(constructor) {
     size_t bit_length_in = popcnt(s_box.size() - 1);
     size_t bit_length_out = popcnt(*max_element(s_box.begin(), s_box.end()));
-    SBox sbox(bit_length_in, bit_length_out, compute_diff_dist_table(s_box));
+    SBox sbox(bit_length_in, bit_length_out, compute_diff_dist_table(s_box), true);
 
     BOOST_TEST(sbox.get_input().size() == bit_length_in);
     BOOST_TEST(sbox.get_output().size() == bit_length_out);
@@ -452,7 +454,7 @@ BOOST_AUTO_TEST_CASE(constructor) {
 BOOST_AUTO_TEST_CASE(input_get_set_simple) {
     size_t bit_length_in = popcnt(s_box.size() - 1);
     size_t bit_length_out = popcnt(*max_element(s_box.begin(), s_box.end()));
-    SBox sbox(bit_length_in, bit_length_out, compute_diff_dist_table(s_box));
+    SBox sbox(bit_length_in, bit_length_out, compute_diff_dist_table(s_box), true);
 
     unsigned int data_in = 0xe;
     sbox.set_input(to_dynamic_bitset(data_in, bit_length_in), BitsRange(0, bit_length_in));
@@ -463,7 +465,7 @@ BOOST_AUTO_TEST_CASE(input_get_set_simple) {
 BOOST_AUTO_TEST_CASE(input_get_set_complex) {
     size_t bit_length_in = popcnt(s_box.size() - 1);
     size_t bit_length_out = popcnt(*max_element(s_box.begin(), s_box.end()));
-    SBox sbox(bit_length_in, bit_length_out, compute_diff_dist_table(s_box));
+    SBox sbox(bit_length_in, bit_length_out, compute_diff_dist_table(s_box), true);
 
     BOOST_REQUIRE(bit_length_in % 2 == 0);
 
@@ -478,7 +480,7 @@ BOOST_AUTO_TEST_CASE(input_get_set_complex) {
 BOOST_AUTO_TEST_CASE(determine_next) {
     size_t bit_length_in = popcnt(s_box.size() - 1);
     size_t bit_length_out = popcnt(*max_element(s_box.begin(), s_box.end()));
-    SBox sbox(bit_length_in, bit_length_out, compute_diff_dist_table(s_box));
+    SBox sbox(bit_length_in, bit_length_out, compute_diff_dist_table(s_box), true);
 
     unsigned int data_in = 0x4;
     sbox.set_input(to_dynamic_bitset(data_in, bit_length_in), BitsRange(0, bit_length_in));
@@ -512,7 +514,7 @@ BOOST_AUTO_TEST_CASE(determine_next) {
 BOOST_AUTO_TEST_CASE(determine_next_after_set_input_reset) {
     size_t bit_length_in = popcnt(s_box.size() - 1);
     size_t bit_length_out = popcnt(*max_element(s_box.begin(), s_box.end()));
-    SBox sbox(bit_length_in, bit_length_out, compute_diff_dist_table(s_box));
+    SBox sbox(bit_length_in, bit_length_out, compute_diff_dist_table(s_box), true);
 
     unsigned int data_in_1 = 0x4;
     unsigned int data_in_2 = 0xf;
@@ -539,49 +541,14 @@ BOOST_AUTO_TEST_SUITE_END()
 
 BOOST_AUTO_TEST_SUITE(test_box_interaction)
 
-BOOST_AUTO_TEST_CASE(constructor_with_null_dst_box) {
-    size_t bit_length_ibox = 8;
-    const vector<pair<AbstractBoxPtr, Connection>> bad_dst_boxes{{nullptr, {BitsRange(0, 4), BitsRange(0, 4)}}};
-    BOOST_CHECK_THROW(IdentityBox ibox(bit_length_ibox, bad_dst_boxes), std::logic_error);
-}
-
-BOOST_AUTO_TEST_CASE(constructor_with_bad_connection) {
-    size_t bit_length_xorbox = 4;
-    size_t bit_length_ibox = 8;
-
-    XorBoxPtr xorbox_ptr = std::make_shared<XorBox>(bit_length_xorbox);
-    const vector<pair<AbstractBoxPtr, Connection>> bad_dst_boxes_1{{xorbox_ptr, {BitsRange(0, 5), BitsRange(0, 4)}}};
-    const vector<pair<AbstractBoxPtr, Connection>> bad_dst_boxes_2{{xorbox_ptr, {BitsRange(4, 8), BitsRange(0, 8)}}};
-    const vector<pair<AbstractBoxPtr, Connection>> bad_dst_boxes_3{{xorbox_ptr, {BitsRange(0, 8), BitsRange(4, 8)}}};
-
-    BOOST_CHECK_THROW(IdentityBox ibox(bit_length_ibox, bad_dst_boxes_1), std::logic_error);
-    BOOST_CHECK_THROW(IdentityBox ibox(bit_length_ibox, bad_dst_boxes_2), std::logic_error);
-    BOOST_CHECK_THROW(IdentityBox ibox(bit_length_ibox, bad_dst_boxes_3), std::logic_error);
-}
-
-BOOST_AUTO_TEST_CASE(constructor_with_dst_boxes) {
-    size_t bit_length_sbox_in = popcnt(s_box.size() - 1);
-    size_t bit_length_sbox_out = popcnt(*max_element(s_box.begin(), s_box.end()));
-    size_t bit_length_sbox = 4;
-    size_t bit_length_ibox = 8;
-
-    SBoxPtr sbox_ptr_1 =
-        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box));
-    SBoxPtr sbox_ptr_2 =
-        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box));
-    const vector<pair<AbstractBoxPtr, Connection>> dst_boxes{{sbox_ptr_1, {BitsRange(0, 4), BitsRange(0, 4)}},
-                                                             {sbox_ptr_2, {BitsRange(4, 4), BitsRange(0, 4)}}};
-
-    BOOST_CHECK_NO_THROW(IdentityBox ibox(bit_length_ibox, dst_boxes));
-}
-
 BOOST_AUTO_TEST_CASE(bad_add_dest) {
     size_t bit_length_sbox_in = popcnt(s_box.size() - 1);
     size_t bit_length_sbox_out = popcnt(*max_element(s_box.begin(), s_box.end()));
     size_t bit_length_sbox = 4;
     size_t bit_length_ibox = 8;
 
-    SBoxPtr sbox_ptr = std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box));
+    SBoxPtr sbox_ptr =
+        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box), true);
 
     IdentityBox ibox(bit_length_ibox);
 
@@ -598,14 +565,45 @@ BOOST_AUTO_TEST_CASE(add_dest) {
     size_t bit_length_ibox = 8;
 
     SBoxPtr sbox_ptr_1 =
-        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box));
+        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box), true);
     SBoxPtr sbox_ptr_2 =
-        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box));
+        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box), true);
 
     IdentityBox ibox(bit_length_ibox);
 
     BOOST_CHECK_NO_THROW(ibox.add_dest(sbox_ptr_1, BitsRange(0, 4), BitsRange(0, 4)));
     BOOST_CHECK_NO_THROW(ibox.add_dest(sbox_ptr_2, BitsRange(4, 4), BitsRange(0, 4)));
+}
+
+BOOST_AUTO_TEST_CASE(bad_add_src) {
+    size_t bit_length_sbox_in = popcnt(s_box.size() - 1);
+    size_t bit_length_sbox_out = popcnt(*max_element(s_box.begin(), s_box.end()));
+    size_t bit_length_sbox = 4;
+    size_t bit_length_ibox = 8;
+
+    SBox sbox(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box), true);
+
+    IdentityBoxPtr ibox_ptr = std::make_shared<IdentityBox>(bit_length_ibox);
+
+    BOOST_CHECK_THROW(sbox.add_src(nullptr, BitsRange(0, 4), BitsRange(0, 4)), std::logic_error);
+    BOOST_CHECK_THROW(sbox.add_src(ibox_ptr, BitsRange(0, 5), BitsRange(0, 4)), std::logic_error);
+    BOOST_CHECK_THROW(sbox.add_src(ibox_ptr, BitsRange(8, 4), BitsRange(0, 4)), std::logic_error);
+    BOOST_CHECK_THROW(sbox.add_src(ibox_ptr, BitsRange(0, 4), BitsRange(8, 4)), std::logic_error);
+}
+
+BOOST_AUTO_TEST_CASE(add_src) {
+    size_t bit_length_sbox_in = popcnt(s_box.size() - 1);
+    size_t bit_length_sbox_out = popcnt(*max_element(s_box.begin(), s_box.end()));
+    size_t bit_length_sbox = 4;
+    size_t bit_length_ibox = 8;
+
+    SBox sbox_1(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box), true);
+    SBox sbox_2(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box), true);
+
+    IdentityBoxPtr ibox_ptr = std::make_shared<IdentityBox>(bit_length_ibox);
+
+    BOOST_CHECK_NO_THROW(sbox_1.add_src(ibox_ptr, BitsRange(0, 4), BitsRange(0, 4)));
+    BOOST_CHECK_NO_THROW(sbox_2.add_src(ibox_ptr, BitsRange(4, 4), BitsRange(0, 4)));
 }
 
 BOOST_AUTO_TEST_CASE(notify_all) {
@@ -615,9 +613,9 @@ BOOST_AUTO_TEST_CASE(notify_all) {
     size_t bit_length_ibox = 8;
 
     SBoxPtr sbox_ptr_1 =
-        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box));
+        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box), true);
     SBoxPtr sbox_ptr_2 =
-        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box));
+        std::make_shared<SBox>(bit_length_sbox_in, bit_length_sbox_out, compute_diff_dist_table(s_box), true);
 
     IdentityBoxPtr ibox_in_ptr = std::make_shared<IdentityBox>(bit_length_ibox);
     IdentityBoxPtr ibox_out_ptr = std::make_shared<IdentityBox>(bit_length_ibox);

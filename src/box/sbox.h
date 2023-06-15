@@ -14,6 +14,7 @@
  * @inherits AbstractBox
  */
 class SBox : public AbstractBox {
+
   protected:
     /**
      * @brief prob_table the probability table of the sbox
@@ -31,34 +32,33 @@ class SBox : public AbstractBox {
      */
     size_t table_entry;
 
+    /**
+     * @brief is_exhaustive a `bool` that represents if the sbox will generate all possible outputs from the set input,
+     * or if false, it will generate only the best output. Used for optimizing out branches of the search algorithm.
+     */
+    bool is_exhaustive;
+
+    /**
+     * @brief get_best_prob return the best probability of an output for the box, for the SBox class, this is the
+     * probability of the first entry in the current row of the probability table
+     * @return a `double` with the value of the best probability for the set input
+     */
+    double get_best_prob() override;
+
   public:
     /**
      * @param in_size size of the input bits of this box
      * @param out_size size of the output bits of this box
-     * @param dst_boxes output flow connections to following boxes
      * @param prob_table the probability table of the sbox
-     *
-     * @pre `prob_table`'s size is a power of 2
-     * @pre `prob_table`'s max element is one less than a power of 2
-     *
-     * @throw if the preconditions of `AbstractBox` for `dst_boxes` are not fulfilled or if the preconditions above are
-     * not fulfilled
-     */
-    SBox(size_t in_size, size_t out_size, const vector<pair<AbstractBoxPtr, Connection>> &dst_boxes,
-         const ProbTable &prob_table) noexcept(false);
-
-    /**
-     * @brief similar to the previous constructor, but leaves `dst_boxes` empty
-     * @param in_size size of the input bits of this box
-     * @param out_size size of the output bits of this box
-     * @param prob_table the probability table of the sbox
+     * @param is_exhaustive a boolean that if set to true will set the sbox to go through all the possible output of the
+     * sbox, otherwise will only go through the best output
      *
      * @pre `prob_table`'s size is a power of 2
      * @pre `prob_table`'s max element is one less than a power of 2
      *
      * @throw if the preconditions above are not fulfilled
      */
-    SBox(size_t in_size, size_t out_size, const ProbTable &prob_table) noexcept(false);
+    SBox(size_t in_size, size_t out_size, const ProbTable &prob_table, bool is_exhaustive) noexcept(false);
 
     /**
      * @brief determines the next best possible output for the given input, if all possible outputs have been
@@ -79,7 +79,6 @@ class SBox : public AbstractBox {
      */
     void set_input(dynamic_bitset<> bits, const BitsRange &rng) override;
 };
-
 /**
  * @brief shorthand for std::shared_ptr<SBox>
  */

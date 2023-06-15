@@ -50,7 +50,7 @@ struct BitsRange {
 typedef pair<BitsRange, BitsRange> Connection;
 
 /**
- * @brief shorthand for pair<string, Connection>
+ * @brief shorthand for `pair<string, Connection>`
  */
 typedef pair<string, Connection> NamedConnection;
 
@@ -112,6 +112,14 @@ dynamic_bitset<> to_dynamic_bitset(size_t input, size_t bit_size);
 dynamic_bitset<> to_dynamic_bitset(unsigned int input, size_t bit_size);
 
 /**
+ * @brief converts an `unsigned long long` to a `dynamic_bitset` of size `bit_size`
+ * @param input a `size_t`
+ * @param bit_size the size in bits
+ * @return a `dynamic_bitset<>` representing the binary array computed from input
+ */
+dynamic_bitset<> to_dynamic_bitset(unsigned long long input, size_t bit_size);
+
+/**
  * @brief converts a `dynamic_bitset` to a `size_t`
  * @param bits a `dynamic_bitset` representing a binary array
  * @return a `size_t` representing the number formed from the binray array given as input
@@ -124,6 +132,20 @@ size_t convert_to_size_t(const dynamic_bitset<> &bits);
  * @return an `unsigned int` representing the number formed from the binray array given as input
  */
 unsigned int convert_to_uint(const dynamic_bitset<> &bits);
+
+/**
+ * @brief converts a `dynamic_bitset` to an `unsigned long long`
+ * @param bits a `dynamic_bitset` representing a binary array
+ * @return an `unsigned long long` representing the number formed from the binray array given as input
+ */
+unsigned long long convert_to_ull(const dynamic_bitset<> &bits);
+
+/**
+ * @brief converts a `dynamic_bitset` to a `string` representing it's hexadecimal representation
+ * @param bits a `dynamic_bitset` representing a binary array
+ * @return a `string` representing the hexadecimal representation of the bitset
+ */
+string convert_to_hex_string(const dynamic_bitset<> &bits);
 
 /**
  * @brief computes the number of set bits of a 32-bit integer

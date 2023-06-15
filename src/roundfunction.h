@@ -10,6 +10,8 @@
 #include "box/pbox.h"
 #include "box/sbox.h"
 #include "box/xorbox.h"
+#include <builders/abstractboxbuilder.h>
+#include <queue>
 
 /**
  * @brief a RoundFunction is a graph-like collection of boxes (or nodes) that are connected with eachother through
@@ -17,6 +19,8 @@
  * `src` and one destination `dst`
  */
 class RoundFunction {
+    friend class CipherAnalyzer;
+
   protected:
     /**
      * @brief entry point in the round function. Typically an IdentityBox
@@ -47,6 +51,18 @@ class RoundFunction {
     vector<double> partial_prob;
 
     /**
+     * @brief `vector` of the previous best probabilities that a box could output. Used in optimizing out branches of
+     * the search tree.
+     */
+    vector<double> partial_best_prob;
+
+    /**
+     * @brief `vector` of all the boxes that have a set input when at `curr_box_idx`. Used in optimizing out branches
+     of the search tree.
+     */
+    vector<size_t> end_det;
+
+    /**
      * @brief the minimum probability threshold such that the round function outputs a state.
      */
     double beta_thresh;
@@ -56,8 +72,6 @@ class RoundFunction {
      */
     bool is_det;
 
-    friend class CipherAnalyzer;
-
     /**
      * @brief advances to the next internal state state of the round function
      * @return false if there is no next state, otherwise returns true
@@ -65,15 +79,9 @@ class RoundFunction {
     bool advance_state();
 
     /**
-     * @brief topological sort of boxes starting from `src`
-     * @param src the current node in the depth-first search of the box-graph
-     * @param top_sort topologically sorted `vector` of boxes, it is built during the dfs
-     * @param is_visited a map that keeps track of which boxes have already been visited, used in dfs.
-     */
-    void top_sort_boxes(AbstractBoxPtr src, vector<AbstractBoxPtr> &top_sort, map<AbstractBoxPtr, bool> &is_visited);
-
-    /**
-     * @brief wrapper over `top_sort_boxes`
+     * @brief a breadth-first search implementation of a topological sort of the box-graph of the round. Has the
+     * property that the boxes that have received all their input after the current box in the `advance_state()`
+     * function are a substring.
      * @param src is the root of the box-graph that will be visited, should be the same as `RoundFunction`'s `src`
      * @return a `vector` of boxes that are sorted topologically
      */
@@ -83,10 +91,12 @@ class RoundFunction {
     /**
      * @param src_id the name of the source box in the constructors map `constrs`
      * @param dst_idthe name of the destination box in the constructors map `constrs`
-     * @param constrs a map of named AbstractBoxConstructor, used for enumerating the different types of boxes.
-     * @param conns a map of connections from one named box to another, used for constructing the box-graph.
+     * @param constrs a map of named AbstractBoxConstructor, used for enumerating the different types of
+     * boxes.
+     * @param conns a map of connections from one named box to another, used for constructing the
+     * box-graph.
      */
-    RoundFunction(string src_id, string dst_id, map<string, AbstractBoxConstructor> constrs,
+    RoundFunction(string src_id, string dst_id, map<string, AbstractBoxBuilderPtr> constrs,
                   map<string, vector<NamedConnection>> conns);
 
     /**
