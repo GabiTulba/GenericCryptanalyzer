@@ -15,19 +15,21 @@
 using namespace std;
 using namespace boost;
 
-const int round_cnt = 3;
-const int max_weight = 16;
+const int round_cnt = 5;
+const int max_weight = 6;
 const int max_queue_size = 1 << 20;
-const int threads = 8;
-const int max_inputs = 4;
+const int threads = 24;
+const int max_inputs = 16;
 
 CipherAnalyzerBuilderPtr create_cipher_builder() {
-    vector<size_t> sbox{0xe, 0x4, 0xd, 0x1, 0x2, 0xf, 0xb, 0x8, 0x3, 0xa, 0x6, 0xc, 0x5, 0x9, 0x0, 0x7};
-    vector<size_t> pbox{0x0, 0x4, 0x8, 0xc, 0x1, 0x5, 0x9, 0xd, 0x2, 0x6, 0xa, 0xe, 0x3, 0x7, 0xb, 0xf};
+    vector<size_t> sbox{0xc, 0x5, 0x6, 0xb, 0x9, 0x0, 0xa, 0xd, 0x3, 0xe, 0xf, 0x8, 0x4, 0x7, 0x1, 0x2};
+    vector<size_t> pbox{0,  16, 32, 48, 1,  17, 33, 49, 2,  18, 34, 50, 3,  19, 35, 51, 4,  20, 36, 52, 5,  21,
+                        37, 53, 6,  22, 38, 54, 7,  23, 39, 55, 8,  24, 40, 56, 9,  25, 41, 57, 10, 26, 42, 58,
+                        11, 27, 43, 59, 12, 28, 44, 60, 13, 29, 45, 61, 14, 30, 46, 62, 15, 31, 47, 63};
 
     AbstractBoxBuilderPtr pbox_builder = make_pbox_builder(pbox);
     AbstractBoxBuilderPtr sbox_builder = make_sbox_builder(sbox, true);
-    AbstractBoxBuilderPtr identitybox_builder = make_identitybox_builder(16);
+    AbstractBoxBuilderPtr identitybox_builder = make_identitybox_builder(64);
 
     RoundBuilderPtr round_builder = make_round_builder();
     round_builder->add_builder("Src", identitybox_builder);
@@ -35,16 +37,52 @@ CipherAnalyzerBuilderPtr create_cipher_builder() {
     round_builder->add_builder("Sbox2", sbox_builder);
     round_builder->add_builder("Sbox3", sbox_builder);
     round_builder->add_builder("Sbox4", sbox_builder);
+    round_builder->add_builder("Sbox5", sbox_builder);
+    round_builder->add_builder("Sbox6", sbox_builder);
+    round_builder->add_builder("Sbox7", sbox_builder);
+    round_builder->add_builder("Sbox8", sbox_builder);
+    round_builder->add_builder("Sbox9", sbox_builder);
+    round_builder->add_builder("Sbox10", sbox_builder);
+    round_builder->add_builder("Sbox11", sbox_builder);
+    round_builder->add_builder("Sbox12", sbox_builder);
+    round_builder->add_builder("Sbox13", sbox_builder);
+    round_builder->add_builder("Sbox14", sbox_builder);
+    round_builder->add_builder("Sbox15", sbox_builder);
+    round_builder->add_builder("Sbox16", sbox_builder);
     round_builder->add_builder("Pbox", pbox_builder);
 
     round_builder->add_connection("Src", "Sbox1", BitsRange(0, 4), BitsRange(0, 4));
     round_builder->add_connection("Src", "Sbox2", BitsRange(4, 4), BitsRange(0, 4));
     round_builder->add_connection("Src", "Sbox3", BitsRange(8, 4), BitsRange(0, 4));
     round_builder->add_connection("Src", "Sbox4", BitsRange(12, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox5", BitsRange(16, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox6", BitsRange(20, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox7", BitsRange(24, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox8", BitsRange(28, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox9", BitsRange(32, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox10", BitsRange(36, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox11", BitsRange(40, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox12", BitsRange(44, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox13", BitsRange(48, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox14", BitsRange(52, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox15", BitsRange(56, 4), BitsRange(0, 4));
+    round_builder->add_connection("Src", "Sbox16", BitsRange(60, 4), BitsRange(0, 4));
     round_builder->add_connection("Sbox1", "Pbox", BitsRange(0, 4), BitsRange(0, 4));
     round_builder->add_connection("Sbox2", "Pbox", BitsRange(0, 4), BitsRange(4, 4));
     round_builder->add_connection("Sbox3", "Pbox", BitsRange(0, 4), BitsRange(8, 4));
     round_builder->add_connection("Sbox4", "Pbox", BitsRange(0, 4), BitsRange(12, 4));
+    round_builder->add_connection("Sbox5", "Pbox", BitsRange(0, 4), BitsRange(16, 4));
+    round_builder->add_connection("Sbox6", "Pbox", BitsRange(0, 4), BitsRange(20, 4));
+    round_builder->add_connection("Sbox7", "Pbox", BitsRange(0, 4), BitsRange(24, 4));
+    round_builder->add_connection("Sbox8", "Pbox", BitsRange(0, 4), BitsRange(28, 4));
+    round_builder->add_connection("Sbox9", "Pbox", BitsRange(0, 4), BitsRange(32, 4));
+    round_builder->add_connection("Sbox10", "Pbox", BitsRange(0, 4), BitsRange(36, 4));
+    round_builder->add_connection("Sbox11", "Pbox", BitsRange(0, 4), BitsRange(40, 4));
+    round_builder->add_connection("Sbox12", "Pbox", BitsRange(0, 4), BitsRange(44, 4));
+    round_builder->add_connection("Sbox13", "Pbox", BitsRange(0, 4), BitsRange(48, 4));
+    round_builder->add_connection("Sbox14", "Pbox", BitsRange(0, 4), BitsRange(52, 4));
+    round_builder->add_connection("Sbox15", "Pbox", BitsRange(0, 4), BitsRange(56, 4));
+    round_builder->add_connection("Sbox16", "Pbox", BitsRange(0, 4), BitsRange(60, 4));
     round_builder->set_src("Src");
     round_builder->set_dst("Pbox");
 
