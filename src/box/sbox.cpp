@@ -2,27 +2,34 @@
 
 using namespace std;
 
-double SBox::get_best_prob() { return prob_table[table_entry][0].second; }
+double SBox::get_best_prob() {
+    if (prob_table->find(in_bits) == prob_table->end()) {
+        return 0;
+    }
+    return (*prob_table)[in_bits][0].second;
+}
 
-SBox::SBox(size_t in_size, size_t out_size, const ProbTable &prob_table, bool is_exhaustive) noexcept(false)
+SBox::SBox(size_t in_size, size_t out_size, ProbTablePtr prob_table, bool is_exhaustive) noexcept(false)
     : AbstractBox(in_size, out_size), prob_table(prob_table), table_idx(0), is_exhaustive(is_exhaustive) {
-    if (in_size != popcnt(prob_table.size() - 1)) {
-        throw std::logic_error("input size must be equal with prob_table's size");
+    if (in_size != prob_table->begin()->first.size()) {
+        throw std::logic_error("input size must be equal with prob_table's input size");
     }
 
     // It is guaranteed that if the input difference is 0, there is a 0 output difference with probability 1
-    if (out_size != prob_table[0][0].first.size()) {
+    in_bits.set(0, in_bits.size(), 0);
+    if (out_size != (*prob_table)[in_bits][0].first.size()) {
         throw std::logic_error("output size must be equal with prob_table's element size");
     }
 }
 
 void SBox::determine_next() {
-    if ((table_idx < prob_table[table_entry].size() && is_exhaustive) || table_idx == 0) {
-        out_bits = prob_table[table_entry][table_idx].first;
-        prob = prob_table[table_entry][table_idx].second;
+    auto table_row = (*prob_table)[in_bits];
+    if ((table_idx < table_row.size() && is_exhaustive) || table_idx == 0) {
+        out_bits = table_row[table_idx].first;
+        prob = table_row[table_idx].second;
         table_idx++;
     }
-    if (table_idx == prob_table[table_entry].size() || !is_exhaustive) {
+    if (table_idx == table_row.size() || !is_exhaustive) {
         is_det = true;
     }
 }
@@ -34,6 +41,8 @@ void SBox::reset_determination() {
 
 void SBox::set_input(dynamic_bitset<> bits, const BitsRange &rng) {
     AbstractBox::set_input(bits, rng);
+    if (prob_table->find(in_bits) == prob_table->end()) {
+        is_det = true;
+    }
     table_idx = 0;
-    table_entry = convert_to_size_t(in_bits);
 }

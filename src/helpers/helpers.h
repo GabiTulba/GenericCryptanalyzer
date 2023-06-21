@@ -6,6 +6,7 @@
 
 #include <boost/dynamic_bitset.hpp>
 #include <functional>
+#include <unordered_map>
 #include <vector>
 
 using namespace boost;
@@ -66,10 +67,12 @@ typedef pair<dynamic_bitset<>, double> ProbEntry;
 typedef vector<ProbEntry> ProbTableLine;
 
 /**
- * @brief shorthand for vector<ProbTableLine>. A probability table is a compact way to describe the behaviour of an sbox
- * when analyzing the difference of two inputs.
+ * @brief shorthand for unordered_map<ProbTableLine>. A probability table is a compact way to describe the behaviour of
+ * an sbox when analyzing the difference of two inputs.
  */
-typedef vector<ProbTableLine> ProbTable;
+typedef unordered_map<dynamic_bitset<>, ProbTableLine> ProbTable;
+
+typedef std::shared_ptr<ProbTable> ProbTablePtr;
 
 /**
  * @brief computes the difference distribution table of an sbox. Used for differential cryptanalysis
@@ -80,7 +83,11 @@ typedef vector<ProbTableLine> ProbTable;
  *
  * @throw if the precondition above is not fulfilled
  */
-ProbTable compute_diff_dist_table(const vector<size_t> &sbox) noexcept(false);
+ProbTablePtr compute_diff_dist_table(const vector<size_t> &sbox) noexcept(false);
+
+dynamic_bitset<> eq_func(dynamic_bitset<> &a, dynamic_bitset<> &b, dynamic_bitset<> &c);
+dynamic_bitset<> mask_except_msb(size_t bit_size);
+ProbTablePtr compute_xdpplus_pddt(size_t bit_size, double prob_thresh);
 
 /**
  * @brief given some input, calculates the next lexicografically smallest binary array with the same number of bits. It

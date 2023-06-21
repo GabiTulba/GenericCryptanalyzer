@@ -22,14 +22,14 @@ CipherAnalyzerBuilderPtr create_cipher_builder() {
     AbstractBoxBuilderPtr ebox_constr = make_ebox_builder(bit_expansion);
     AbstractBoxBuilderPtr pbox_constr = make_pbox_builder(bit_perm);
 
-    AbstractBoxBuilderPtr sbox_constr_1 = make_sbox_builder(sbox1, true);
-    AbstractBoxBuilderPtr sbox_constr_2 = make_sbox_builder(sbox2, true);
-    AbstractBoxBuilderPtr sbox_constr_3 = make_sbox_builder(sbox3, true);
-    AbstractBoxBuilderPtr sbox_constr_4 = make_sbox_builder(sbox4, true);
-    AbstractBoxBuilderPtr sbox_constr_5 = make_sbox_builder(sbox5, true);
-    AbstractBoxBuilderPtr sbox_constr_6 = make_sbox_builder(sbox6, true);
-    AbstractBoxBuilderPtr sbox_constr_7 = make_sbox_builder(sbox7, true);
-    AbstractBoxBuilderPtr sbox_constr_8 = make_sbox_builder(sbox8, true);
+    AbstractBoxBuilderPtr sbox_constr_1 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox1), true);
+    AbstractBoxBuilderPtr sbox_constr_2 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox2), true);
+    AbstractBoxBuilderPtr sbox_constr_3 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox3), true);
+    AbstractBoxBuilderPtr sbox_constr_4 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox4), true);
+    AbstractBoxBuilderPtr sbox_constr_5 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox5), true);
+    AbstractBoxBuilderPtr sbox_constr_6 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox6), true);
+    AbstractBoxBuilderPtr sbox_constr_7 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox7), true);
+    AbstractBoxBuilderPtr sbox_constr_8 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox8), true);
 
     RoundBuilderPtr round_builder = make_round_builder();
     round_builder->add_builder("E", ebox_constr);
@@ -85,8 +85,10 @@ int main() {
             auto [output, prob] = cipher->get_next_state();
 
             while (output.size() > 0) {
-                printf("in: 0x%s (%ld),\tout: 0x%s (%ld) -> prob %.16lf\n", convert_to_hex_string(input).c_str(),
-                       input.count(), convert_to_hex_string(output).c_str(), output.count(), prob);
+                if (prob > 0) {
+                    printf("in: 0x%s (%ld),\tout: 0x%s (%ld) -> prob %.16lf\n", convert_to_hex_string(input).c_str(),
+                           input.count(), convert_to_hex_string(output).c_str(), output.count(), prob);
+                }
 
                 auto [next_output, next_prob] = cipher->get_next_state();
                 output = next_output, prob = next_prob;

@@ -287,23 +287,23 @@ BOOST_AUTO_TEST_CASE(test_throw_on_bad_sbox) {
 
 BOOST_AUTO_TEST_CASE(test_input_size) {
     size_t input_size = sbox.size();
-    ProbTable result = compute_diff_dist_table(sbox);
-    BOOST_TEST(result.size() == input_size);
+    ProbTablePtr result = compute_diff_dist_table(sbox);
+    BOOST_TEST(result->size() == input_size);
 }
 
 BOOST_AUTO_TEST_CASE(test_output_max_size) {
     size_t output_max_size = *max_element(sbox.begin(), sbox.end()) + 1;
-    ProbTable result = compute_diff_dist_table(sbox);
+    ProbTablePtr result = compute_diff_dist_table(sbox);
 
-    for (auto &line : result) {
+    for (auto &[entry, line] : *result) {
         BOOST_TEST(line.size() <= output_max_size);
     }
 }
 
 BOOST_AUTO_TEST_CASE(line_probability_sum_1, *unit_test::tolerance(1e-8)) {
-    ProbTable result = compute_diff_dist_table(sbox);
+    ProbTablePtr result = compute_diff_dist_table(sbox);
 
-    for (auto &line : result) {
+    for (auto &[entry, line] : *result) {
         double sum = 0.0;
         for (auto &elem : line) {
             sum += elem.second;
@@ -313,9 +313,9 @@ BOOST_AUTO_TEST_CASE(line_probability_sum_1, *unit_test::tolerance(1e-8)) {
 }
 
 BOOST_AUTO_TEST_CASE(test_non_impossible_differentials) {
-    ProbTable result = compute_diff_dist_table(sbox);
+    ProbTablePtr result = compute_diff_dist_table(sbox);
 
-    for (auto &line : result) {
+    for (auto &[entry, line] : *result) {
         for (auto &elem : line) {
             BOOST_TEST(elem.second > 0);
         }
@@ -323,9 +323,9 @@ BOOST_AUTO_TEST_CASE(test_non_impossible_differentials) {
 }
 
 BOOST_AUTO_TEST_CASE(sorted_elems_by_probability) {
-    ProbTable result = compute_diff_dist_table(sbox);
+    ProbTablePtr result = compute_diff_dist_table(sbox);
 
-    for (auto &line : result) {
+    for (auto &[entry, line] : *result) {
         double prev_prob = 1.0;
         for (auto &elem : line) {
             BOOST_TEST(elem.second <= prev_prob);
@@ -335,10 +335,10 @@ BOOST_AUTO_TEST_CASE(sorted_elems_by_probability) {
 }
 
 BOOST_AUTO_TEST_CASE(correct_output_bit_length, *unit_test::tolerance(1e-8)) {
-    ProbTable result = compute_diff_dist_table(sbox);
+    ProbTablePtr result = compute_diff_dist_table(sbox);
     size_t bit_length = popcnt(*max_element(sbox.begin(), sbox.end()));
 
-    for (auto &line : result) {
+    for (auto &[entry, line] : *result) {
         for (auto &elem : line) {
             BOOST_TEST(elem.first.size() == bit_length);
         }
@@ -346,14 +346,14 @@ BOOST_AUTO_TEST_CASE(correct_output_bit_length, *unit_test::tolerance(1e-8)) {
 }
 
 BOOST_AUTO_TEST_CASE(input_differences, *unit_test::tolerance(1e-8)) {
-    ProbTable result = compute_diff_dist_table(sbox);
+    ProbTablePtr result = compute_diff_dist_table(sbox);
     size_t bit_length = popcnt(*max_element(sbox.begin(), sbox.end()));
     ProbTableLine correct{{to_dynamic_bitset(8U, bit_length), 6. / 16},
                           {to_dynamic_bitset(3U, bit_length), 4. / 16},
                           {to_dynamic_bitset(2U, bit_length), 2. / 16},
                           {to_dynamic_bitset(4U, bit_length), 2. / 16},
                           {to_dynamic_bitset(14U, bit_length), 2. / 16}};
-    BOOST_TEST(result[0xe] == correct);
+    BOOST_TEST((*result)[to_dynamic_bitset(0xeU, 4)] == correct);
 }
 
 BOOST_AUTO_TEST_SUITE_END()

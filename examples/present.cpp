@@ -12,6 +12,8 @@
 #include <builders/sboxbuilder.h>
 #include <cstdio>
 
+#include <iostream>
+
 using namespace std;
 using namespace boost;
 
@@ -28,7 +30,7 @@ CipherAnalyzerBuilderPtr create_cipher_builder() {
                         11, 27, 43, 59, 12, 28, 44, 60, 13, 29, 45, 61, 14, 30, 46, 62, 15, 31, 47, 63};
 
     AbstractBoxBuilderPtr pbox_builder = make_pbox_builder(pbox);
-    AbstractBoxBuilderPtr sbox_builder = make_sbox_builder(sbox, true);
+    AbstractBoxBuilderPtr sbox_builder = make_sbox_builder(4, 4, compute_diff_dist_table(sbox), true);
     AbstractBoxBuilderPtr identitybox_builder = make_identitybox_builder(64);
 
     RoundBuilderPtr round_builder = make_round_builder();
@@ -102,9 +104,11 @@ void job(CipherAnalyzerBuilderPtr &cipher_builder, CipherAnalyzerPtr &cipher, pt
     auto [output, prob] = cipher->get_next_state();
 
     while (output.size() > 0) {
-        printf("[%02d] in: 0x%s (%02ld),\tout: 0x%s (%02ld) -> prob %.30lf\n", thread_idx,
-               convert_to_hex_string(input).c_str(), input.count(), convert_to_hex_string(output).c_str(),
-               output.count(), prob);
+        if (prob > 0) {
+            printf("[%02d] in: 0x%s (%02ld),\tout: 0x%s (%02ld) -> prob %.30lf\n", thread_idx,
+                   convert_to_hex_string(input).c_str(), input.count(), convert_to_hex_string(output).c_str(),
+                   output.count(), prob);
+        }
 
         cipher_builder->update_global_thresh(prob);
 

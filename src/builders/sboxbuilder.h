@@ -6,15 +6,17 @@
 
 class SBoxBuilder : public AbstractBoxBuilder {
   private:
-    vector<size_t> sbox;
+    size_t bits_in_size;
+    size_t bits_out_size;
+    ProbTablePtr prob_table;
     bool is_exhaustive;
 
   public:
-    SBoxBuilder(vector<size_t> sbox, bool is_exhaustive);
+    SBoxBuilder(size_t bits_in_size, size_t bits_out_size, ProbTablePtr prob_table, bool is_exhaustive);
 
     AbstractBoxPtr build() override;
 };
 
-AbstractBoxBuilderPtr make_sbox_builder(vector<size_t> sbox, bool is_exhaustive);
-
+AbstractBoxBuilderPtr make_sbox_builder(size_t bits_in_size, size_t bits_out_size, ProbTablePtr prob_table,
+                                        bool is_exhaustive);
 #endif // SBOXBUILDER_H

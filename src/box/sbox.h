@@ -19,18 +19,13 @@ class SBox : public AbstractBox {
     /**
      * @brief prob_table the probability table of the sbox
      */
-    ProbTable prob_table;
+    ProbTablePtr prob_table;
 
     /**
      * @brief table_idx the current column in the row of the probability table. This is incremented each time
      * `determine_next()` is called.
      */
     size_t table_idx;
-
-    /**
-     * @brief table_entry the row in the probability table corresponding to the value of `in_bits`
-     */
-    size_t table_entry;
 
     /**
      * @brief is_exhaustive a `bool` that represents if the sbox will generate all possible outputs from the set input,
@@ -58,7 +53,7 @@ class SBox : public AbstractBox {
      *
      * @throw if the preconditions above are not fulfilled
      */
-    SBox(size_t in_size, size_t out_size, const ProbTable &prob_table, bool is_exhaustive) noexcept(false);
+    SBox(size_t in_size, size_t out_size, ProbTablePtr prob_table, bool is_exhaustive) noexcept(false);
 
     /**
      * @brief determines the next best possible output for the given input, if all possible outputs have been

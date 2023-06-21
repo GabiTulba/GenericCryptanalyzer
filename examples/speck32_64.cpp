@@ -10,43 +10,49 @@
 #include <builders/pboxbuilder.h>
 #include <builders/roundbuilder.h>
 #include <builders/sboxbuilder.h>
+#include <builders/xorboxbuilder.h>
 #include <cstdio>
+
+#include <iostream>
 
 using namespace std;
 using namespace boost;
 
-const int round_cnt = 3;
-const int max_weight = 16;
+const int round_cnt = 8;
+const int max_weight = 9;
 const int max_queue_size = 1 << 20;
-const int threads = 8;
-const int max_inputs = 4;
+const int threads = 16;
+const int max_inputs = 16;
 
 CipherAnalyzerBuilderPtr create_cipher_builder() {
-    vector<size_t> sbox{0xe, 0x4, 0xd, 0x1, 0x2, 0xf, 0xb, 0x8, 0x3, 0xa, 0x6, 0xc, 0x5, 0x9, 0x0, 0x7};
-    vector<size_t> pbox{0x0, 0x4, 0x8, 0xc, 0x1, 0x5, 0x9, 0xd, 0x2, 0x6, 0xa, 0xe, 0x3, 0x7, 0xb, 0xf};
+    vector<size_t> rot_right_7{7, 8, 9, 10, 11, 12, 13, 14, 15, 0, 1, 2, 3, 4, 5, 6};
+    vector<size_t> rot_left_2{14, 15, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13};
 
-    AbstractBoxBuilderPtr pbox_builder = make_pbox_builder(pbox);
-    AbstractBoxBuilderPtr sbox_builder = make_sbox_builder(4, 4, compute_diff_dist_table(sbox), true);
-    AbstractBoxBuilderPtr identitybox_builder = make_identitybox_builder(16);
+    AbstractBoxBuilderPtr rot_right_7_builder = make_pbox_builder(rot_right_7);
+    AbstractBoxBuilderPtr rot_left_2_builder = make_pbox_builder(rot_left_2);
+    AbstractBoxBuilderPtr identitybox_builder = make_identitybox_builder(32);
+    AbstractBoxBuilderPtr add_box_builder = make_sbox_builder(32, 16, compute_xdpplus_pddt(16, 0.03125), true);
+    AbstractBoxBuilderPtr xor_box_builder = make_xorbox_builder(16);
 
     RoundBuilderPtr round_builder = make_round_builder();
     round_builder->add_builder("Src", identitybox_builder);
-    round_builder->add_builder("Sbox1", sbox_builder);
-    round_builder->add_builder("Sbox2", sbox_builder);
-    round_builder->add_builder("Sbox3", sbox_builder);
-    round_builder->add_builder("Sbox4", sbox_builder);
-    round_builder->add_builder("Pbox", pbox_builder);
+    round_builder->add_builder("ROR7", rot_right_7_builder);
+    round_builder->add_builder("ROL2", rot_left_2_builder);
+    round_builder->add_builder("Add", add_box_builder);
+    round_builder->add_builder("Xor", xor_box_builder);
+    round_builder->add_builder("Dst", identitybox_builder);
 
-    round_builder->add_connection("Src", "Sbox1", BitsRange(0, 4), BitsRange(0, 4));
-    round_builder->add_connection("Src", "Sbox2", BitsRange(4, 4), BitsRange(0, 4));
-    round_builder->add_connection("Src", "Sbox3", BitsRange(8, 4), BitsRange(0, 4));
-    round_builder->add_connection("Src", "Sbox4", BitsRange(12, 4), BitsRange(0, 4));
-    round_builder->add_connection("Sbox1", "Pbox", BitsRange(0, 4), BitsRange(0, 4));
-    round_builder->add_connection("Sbox2", "Pbox", BitsRange(0, 4), BitsRange(4, 4));
-    round_builder->add_connection("Sbox3", "Pbox", BitsRange(0, 4), BitsRange(8, 4));
-    round_builder->add_connection("Sbox4", "Pbox", BitsRange(0, 4), BitsRange(12, 4));
+    round_builder->add_connection("Src", "ROR7", BitsRange(16, 16), BitsRange(0, 16));
+    round_builder->add_connection("Src", "ROL2", BitsRange(0, 16), BitsRange(0, 16));
+    round_builder->add_connection("Src", "Add", BitsRange(0, 16), BitsRange(16, 16));
+    round_builder->add_connection("ROR7", "Add", BitsRange(0, 16), BitsRange(0, 16));
+    round_builder->add_connection("Add", "Dst", BitsRange(0, 16), BitsRange(16, 16));
+    round_builder->add_connection("Add", "Xor", BitsRange(0, 16), BitsRange(0, 16));
+    round_builder->add_connection("ROL2", "Xor", BitsRange(0, 16), BitsRange(16, 16));
+    round_builder->add_connection("Xor", "Dst", BitsRange(0, 16), BitsRange(0, 16));
+
     round_builder->set_src("Src");
-    round_builder->set_dst("Pbox");
+    round_builder->set_dst("Dst");
 
     CipherAnalyzerBuilderPtr cipher_builder = make_cipher_analyzer_builder();
     cipher_builder->add_round_builder("Round", round_builder);

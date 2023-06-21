@@ -32,23 +32,23 @@ CipherAnalyzerBuilderPtr create_cipher_builder() {
     AbstractBoxBuilderPtr ebox_builder = make_ebox_builder(bit_expansion);
     AbstractBoxBuilderPtr pbox_builder = make_pbox_builder(bit_perm);
 
-    AbstractBoxBuilderPtr sbox_builder_1 = make_sbox_builder(sbox1, true);
-    AbstractBoxBuilderPtr sbox_builder_2 = make_sbox_builder(sbox2, true);
-    AbstractBoxBuilderPtr sbox_builder_3 = make_sbox_builder(sbox3, true);
-    AbstractBoxBuilderPtr sbox_builder_4 = make_sbox_builder(sbox4, true);
-    AbstractBoxBuilderPtr sbox_builder_5 = make_sbox_builder(sbox5, true);
-    AbstractBoxBuilderPtr sbox_builder_6 = make_sbox_builder(sbox6, true);
-    AbstractBoxBuilderPtr sbox_builder_7 = make_sbox_builder(sbox7, true);
-    AbstractBoxBuilderPtr sbox_builder_8 = make_sbox_builder(sbox8, true);
+    AbstractBoxBuilderPtr sbox_builder_1 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox1), true);
+    AbstractBoxBuilderPtr sbox_builder_2 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox2), true);
+    AbstractBoxBuilderPtr sbox_builder_3 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox3), true);
+    AbstractBoxBuilderPtr sbox_builder_4 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox4), true);
+    AbstractBoxBuilderPtr sbox_builder_5 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox5), true);
+    AbstractBoxBuilderPtr sbox_builder_6 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox6), true);
+    AbstractBoxBuilderPtr sbox_builder_7 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox7), true);
+    AbstractBoxBuilderPtr sbox_builder_8 = make_sbox_builder(6, 4, compute_diff_dist_table(sbox8), true);
 
-    AbstractBoxBuilderPtr sbox_builder_1_non_exhaust = make_sbox_builder(sbox1, true);
-    AbstractBoxBuilderPtr sbox_builder_2_non_exhaust = make_sbox_builder(sbox2, true);
-    AbstractBoxBuilderPtr sbox_builder_3_non_exhaust = make_sbox_builder(sbox3, true);
-    AbstractBoxBuilderPtr sbox_builder_4_non_exhaust = make_sbox_builder(sbox4, true);
-    AbstractBoxBuilderPtr sbox_builder_5_non_exhaust = make_sbox_builder(sbox5, true);
-    AbstractBoxBuilderPtr sbox_builder_6_non_exhaust = make_sbox_builder(sbox6, true);
-    AbstractBoxBuilderPtr sbox_builder_7_non_exhaust = make_sbox_builder(sbox7, true);
-    AbstractBoxBuilderPtr sbox_builder_8_non_exhaust = make_sbox_builder(sbox8, true);
+    AbstractBoxBuilderPtr sbox_builder_1_non_exhaust = make_sbox_builder(6, 4, compute_diff_dist_table(sbox1), true);
+    AbstractBoxBuilderPtr sbox_builder_2_non_exhaust = make_sbox_builder(6, 4, compute_diff_dist_table(sbox2), true);
+    AbstractBoxBuilderPtr sbox_builder_3_non_exhaust = make_sbox_builder(6, 4, compute_diff_dist_table(sbox3), true);
+    AbstractBoxBuilderPtr sbox_builder_4_non_exhaust = make_sbox_builder(6, 4, compute_diff_dist_table(sbox4), true);
+    AbstractBoxBuilderPtr sbox_builder_5_non_exhaust = make_sbox_builder(6, 4, compute_diff_dist_table(sbox5), true);
+    AbstractBoxBuilderPtr sbox_builder_6_non_exhaust = make_sbox_builder(6, 4, compute_diff_dist_table(sbox6), true);
+    AbstractBoxBuilderPtr sbox_builder_7_non_exhaust = make_sbox_builder(6, 4, compute_diff_dist_table(sbox7), true);
+    AbstractBoxBuilderPtr sbox_builder_8_non_exhaust = make_sbox_builder(6, 4, compute_diff_dist_table(sbox8), true);
 
     AbstractBoxBuilderPtr xorbox_builder = make_xorbox_builder(32);
     AbstractBoxBuilderPtr identitybox_builder = make_identitybox_builder(64);
@@ -163,9 +163,11 @@ void job(CipherAnalyzerBuilderPtr &cipher_builder, CipherAnalyzerPtr &cipher, pt
     auto [output, prob] = cipher->get_next_state();
 
     while (output.size() > 0) {
-        printf("[%02d] in: 0x%s (%02ld),\tout: 0x%s (%02ld) -> prob %.30lf\n", thread_idx,
-               convert_to_hex_string(input).c_str(), input.count(), convert_to_hex_string(output).c_str(),
-               output.count(), prob);
+        if (prob > 0) {
+            printf("[%02d] in: 0x%s (%02ld),\tout: 0x%s (%02ld) -> prob %.30lf\n", thread_idx,
+                   convert_to_hex_string(input).c_str(), input.count(), convert_to_hex_string(output).c_str(),
+                   output.count(), prob);
+        }
 
         cipher_builder->update_global_thresh(prob);
 

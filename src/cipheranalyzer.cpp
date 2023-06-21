@@ -76,9 +76,11 @@ void worker_job(CipherAnalyzerBuilderPtr &cipher_builder, CipherAnalyzerPtr &cip
     while (output.size() > 0) {
         cipher_builder->update_global_thresh(prob);
 
-        printf("[%02d] in: 0x%s (%02ld),\tout: 0x%s (%02ld) -> prob %.16lf\n", thread_idx,
-               convert_to_hex_string(input).c_str(), input.count(), convert_to_hex_string(output).c_str(),
-               output.count(), prob);
+        if (prob > 0) {
+            printf("[%02d] in: 0x%s (%02ld),\tout: 0x%s (%02ld) -> prob %.16lf\n", thread_idx,
+                   convert_to_hex_string(input).c_str(), input.count(), convert_to_hex_string(output).c_str(),
+                   output.count(), prob);
+        }
 
         pthread_mutex_lock(best_inputs_lock);
 
