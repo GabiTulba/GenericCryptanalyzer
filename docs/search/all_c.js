@@ -8,8 +8,8 @@ var searchData=
   ['pboxptr_68',['PBoxPtr',['../pbox_8h.html#a9cacc6f3f8577abb29127816a003e8c3',1,'pbox.h']]],
   ['popcnt_69',['popcnt',['../helpers_8h.html#a501cf1852026c5bece6ce55146e6297e',1,'helpers.h']]],
   ['prob_70',['prob',['../class_abstract_box.html#abb6813225297f1d288f6ca86183153ea',1,'AbstractBox']]],
-  ['prob_5ftable_71',['prob_table',['../class_s_box.html#a9ac0a228d8e1b26c85a971c51695814c',1,'SBox']]],
+  ['prob_5ftable_71',['prob_table',['../class_s_box.html#a16b50fe9f86e58e73d384eb8ebb7fac6',1,'SBox']]],
   ['probentry_72',['ProbEntry',['../helpers_8h.html#a519c3e2743dc3fc3bf73c62d2063e894',1,'helpers.h']]],
-  ['probtable_73',['ProbTable',['../helpers_8h.html#a009296b4931e6db6a8a1950baceb375d',1,'helpers.h']]],
+  ['probtable_73',['ProbTable',['../helpers_8h.html#a8022bf806f725d65e31d5fb6d06a3e35',1,'helpers.h']]],
   ['probtableline_74',['ProbTableLine',['../helpers_8h.html#ab3a3d47426237a9872a33d7bf07a689c',1,'helpers.h']]]
 ];

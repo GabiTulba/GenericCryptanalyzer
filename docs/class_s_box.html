@@ -109,8 +109,8 @@ $(document).ready(function(){initNavTree('class_s_box.html',''); initResizable()
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a8e40b070453e18bd8953df21c59564bb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_box.html#a8e40b070453e18bd8953df21c59564bb">SBox</a> (size_t in_size, size_t out_size, const <a class="el" href="helpers_8h.html#a009296b4931e6db6a8a1950baceb375d">ProbTable</a> &amp;<a class="el" href="class_s_box.html#a9ac0a228d8e1b26c85a971c51695814c">prob_table</a>, bool <a class="el" href="class_s_box.html#ad6530dbb0757cb1f18bf4e80d3c9cfe1">is_exhaustive</a>) noexcept(false)</td></tr>
-<tr class="separator:a8e40b070453e18bd8953df21c59564bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60a7a9e36606ec48d5be2af886406b2b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_box.html#a60a7a9e36606ec48d5be2af886406b2b">SBox</a> (size_t in_size, size_t out_size, ProbTablePtr <a class="el" href="class_s_box.html#a16b50fe9f86e58e73d384eb8ebb7fac6">prob_table</a>, bool <a class="el" href="class_s_box.html#ad6530dbb0757cb1f18bf4e80d3c9cfe1">is_exhaustive</a>) noexcept(false)</td></tr>
+<tr class="separator:a60a7a9e36606ec48d5be2af886406b2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5b4c206f067ec4682707ef8bd262060"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_box.html#aa5b4c206f067ec4682707ef8bd262060">determine_next</a> () override</td></tr>
 <tr class="memdesc:aa5b4c206f067ec4682707ef8bd262060"><td class="mdescLeft">&#160;</td><td class="mdescRight">determines the next best possible output for the given input, if all possible outputs have been determined, <code>is_det</code> is set to <code>true</code>  <a href="class_s_box.html#aa5b4c206f067ec4682707ef8bd262060">More...</a><br /></td></tr>
 <tr class="separator:aa5b4c206f067ec4682707ef8bd262060"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -159,15 +159,12 @@ Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a9ac0a228d8e1b26c85a971c51695814c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="helpers_8h.html#a009296b4931e6db6a8a1950baceb375d">ProbTable</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_box.html#a9ac0a228d8e1b26c85a971c51695814c">prob_table</a></td></tr>
-<tr class="memdesc:a9ac0a228d8e1b26c85a971c51695814c"><td class="mdescLeft">&#160;</td><td class="mdescRight">prob_table the probability table of the sbox  <a href="class_s_box.html#a9ac0a228d8e1b26c85a971c51695814c">More...</a><br /></td></tr>
-<tr class="separator:a9ac0a228d8e1b26c85a971c51695814c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16b50fe9f86e58e73d384eb8ebb7fac6"><td class="memItemLeft" align="right" valign="top">ProbTablePtr&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_box.html#a16b50fe9f86e58e73d384eb8ebb7fac6">prob_table</a></td></tr>
+<tr class="memdesc:a16b50fe9f86e58e73d384eb8ebb7fac6"><td class="mdescLeft">&#160;</td><td class="mdescRight">prob_table the probability table of the sbox  <a href="class_s_box.html#a16b50fe9f86e58e73d384eb8ebb7fac6">More...</a><br /></td></tr>
+<tr class="separator:a16b50fe9f86e58e73d384eb8ebb7fac6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25eb4eeb1b17fe6085f5b9545a445e32"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_box.html#a25eb4eeb1b17fe6085f5b9545a445e32">table_idx</a></td></tr>
 <tr class="memdesc:a25eb4eeb1b17fe6085f5b9545a445e32"><td class="mdescLeft">&#160;</td><td class="mdescRight">table_idx the current column in the row of the probability table.  <a href="class_s_box.html#a25eb4eeb1b17fe6085f5b9545a445e32">More...</a><br /></td></tr>
 <tr class="separator:a25eb4eeb1b17fe6085f5b9545a445e32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6a4107df5cb7510ab99c09cd944661a4"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_box.html#a6a4107df5cb7510ab99c09cd944661a4">table_entry</a></td></tr>
-<tr class="memdesc:a6a4107df5cb7510ab99c09cd944661a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">table_entry the row in the probability table corresponding to the value of <code>in_bits</code>  <a href="class_s_box.html#a6a4107df5cb7510ab99c09cd944661a4">More...</a><br /></td></tr>
-<tr class="separator:a6a4107df5cb7510ab99c09cd944661a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad6530dbb0757cb1f18bf4e80d3c9cfe1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_s_box.html#ad6530dbb0757cb1f18bf4e80d3c9cfe1">is_exhaustive</a></td></tr>
 <tr class="memdesc:ad6530dbb0757cb1f18bf4e80d3c9cfe1"><td class="mdescLeft">&#160;</td><td class="mdescRight">is_exhaustive a <code>bool</code> that represents if the sbox will generate all possible outputs from the set input, or if false, it will generate only the best output.  <a href="class_s_box.html#ad6530dbb0757cb1f18bf4e80d3c9cfe1">More...</a><br /></td></tr>
 <tr class="separator:ad6530dbb0757cb1f18bf4e80d3c9cfe1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,8 +195,8 @@ Protected Attributes</h2></td></tr>
 
 <p class="definition">Definition at line <a class="el" href="sbox_8h_source.html#l00016">16</a> of file <a class="el" href="sbox_8h_source.html">sbox.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8e40b070453e18bd8953df21c59564bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8e40b070453e18bd8953df21c59564bb">&#9670;&nbsp;</a></span>SBox()</h2>
+<a id="a60a7a9e36606ec48d5be2af886406b2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60a7a9e36606ec48d5be2af886406b2b">&#9670;&nbsp;</a></span>SBox()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -222,7 +219,7 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="helpers_8h.html#a009296b4931e6db6a8a1950baceb375d">ProbTable</a> &amp;&#160;</td>
+          <td class="paramtype">ProbTablePtr&#160;</td>
           <td class="paramname"><em>prob_table</em>, </td>
         </tr>
         <tr>
@@ -401,8 +398,8 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Field Documentation</h2>
-<a id="a9ac0a228d8e1b26c85a971c51695814c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ac0a228d8e1b26c85a971c51695814c">&#9670;&nbsp;</a></span>prob_table</h2>
+<a id="a16b50fe9f86e58e73d384eb8ebb7fac6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16b50fe9f86e58e73d384eb8ebb7fac6">&#9670;&nbsp;</a></span>prob_table</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -411,7 +408,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="helpers_8h.html#a009296b4931e6db6a8a1950baceb375d">ProbTable</a> SBox::prob_table</td>
+          <td class="memname">ProbTablePtr SBox::prob_table</td>
         </tr>
       </table>
   </td>
@@ -454,32 +451,6 @@ Protected Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a6a4107df5cb7510ab99c09cd944661a4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a4107df5cb7510ab99c09cd944661a4">&#9670;&nbsp;</a></span>table_entry</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">size_t SBox::table_entry</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>table_entry the row in the probability table corresponding to the value of <code>in_bits</code> </p>
-
-<p class="definition">Definition at line <a class="el" href="sbox_8h_source.html#l00033">33</a> of file <a class="el" href="sbox_8h_source.html">sbox.h</a>.</p>
-
-</div>
-</div>
 <a id="ad6530dbb0757cb1f18bf4e80d3c9cfe1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad6530dbb0757cb1f18bf4e80d3c9cfe1">&#9670;&nbsp;</a></span>is_exhaustive</h2>
 
@@ -503,7 +474,7 @@ Protected Attributes</h2></td></tr>
 <p>is_exhaustive a <code>bool</code> that represents if the sbox will generate all possible outputs from the set input, or if false, it will generate only the best output. </p>
 <p>Used for optimizing out branches of the search algorithm. </p>
 
-<p class="definition">Definition at line <a class="el" href="sbox_8h_source.html#l00039">39</a> of file <a class="el" href="sbox_8h_source.html">sbox.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="sbox_8h_source.html#l00034">34</a> of file <a class="el" href="sbox_8h_source.html">sbox.h</a>.</p>
 
 </div>
 </div>

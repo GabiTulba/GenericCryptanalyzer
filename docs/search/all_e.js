@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sbox_84',['SBox',['../class_s_box.html',1,'SBox'],['../class_s_box.html#a8e40b070453e18bd8953df21c59564bb',1,'SBox::SBox()']]],
+  ['sbox_84',['SBox',['../class_s_box.html',1,'SBox'],['../class_s_box.html#a60a7a9e36606ec48d5be2af886406b2b',1,'SBox::SBox()']]],
   ['sbox_2eh_85',['sbox.h',['../sbox_8h.html',1,'']]],
   ['sboxbuilder_86',['SBoxBuilder',['../class_s_box_builder.html',1,'']]],
   ['sboxptr_87',['SBoxPtr',['../sbox_8h.html#a9a84dd483837b1242c1692234973ddc5',1,'sbox.h']]],

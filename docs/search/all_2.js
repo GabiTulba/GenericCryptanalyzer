@@ -5,7 +5,7 @@ var searchData=
   ['cipheranalyzer_2eh_17',['cipheranalyzer.h',['../cipheranalyzer_8h.html',1,'']]],
   ['cipheranalyzerbuilder_18',['CipherAnalyzerBuilder',['../class_cipher_analyzer_builder.html',1,'']]],
   ['cipheranalyzerptr_19',['CipherAnalyzerPtr',['../cipheranalyzer_8h.html#af0d793f5c67134e13b7f57ddc32ff066',1,'cipheranalyzer.h']]],
-  ['compute_5fdiff_5fdist_5ftable_20',['compute_diff_dist_table',['../helpers_8h.html#acd3be080ac11f317286ae5d9a2a86c9f',1,'helpers.h']]],
+  ['compute_5fdiff_5fdist_5ftable_20',['compute_diff_dist_table',['../helpers_8h.html#a2869706533c7f0a888edaa1c6ef9108c',1,'helpers.h']]],
   ['connection_21',['Connection',['../helpers_8h.html#a93aaeb110089a1d61c5ba21ba3e8a296',1,'helpers.h']]],
   ['convert_5fto_5fhex_5fstring_22',['convert_to_hex_string',['../helpers_8h.html#adcc850771933bdbd84a0f85bdb22ed37',1,'helpers.h']]],
   ['convert_5fto_5fsize_5ft_23',['convert_to_size_t',['../helpers_8h.html#a11bd57d3d938769decee599b0756f775',1,'helpers.h']]],
